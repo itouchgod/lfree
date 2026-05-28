@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "LFree",
   description:
     "A personal software lab building calm, intelligent and practical apps for macOS, productivity and AI workflows.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lfree.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lfree.cc",
   developer: "itouchgod",
   author: "itouchgod",
   email: "ukluocn@gmail.com",

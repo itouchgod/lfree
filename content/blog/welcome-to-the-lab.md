@@ -7,7 +7,7 @@ readingTime: "3 min read"
 author: "itouchgod"
 ---
 
-This is the home for apps, docs and updates from **LFree** (lfree.com).
+This is the home for apps, docs and updates from **LFree** (lfree.cc).
 
 ## What we're building
 

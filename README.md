@@ -2,7 +2,7 @@
 
 面向国际用户的个人软件产品矩阵官网，用于展示、发布和持续更新多个自研 App。
 
-- **官网**：https://lfree.com
+- **官网**：https://lfree.cc
 - **开发者**：itouchgod
 - **联系邮箱**：ukluocn@gmail.com
 - **Vercel 预览**：https://lfree.vercel.app
@@ -16,9 +16,9 @@
 
 | 变量 | 值 |
 |------|-----|
-| `NEXT_PUBLIC_SITE_URL` | `https://lfree.com` |
+| `NEXT_PUBLIC_SITE_URL` | `https://lfree.cc` |
 
-### 绑定域名 lfree.com
+### 绑定域名 lfree.cc
 
 在域名注册商（当前 NS：`ns.yooo.org`）添加 DNS 记录：
 
@@ -29,7 +29,7 @@
 
 或将 NS 改为 Vercel：`ns1.vercel-dns.com`、`ns2.vercel-dns.com`。
 
-DNS 生效后访问 https://lfree.com
+DNS 生效后访问 https://lfree.cc
 
 ## 技术栈
 
