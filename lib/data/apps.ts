@@ -1,0 +1,134 @@
+export type AppStatus =
+  | "In Development"
+  | "Prototype"
+  | "Internal Tool"
+  | "Released";
+
+export interface AppFaq {
+  question: string;
+  answer: string;
+}
+
+export interface App {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  type: string;
+  status: AppStatus;
+  features: string[];
+  faq: AppFaq[];
+  downloadUrl?: string;
+  latestVersion?: string;
+  featured?: boolean;
+  screenshotCount: number;
+}
+
+export const apps: App[] = [
+  {
+    slug: "mmh",
+    name: "MMH",
+    tagline: "Private media protection for macOS",
+    description:
+      "A private and calm macOS app for protecting personal photos, videos and local files.",
+    type: "macOS Privacy Utility",
+    status: "In Development",
+    featured: true,
+    latestVersion: "0.1.0-beta",
+    screenshotCount: 3,
+    features: [
+      "Local-only encryption for photos and videos",
+      "Quick-hide vault with biometric unlock",
+      "Drag-and-drop import from Finder",
+      "No cloud sync — your data stays on device",
+      "Minimal UI designed for daily calm use",
+    ],
+    faq: [
+      {
+        question: "When will MMH be available?",
+        answer:
+          "MMH is in active development. Join the waitlist via the contact page to get early access notifications.",
+      },
+      {
+        question: "Does MMH upload my files?",
+        answer:
+          "No. MMH is designed as a local-first privacy tool. Your media never leaves your Mac.",
+      },
+      {
+        question: "Which macOS versions are supported?",
+        answer: "MMH targets macOS 14 Sonoma and later.",
+      },
+    ],
+  },
+  {
+    slug: "filenest",
+    name: "FileNest",
+    tagline: "Visual folder launcher for power users",
+    description:
+      "A visual folder launcher for quickly accessing frequently used directories.",
+    type: "macOS Productivity Tool",
+    status: "Prototype",
+    featured: true,
+    screenshotCount: 3,
+    features: [
+      "Grid of favorite folders with custom icons",
+      "Global hotkey to open from anywhere",
+      "Recent directories and smart suggestions",
+      "Per-workspace layouts for different projects",
+      "Lightweight menu bar companion",
+    ],
+    faq: [
+      {
+        question: "How is FileNest different from Finder?",
+        answer:
+          "FileNest focuses on speed — one hotkey to reach your most-used folders without navigating nested paths.",
+      },
+      {
+        question: "Can I sync layouts across Macs?",
+        answer: "Sync is planned for a future release via iCloud or manual export.",
+      },
+    ],
+  },
+  {
+    slug: "lc-app",
+    name: "LC App",
+    tagline: "Quotation-to-invoice workflow system",
+    description:
+      "A custom workflow system for quotation, confirmation, invoice and document management.",
+    type: "Business Workflow System",
+    status: "Internal Tool",
+    featured: true,
+    screenshotCount: 2,
+    features: [
+      "End-to-end quote → confirm → invoice pipeline",
+      "PDF generation with branded templates",
+      "Client and project document archive",
+      "Status tracking dashboard",
+      "Export for accounting workflows",
+    ],
+    faq: [
+      {
+        question: "Is LC App available publicly?",
+        answer:
+          "LC App is an internal tool built for specific business workflows and is not offered as a public product.",
+      },
+      {
+        question: "Can I request a similar system?",
+        answer:
+          "Reach out via the contact page to discuss custom workflow tooling.",
+      },
+    ],
+  },
+];
+
+export function getAppBySlug(slug: string): App | undefined {
+  return apps.find((app) => app.slug === slug);
+}
+
+export function getFeaturedApps(): App[] {
+  return apps.filter((app) => app.featured);
+}
+
+export function getLatestReleasedApp(): App | undefined {
+  return apps.find((app) => app.status === "Released") ?? apps[0];
+}
