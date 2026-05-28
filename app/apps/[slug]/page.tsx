@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BookOpen, Download, FileText } from "lucide-react";
+import { BookOpen, FileText } from "lucide-react";
+import { AppDownloadButtons } from "@/components/app-download-buttons";
 import { CtaSection } from "@/components/cta-section";
 import { Badge, statusToBadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -35,7 +36,6 @@ export default async function AppDetailPage({ params }: AppDetailPageProps) {
   if (!app) notFound();
 
   const changelog = getChangelogByApp(slug).slice(0, 3);
-  const canDownload = app.status === "Released" && app.downloadUrl;
 
   return (
     <>
@@ -48,20 +48,9 @@ export default async function AppDetailPage({ params }: AppDetailPageProps) {
           <p className="text-lg text-muted-foreground">{app.tagline}</p>
           <p className="text-muted-foreground leading-relaxed">{app.description}</p>
           <p className="text-sm text-muted-foreground">{app.type}</p>
-          <div className="flex flex-wrap gap-4 pt-2">
-            {canDownload ? (
-              <Button asChild>
-                <a href={app.downloadUrl} target="_blank" rel="noopener noreferrer">
-                  <Download className="h-4 w-4" />
-                  Download {app.latestVersion && `v${app.latestVersion}`}
-                </a>
-              </Button>
-            ) : (
-              <Button disabled>
-                <Download className="h-4 w-4" />
-                {app.status === "Released" ? "Download" : "Coming Soon"}
-              </Button>
-            )}
+          <div className="flex flex-col gap-6 pt-2">
+            <AppDownloadButtons app={app} />
+            <div className="flex flex-wrap gap-4">
             <Button variant="secondary" asChild>
               <Link href={`/changelog?app=${app.slug}`}>
                 <FileText className="h-4 w-4" />
@@ -69,14 +58,28 @@ export default async function AppDetailPage({ params }: AppDetailPageProps) {
               </Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/docs">
+              <Link href={slug === "mmh" ? "/docs/mmh-overview" : "/docs"}>
                 <BookOpen className="h-4 w-4" />
                 Documentation
               </Link>
             </Button>
+            </div>
           </div>
         </div>
       </section>
+
+      {slug === "mmh" && (
+        <section className="container pb-8">
+          <div className="rounded-2xl border border-border/50 bg-card/40 p-6 text-sm text-muted-foreground leading-relaxed">
+            <p className="font-medium text-foreground">Install note</p>
+            <p className="mt-2">
+              After download, unzip the archive, drag <strong>MMH.app</strong> to
+              Applications, then open from Launchpad. On first launch, macOS may ask
+              you to allow the app in Privacy &amp; Security settings.
+            </p>
+          </div>
+        </section>
+      )}
 
       <section className="container pb-16">
         <h2 className="mb-6 text-xl font-semibold">Screenshots</h2>

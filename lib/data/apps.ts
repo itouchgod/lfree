@@ -9,6 +9,12 @@ export interface AppFaq {
   answer: string;
 }
 
+export interface AppDownload {
+  label: string;
+  arch: "apple-silicon" | "intel" | "universal";
+  url: string;
+}
+
 export interface App {
   slug: string;
   name: string;
@@ -18,7 +24,9 @@ export interface App {
   status: AppStatus;
   features: string[];
   faq: AppFaq[];
+  /** @deprecated Prefer `downloads` for multi-arch macOS builds */
   downloadUrl?: string;
+  downloads?: AppDownload[];
   latestVersion?: string;
   featured?: boolean;
   screenshotCount: number;
@@ -32,9 +40,21 @@ export const apps: App[] = [
     description:
       "A private and calm macOS app for protecting personal photos, videos and local files.",
     type: "macOS Privacy Utility",
-    status: "In Development",
+    status: "Released",
     featured: true,
-    latestVersion: "0.1.0-beta",
+    latestVersion: "1.0.0",
+    downloads: [
+      {
+        label: "Apple Silicon",
+        arch: "apple-silicon",
+        url: "https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Apple-Silicon.zip",
+      },
+      {
+        label: "Intel",
+        arch: "intel",
+        url: "https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Intel.zip",
+      },
+    ],
     screenshotCount: 3,
     features: [
       "Local-only encryption for photos and videos",
@@ -45,9 +65,9 @@ export const apps: App[] = [
     ],
     faq: [
       {
-        question: "When will MMH be available?",
+        question: "Which download should I choose?",
         answer:
-          "MMH is in active development. Join the waitlist via the contact page to get early access notifications.",
+          "Apple Silicon (M1/M2/M3/M4) or Intel — check About This Mac → Chip / Processor. Download the matching .zip, unzip, and open MMH.app.",
       },
       {
         question: "Does MMH upload my files?",
@@ -130,5 +150,23 @@ export function getFeaturedApps(): App[] {
 }
 
 export function getLatestReleasedApp(): App | undefined {
-  return apps.find((app) => app.status === "Released") ?? apps[0];
+  return apps.find((app) => app.status === "Released");
+}
+
+export function getAppDownloads(app: App): AppDownload[] {
+  if (app.downloads?.length) return app.downloads;
+  if (app.downloadUrl) {
+    return [
+      {
+        label: "Download",
+        arch: "universal",
+        url: app.downloadUrl,
+      },
+    ];
+  }
+  return [];
+}
+
+export function canDownloadApp(app: App): boolean {
+  return app.status === "Released" && getAppDownloads(app).length > 0;
 }
