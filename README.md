@@ -5,6 +5,31 @@
 - **官网**：https://lfree.com
 - **开发者**：itouchgod
 - **联系邮箱**：ukluocn@gmail.com
+- **Vercel 预览**：https://lfree.vercel.app
+- **GitHub**：https://github.com/itouchgod/lfree
+
+## 部署（Vercel）
+
+项目已关联 Vercel 团队 `ukluos-projects/lfree`，推送 `main` 分支会自动部署。
+
+环境变量（Production）：
+
+| 变量 | 值 |
+|------|-----|
+| `NEXT_PUBLIC_SITE_URL` | `https://lfree.com` |
+
+### 绑定域名 lfree.com
+
+在域名注册商（当前 NS：`ns.yooo.org`）添加 DNS 记录：
+
+| 类型 | 主机 | 值 |
+|------|------|-----|
+| A | `@` | `76.76.21.21` |
+| A 或 CNAME | `www` | `76.76.21.21` 或 `cname.vercel-dns.com` |
+
+或将 NS 改为 Vercel：`ns1.vercel-dns.com`、`ns2.vercel-dns.com`。
+
+DNS 生效后访问 https://lfree.com
 
 ## 技术栈
 
