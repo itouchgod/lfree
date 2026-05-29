@@ -83,7 +83,7 @@ export const apps: App[] = [
     ],
     features: [
       "Local-only encryption for photos and videos",
-      "Quick-hide vault with biometric unlock",
+      "Quick-hide vault for sensitive content",
       "Drag-and-drop import from Finder",
       "No cloud sync — your data stays on device",
       "Minimal UI designed for daily calm use",

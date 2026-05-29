@@ -33,7 +33,7 @@ You can also download from the [MMH product page](/apps/mmh).
 
 - **Local vault** — Encrypt photos, videos and files in a folder you choose
 - **Quick-hide** — Hide sensitive content in one step
-- **Touch ID unlock** — Fast access with your fingerprint
+- **Secure notes** — Private notes stored in your vault
 - **Drag & drop** — Import files directly from Finder
 
 ## System requirements
