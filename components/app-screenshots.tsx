@@ -15,13 +15,13 @@ export async function AppScreenshots({
 
   const t = await getTranslations("appDetail");
   const messages = await getMessages();
-  const tabLabels = messages.screenshotTabs as string[];
+  const dotLabels = messages.screenshotTabs as string[];
 
   return (
     <AppScreenshotsCarousel
       screenshots={screenshots}
       title={showTitle ? t("screenshots") : undefined}
-      tabLabels={tabLabels}
+      dotLabels={dotLabels}
     />
   );
 }
