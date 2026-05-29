@@ -71,6 +71,7 @@
       "ctaDescription": "Get in touch for feedback or questions about the app."
     }
   },
+  "screenshotTabs": ["Setup", "Unlock", "Vault"],
   "appDetail": {
     "screenshots": "Screenshots",
     "features": "Features",

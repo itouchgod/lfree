@@ -71,6 +71,7 @@
       "ctaDescription": "欢迎反馈或咨询使用问题。"
     }
   },
+  "screenshotTabs": ["首次设置", "解锁", "主界面"],
   "appDetail": {
     "screenshots": "截图",
     "features": "功能",
