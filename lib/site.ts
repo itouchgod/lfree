@@ -1,7 +1,5 @@
 export const siteConfig = {
   name: "LFree",
-  description:
-    "MMH — a calm macOS app for protecting your photos, videos and local files with local-only encryption.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lfree.cc",
   developer: "itouchgod",
   author: "itouchgod",
@@ -12,17 +10,17 @@ export const siteConfig = {
   },
 } as const;
 
-export const navLinks = [
-  { href: "/apps/mmh", label: "MMH" },
-  { href: "/docs", label: "Docs" },
-  { href: "/changelog", label: "Changelog" },
+export const navHrefs = [
+  { href: "/apps/mmh", key: "mmh" as const },
+  { href: "/docs", key: "docs" as const },
+  { href: "/changelog", key: "changelog" as const },
 ] as const;
 
-export const footerLinks = [
-  { href: "/apps/mmh", label: "MMH" },
-  { href: "/docs/mmh-overview", label: "Documentation" },
-  { href: "/changelog", label: "Changelog" },
-  { href: "/contact", label: "Contact" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
+export const footerHrefs = [
+  { href: "/apps/mmh", key: "mmh" as const },
+  { href: "/docs/mmh-overview", key: "documentation" as const },
+  { href: "/changelog", key: "changelog" as const },
+  { href: "/contact", key: "contact" as const },
+  { href: "/privacy", key: "privacy" as const },
+  { href: "/terms", key: "terms" as const },
 ] as const;

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import type { Locale } from "@/i18n/routing";
 
 export type ContentType = "blog" | "docs" | "changelog";
 
@@ -22,12 +23,14 @@ export interface ContentItem {
 
 const contentRoot = path.join(process.cwd(), "content");
 
-function getContentDir(type: ContentType) {
+function getContentDir(type: ContentType, locale: Locale) {
+  const localized = path.join(contentRoot, locale, type);
+  if (fs.existsSync(localized)) return localized;
   return path.join(contentRoot, type);
 }
 
-export function getAllContent(type: ContentType): ContentItem[] {
-  const dir = getContentDir(type);
+export function getAllContent(type: ContentType, locale: Locale = "en"): ContentItem[] {
+  const dir = getContentDir(type, locale);
   if (!fs.existsSync(dir)) return [];
 
   return fs
@@ -52,10 +55,19 @@ export function getAllContent(type: ContentType): ContentItem[] {
 
 export function getContentBySlug(
   type: ContentType,
-  slug: string
+  slug: string,
+  locale: Locale = "en"
 ): ContentItem | null {
-  const filePath = path.join(getContentDir(type), `${slug}.md`);
-  if (!fs.existsSync(filePath)) return null;
+  const localizedPath = path.join(getContentDir(type, locale), `${slug}.md`);
+  const fallbackPath = path.join(contentRoot, type, `${slug}.md`);
+
+  const filePath = fs.existsSync(localizedPath)
+    ? localizedPath
+    : fs.existsSync(fallbackPath)
+      ? fallbackPath
+      : null;
+
+  if (!filePath) return null;
 
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
@@ -66,12 +78,12 @@ export function getContentBySlug(
   };
 }
 
-export function getAllContentSlugs(type: ContentType): string[] {
-  return getAllContent(type).map((item) => item.slug);
+export function getAllContentSlugs(type: ContentType, locale: Locale = "en"): string[] {
+  return getAllContent(type, locale).map((item) => item.slug);
 }
 
-export function getChangelogByApp(appSlug: string): ContentItem[] {
-  return getAllContent("changelog").filter(
+export function getChangelogByApp(appSlug: string, locale: Locale = "en"): ContentItem[] {
+  return getAllContent("changelog", locale).filter(
     (item) => item.frontmatter.appSlug === appSlug
   );
 }

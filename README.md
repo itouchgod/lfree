@@ -48,7 +48,13 @@ cp .env.example .env.local
 npm run dev
 ```
 
-浏览器打开 [http://localhost:3000](http://localhost:3000)
+浏览器打开 [http://localhost:3000](http://localhost:3000)（默认会跳转到 `/en`）
+
+## 多语言
+
+- 英文：`/en`（例如 `/en/apps/mmh`）
+- 中文：`/zh`（例如 `/zh/apps/mmh`）
+- 右上角可切换 **EN / 中文**
 
 ## 常用命令
 

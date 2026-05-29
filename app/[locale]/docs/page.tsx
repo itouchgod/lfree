@@ -1,25 +1,30 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import { FileText } from "lucide-react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { formatDate } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 import { getDocs } from "@/lib/data/docs";
+import { formatDate } from "@/lib/utils";
 
-export const metadata: Metadata = {
-  title: "Documentation",
-  description: "Guides and references for LFree apps and workflows.",
-};
+type Props = { params: Promise<{ locale: string }> };
 
-export default function DocsPage() {
-  const docs = getDocs();
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "docs" });
+  return { title: t("title"), description: t("description") };
+}
+
+export default async function DocsPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("docs");
+  const docs = getDocs(locale as "en" | "zh").filter(
+    (d) => d.slug === "mmh-overview" || d.slug === "getting-started"
+  );
 
   return (
     <>
-      <PageHeader
-        title="Documentation"
-        description="Guides, setup instructions and references for apps in the lab."
-      />
+      <PageHeader title={t("title")} description={t("description")} />
       <section className="container pb-20">
         <div className="grid gap-4 md:grid-cols-2">
           {docs.map((doc) => (

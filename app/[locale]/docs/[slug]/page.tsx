@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { MarkdownContent } from "@/components/markdown-content";
+import { Link } from "@/i18n/navigation";
 import { getAllContentSlugs } from "@/lib/content";
 import { getDoc } from "@/lib/data/docs";
 import { formatDate } from "@/lib/utils";
 
-interface DocPageProps {
-  params: Promise<{ slug: string }>;
-}
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateStaticParams() {
-  return getAllContentSlugs("docs").map((slug) => ({ slug }));
+  const slugs = new Set<string>();
+  for (const locale of ["en", "zh"] as const) {
+    getAllContentSlugs("docs", locale).forEach((s) => slugs.add(s));
+  }
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: DocPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const doc = getDoc(slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const doc = getDoc(slug, locale as "en" | "zh");
   if (!doc) return { title: "Doc Not Found" };
   return {
     title: doc.frontmatter.title,
@@ -27,9 +28,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function DocDetailPage({ params }: DocPageProps) {
-  const { slug } = await params;
-  const doc = getDoc(slug);
+export default async function DocDetailPage({ params }: Props) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("docs");
+
+  const doc = getDoc(slug, locale as "en" | "zh");
   if (!doc) notFound();
 
   return (
@@ -39,7 +43,7 @@ export default async function DocDetailPage({ params }: DocPageProps) {
         className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" />
-        Back to docs
+        {t("back")}
       </Link>
       <header className="mb-10 space-y-4 border-b border-border/40 pb-10">
         <p className="text-sm text-muted-foreground">

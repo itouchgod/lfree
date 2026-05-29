@@ -1,4 +1,7 @@
+"use client";
+
 import { Cpu, Download } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { getAppDownloads, type App } from "@/lib/data/apps";
 
@@ -8,14 +11,22 @@ interface AppDownloadButtonsProps {
 }
 
 export function AppDownloadButtons({ app, size = "default" }: AppDownloadButtonsProps) {
+  const t = useTranslations("download");
+  const tApp = useTranslations("apps.mmh");
   const downloads = getAppDownloads(app);
   const versionLabel = app.latestVersion ? `v${app.latestVersion}` : "";
+
+  const archLabels: Record<string, string> = {
+    "apple-silicon": t("appleSilicon"),
+    intel: t("intel"),
+    universal: t("download"),
+  };
 
   if (downloads.length === 0) {
     return (
       <Button size={size === "lg" ? "lg" : "default"} disabled>
         <Download className="h-4 w-4" />
-        {app.status === "Released" ? "Download" : "Coming Soon"}
+        {tApp("comingSoon")}
       </Button>
     );
   }
@@ -26,7 +37,7 @@ export function AppDownloadButtons({ app, size = "default" }: AppDownloadButtons
       <Button size={size === "lg" ? "lg" : "default"} asChild>
         <a href={dl.url} target="_blank" rel="noopener noreferrer">
           <Download className="h-4 w-4" />
-          Download {versionLabel}
+          {t("download")} {versionLabel}
         </a>
       </Button>
     );
@@ -35,14 +46,14 @@ export function AppDownloadButtons({ app, size = "default" }: AppDownloadButtons
   return (
     <div className="flex w-full flex-col gap-3 sm:w-auto">
       <p className="text-sm text-muted-foreground">
-        Download {app.name} {versionLabel} — choose your Mac chip:
+        {tApp("downloadChoose", { name: app.name, version: versionLabel })}
       </p>
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         {downloads.map((dl) => (
           <Button key={dl.arch} size={size === "lg" ? "lg" : "default"} asChild>
             <a href={dl.url} target="_blank" rel="noopener noreferrer">
               <Cpu className="h-4 w-4" />
-              {dl.label}
+              {archLabels[dl.arch] ?? dl.label}
             </a>
           </Button>
         ))}

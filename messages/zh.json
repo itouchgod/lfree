@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "siteTitle": "LFree — MMH macOS 隐私工具",
+    "siteDescription": "MMH — 安静、本地的 macOS 应用，用加密保护你的照片、视频与本地文件。"
+  },
+  "nav": {
+    "mmh": "MMH",
+    "docs": "文档",
+    "changelog": "更新日志",
+    "contact": "联系",
+    "download": "下载",
+    "downloadMmh": "下载 MMH",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭"
+  },
+  "locale": {
+    "en": "EN",
+    "zh": "中文",
+    "switch": "语言"
+  },
+  "home": {
+    "fullDetails": "完整介绍、截图与常见问题 →"
+  },
+  "apps": {
+    "mmh": {
+      "name": "MMH",
+      "tagline": "macOS 私人媒体保护工具",
+      "description": "安静、私密的 macOS 应用，保护个人照片、视频与本地文件。",
+      "type": "macOS 隐私工具",
+      "installNoteTitle": "安装说明",
+      "installNote": "下载后解压，将 MMH.app 拖入「应用程序」文件夹，从启动台打开。首次打开时，macOS 可能要求在「隐私与安全性」中允许运行。",
+      "installationGuide": "安装指南 →",
+      "downloadChoose": "下载 {name} {version} — 请选择 Mac 芯片版本：",
+      "comingSoon": "即将推出",
+      "features": [
+        "照片与视频仅本地加密，不上传云端",
+        "快速隐藏保险库，支持触控 ID 解锁",
+        "从访达拖放导入文件",
+        "无云同步，数据始终留在本机",
+        "为日常使用设计的安静界面"
+      ],
+      "faq": [
+        {
+          "question": "应该下载哪个版本？",
+          "answer": "Apple 芯片（M1/M2/M3/M4）或 Intel — 在「关于本机」中查看芯片/处理器。下载对应 .zip，解压后打开 MMH.app。"
+        },
+        {
+          "question": "MMH 会上传我的文件吗？",
+          "answer": "不会。MMH 以本地优先为设计原则，你的媒体不会离开 Mac。"
+        },
+        {
+          "question": "支持哪些 macOS 版本？",
+          "answer": "MMH 面向 macOS 14 Sonoma 及更高版本。"
+        }
+      ],
+      "screenshots": [
+        {
+          "alt": "MMH 首次设置 — 选择加密存储目录并创建主密码",
+          "caption": "首次启动 — 选择保险库文件夹并设置主密码"
+        },
+        {
+          "alt": "MMH 解锁界面 — 密码盘与主密码输入",
+          "caption": "使用主密码解锁保险库"
+        },
+        {
+          "alt": "MMH 主界面 — 加密文件夹、安全笔记与侧边栏",
+          "caption": "主保险库 — 加密文件夹与安全笔记"
+        }
+      ],
+      "ctaTitle": "对 MMH 感兴趣？",
+      "ctaDescription": "欢迎反馈或咨询使用问题。"
+    }
+  },
+  "appDetail": {
+    "screenshots": "截图",
+    "features": "功能",
+    "recentUpdates": "最近更新",
+    "faq": "常见问题",
+    "changelog": "更新日志",
+    "documentation": "文档",
+    "allApps": "全部应用",
+    "contact": "联系"
+  },
+  "download": {
+    "appleSilicon": "Apple 芯片",
+    "intel": "Intel",
+    "download": "下载"
+  },
+  "changelog": {
+    "title": "更新日志",
+    "description": "MMH 版本发布记录。",
+    "empty": "暂无发布记录。",
+    "backToMmh": "← 返回 MMH",
+    "backToAll": "返回更新日志"
+  },
+  "docs": {
+    "title": "文档",
+    "description": "MMH 使用指南与参考。",
+    "back": "返回文档"
+  },
+  "contact": {
+    "title": "联系",
+    "description": "关于 MMH 的问题或反馈，欢迎随时联系。",
+    "cardTitle": "发送消息",
+    "cardHint": "表单功能即将上线，目前请直接发送邮件。",
+    "name": "姓名",
+    "namePlaceholder": "你的名字",
+    "email": "邮箱",
+    "emailPlaceholder": "you@example.com",
+    "message": "留言",
+    "messagePlaceholder": "写下你的反馈或问题...",
+    "submit": "打开邮件客户端",
+    "orEmail": "或发送邮件至"
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "updated": "最后更新：2026年5月 · {name}",
+    "overviewTitle": "概述",
+    "overview": "{name} 以本地优先与尊重隐私为理念开发软件。本政策说明网站与应用的数据处理方式。",
+    "websiteTitle": "网站",
+    "website": "本展示网站未来可能使用基础访问统计，我们不会出售个人数据。",
+    "appsTitle": "应用",
+    "apps": "MMH 等应用在设备本地处理数据。如有云端功能，将明确为可选并单独说明。",
+    "contactTitle": "联系",
+    "contact": "隐私相关问题："
+  },
+  "terms": {
+    "title": "服务条款",
+    "updated": "最后更新：2026年5月 · {name}",
+    "acceptTitle": "接受条款",
+    "accept": "使用 {name} 网站或软件即表示你同意本条款。",
+    "licenseTitle": "软件许可",
+    "license": "各应用适用各自许可。测试版按「现状」提供，不作担保。",
+    "limitTitle": "责任限制",
+    "limit": "对因使用软件而产生的间接损失，我们不承担责任。",
+    "contactTitle": "联系",
+    "contact": "法律相关咨询："
+  },
+  "notFound": {
+    "code": "404",
+    "title": "页面未找到",
+    "description": "你访问的页面不存在或已移动。",
+    "home": "返回首页"
+  },
+  "status": {
+    "Released": "已发布",
+    "In Development": "开发中",
+    "Prototype": "原型",
+    "Internal Tool": "内部工具"
+  },
+  "loading": "加载中...",
+  "footer": {
+    "mmh": "MMH",
+    "documentation": "文档",
+    "changelog": "更新日志",
+    "contact": "联系",
+    "privacy": "隐私",
+    "terms": "条款"
+  }
+}

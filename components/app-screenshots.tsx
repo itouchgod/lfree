@@ -1,23 +1,24 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import type { AppScreenshot } from "@/lib/data/apps";
 
 interface AppScreenshotsProps {
   screenshots: AppScreenshot[];
-  appName: string;
   showTitle?: boolean;
 }
 
-export function AppScreenshots({
+export async function AppScreenshots({
   screenshots,
-  appName,
   showTitle = true,
 }: AppScreenshotsProps) {
   if (screenshots.length === 0) return null;
 
+  const t = await getTranslations("appDetail");
+
   return (
     <section className="container pb-20">
       {showTitle && (
-        <h2 className="mb-6 text-xl font-semibold">Screenshots</h2>
+        <h2 className="mb-6 text-xl font-semibold">{t("screenshots")}</h2>
       )}
       <div className="grid gap-6 md:grid-cols-3">
         {screenshots.map((shot, i) => (

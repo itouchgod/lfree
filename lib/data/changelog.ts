@@ -1,23 +1,24 @@
+import type { Locale } from "@/i18n/routing";
 import { getAllContent, getContentBySlug, getChangelogByApp } from "@/lib/content";
-import { apps } from "@/lib/data/apps";
+import { getPublishedApps } from "@/lib/data/apps";
 
-export function getChangelogEntries() {
-  return getAllContent("changelog");
+export function getChangelogEntries(locale: Locale = "en") {
+  return getAllContent("changelog", locale);
 }
 
-export function getChangelogEntry(slug: string) {
-  return getContentBySlug("changelog", slug);
+export function getChangelogEntry(slug: string, locale: Locale = "en") {
+  return getContentBySlug("changelog", slug, locale);
 }
 
-export function getLatestChangelogEntries(limit = 5) {
-  return getChangelogEntries().slice(0, limit);
+export function getLatestChangelogEntries(limit = 5, locale: Locale = "en") {
+  return getChangelogEntries(locale).slice(0, limit);
 }
 
-export function getAppsWithChangelog() {
+export function getAppsWithChangelog(locale: Locale = "en") {
   const appSlugs = new Set(
-    getChangelogEntries().map((e) => e.frontmatter.appSlug).filter(Boolean)
+    getChangelogEntries(locale).map((e) => e.frontmatter.appSlug).filter(Boolean)
   );
-  return apps.filter((app) => appSlugs.has(app.slug));
+  return getPublishedApps().filter((app) => appSlugs.has(app.slug));
 }
 
 export { getChangelogByApp };

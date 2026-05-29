@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "siteTitle": "LFree — MMH for macOS",
+    "siteDescription": "MMH — a calm macOS app for protecting your photos, videos and local files with local-only encryption."
+  },
+  "nav": {
+    "mmh": "MMH",
+    "docs": "Docs",
+    "changelog": "Changelog",
+    "contact": "Contact",
+    "download": "Download",
+    "downloadMmh": "Download MMH",
+    "openMenu": "Open menu",
+    "closeMenu": "Close"
+  },
+  "locale": {
+    "en": "EN",
+    "zh": "中文",
+    "switch": "Language"
+  },
+  "home": {
+    "fullDetails": "Full details, screenshots & FAQ →"
+  },
+  "apps": {
+    "mmh": {
+      "name": "MMH",
+      "tagline": "Private media protection for macOS",
+      "description": "A private and calm macOS app for protecting personal photos, videos and local files.",
+      "type": "macOS Privacy Utility",
+      "installNoteTitle": "Install note",
+      "installNote": "After download, unzip the archive, drag MMH.app to Applications, then open from Launchpad. On first launch, macOS may ask you to allow the app in Privacy & Security settings.",
+      "installationGuide": "Installation guide →",
+      "downloadChoose": "Download {name} {version} — choose your Mac chip:",
+      "comingSoon": "Coming Soon",
+      "features": [
+        "Local-only encryption for photos and videos",
+        "Quick-hide vault with biometric unlock",
+        "Drag-and-drop import from Finder",
+        "No cloud sync — your data stays on device",
+        "Minimal UI designed for daily calm use"
+      ],
+      "faq": [
+        {
+          "question": "Which download should I choose?",
+          "answer": "Apple Silicon (M1/M2/M3/M4) or Intel — check About This Mac → Chip / Processor. Download the matching .zip, unzip, and open MMH.app."
+        },
+        {
+          "question": "Does MMH upload my files?",
+          "answer": "No. MMH is designed as a local-first privacy tool. Your media never leaves your Mac."
+        },
+        {
+          "question": "Which macOS versions are supported?",
+          "answer": "MMH targets macOS 14 Sonoma and later."
+        }
+      ],
+      "screenshots": [
+        {
+          "alt": "MMH initial setup — select encrypted storage folder and create master password",
+          "caption": "First launch — choose vault folder and set master password"
+        },
+        {
+          "alt": "MMH unlock screen with combination dial and master password field",
+          "caption": "Unlock your vault with the master password"
+        },
+        {
+          "alt": "MMH main window with encrypted folders, secure notes and sidebar navigation",
+          "caption": "Main vault — encrypted folders and secure notes"
+        }
+      ],
+      "ctaTitle": "Interested in MMH?",
+      "ctaDescription": "Get in touch for feedback or questions about the app."
+    }
+  },
+  "appDetail": {
+    "screenshots": "Screenshots",
+    "features": "Features",
+    "recentUpdates": "Recent Updates",
+    "faq": "FAQ",
+    "changelog": "Changelog",
+    "documentation": "Documentation",
+    "allApps": "All Apps",
+    "contact": "Contact"
+  },
+  "download": {
+    "appleSilicon": "Apple Silicon",
+    "intel": "Intel",
+    "download": "Download"
+  },
+  "changelog": {
+    "title": "Changelog",
+    "description": "Release notes for MMH.",
+    "empty": "No releases yet.",
+    "backToMmh": "← Back to MMH",
+    "backToAll": "Back to changelog"
+  },
+  "docs": {
+    "title": "Documentation",
+    "description": "Guides and references for MMH.",
+    "back": "Back to docs"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Questions or feedback about MMH — reach out anytime.",
+    "cardTitle": "Send a message",
+    "cardHint": "Form backend coming soon. For now, email directly.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your feedback or questions...",
+    "submit": "Open Email Client",
+    "orEmail": "Or email"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: May 2026 · {name}",
+    "overviewTitle": "Overview",
+    "overview": "{name} builds software with a local-first and privacy-respecting mindset. This policy describes data practices for our website and apps.",
+    "websiteTitle": "Website",
+    "website": "This marketing site may use basic analytics in the future. We do not sell personal data.",
+    "appsTitle": "Apps",
+    "apps": "Apps such as MMH process data on your device. Cloud features, if any, will be opt-in and documented per app.",
+    "contactTitle": "Contact",
+    "contact": "Privacy questions:"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "updated": "Last updated: May 2026 · {name}",
+    "acceptTitle": "Acceptance",
+    "accept": "By using {name} websites or software, you agree to these terms.",
+    "licenseTitle": "Software License",
+    "license": "Each app is provided under its own license. Beta builds are provided as-is without warranty.",
+    "limitTitle": "Limitations",
+    "limit": "We are not liable for indirect damages arising from use of our software.",
+    "contactTitle": "Contact",
+    "contact": "Legal inquiries:"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved.",
+    "home": "Back to home"
+  },
+  "status": {
+    "Released": "Released",
+    "In Development": "In Development",
+    "Prototype": "Prototype",
+    "Internal Tool": "Internal Tool"
+  },
+  "loading": "Loading...",
+  "footer": {
+    "mmh": "MMH",
+    "documentation": "Documentation",
+    "changelog": "Changelog",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}

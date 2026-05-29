@@ -1,7 +1,11 @@
-import Link from "next/link";
-import { footerLinks, siteConfig } from "@/lib/site";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { footerHrefs, siteConfig } from "@/lib/site";
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const t = await getTranslations("footer");
+  const meta = await getTranslations("meta");
+
   return (
     <footer className="mt-auto border-t border-border/40">
       <div className="container flex flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between">
@@ -10,18 +14,18 @@ export function SiteFooter() {
             {siteConfig.name}
           </Link>
           <p className="max-w-sm text-sm text-muted-foreground">
-            {siteConfig.description}
+            {meta("siteDescription")}
           </p>
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-          {footerLinks.map((link) => (
+          {footerHrefs.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className="transition-colors hover:text-foreground"
             >
-              {link.label}
+              {t(link.key)}
             </Link>
           ))}
         </nav>
@@ -29,7 +33,8 @@ export function SiteFooter() {
 
       <div className="container border-t border-border/40 py-6 text-xs text-muted-foreground">
         <p>
-          © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.developer} ·{" "}
+          © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.developer}{" "}
+          ·{" "}
           <a href={`mailto:${siteConfig.email}`} className="hover:text-foreground">
             {siteConfig.email}
           </a>

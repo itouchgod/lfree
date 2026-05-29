@@ -1,17 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { AppDownloadButtons } from "@/components/app-download-buttons";
 import { Badge, statusToBadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { getLatestReleasedApp } from "@/lib/data/apps";
+import { Link } from "@/i18n/navigation";
+import type { App } from "@/lib/data/apps";
 
-export function HeroSection() {
-  const app = getLatestReleasedApp();
-  if (!app) return null;
+interface HeroSectionProps {
+  app: App;
+}
 
+export function HeroSection({ app }: HeroSectionProps) {
+  const t = useTranslations("apps.mmh");
   const heroScreenshot = app.screenshots?.[2] ?? app.screenshots?.[0];
 
   return (
@@ -36,8 +39,12 @@ export function HeroSection() {
               {app.description}
             </p>
             <AppDownloadButtons app={app} size="lg" />
-            <Button variant="ghost" asChild className="px-0 text-muted-foreground hover:text-foreground">
-              <Link href="/docs/mmh-overview">Installation guide →</Link>
+            <Button
+              variant="ghost"
+              asChild
+              className="px-0 text-muted-foreground hover:text-foreground"
+            >
+              <Link href="/docs/mmh-overview">{t("installationGuide")}</Link>
             </Button>
           </motion.div>
 

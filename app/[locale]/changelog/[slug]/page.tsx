@@ -1,30 +1,29 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { MarkdownContent } from "@/components/markdown-content";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "@/i18n/navigation";
 import { getAllContentSlugs } from "@/lib/content";
-import { getChangelogEntry } from "@/lib/data/changelog";
-import { getPublishedApps, getPublishedAppBySlug } from "@/lib/data/apps";
-import { getChangelogByApp } from "@/lib/data/changelog";
+import { getChangelogEntry, getChangelogByApp } from "@/lib/data/changelog";
+import { getPublishedAppBySlug, getPublishedApps } from "@/lib/data/apps";
 import { formatDate } from "@/lib/utils";
 
-interface ChangelogSlugPageProps {
-  params: Promise<{ slug: string }>;
-}
+type Props = { params: Promise<{ locale: string; slug: string }> };
 
 export async function generateStaticParams() {
-  const entrySlugs = getAllContentSlugs("changelog").map((slug) => ({ slug }));
-  const appSlugs = getPublishedApps().map((app) => ({ slug: app.slug }));
-  return [...entrySlugs, ...appSlugs];
+  const slugs = new Set<string>();
+  for (const locale of ["en", "zh"] as const) {
+    getAllContentSlugs("changelog", locale).forEach((s) => slugs.add(s));
+  }
+  getPublishedApps().forEach((a) => slugs.add(a.slug));
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: ChangelogSlugPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const entry = getChangelogEntry(slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const entry = getChangelogEntry(slug, locale as "en" | "zh");
   if (entry) {
     return {
       title: entry.frontmatter.title,
@@ -41,10 +40,12 @@ export async function generateMetadata({
   return { title: "Changelog Not Found" };
 }
 
-export default async function ChangelogSlugPage({ params }: ChangelogSlugPageProps) {
-  const { slug } = await params;
+export default async function ChangelogSlugPage({ params }: Props) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("changelog");
 
-  const entry = getChangelogEntry(slug);
+  const entry = getChangelogEntry(slug, locale as "en" | "zh");
   if (entry) {
     const app = entry.frontmatter.appSlug
       ? getPublishedAppBySlug(entry.frontmatter.appSlug)
@@ -57,7 +58,7 @@ export default async function ChangelogSlugPage({ params }: ChangelogSlugPagePro
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to changelog
+          {t("backToAll")}
         </Link>
         <header className="mb-10 space-y-4 border-b border-border/40 pb-10">
           <div className="flex flex-wrap items-center gap-2">
@@ -80,7 +81,7 @@ export default async function ChangelogSlugPage({ params }: ChangelogSlugPagePro
 
   const app = getPublishedAppBySlug(slug);
   if (app) {
-    const entries = getChangelogByApp(slug);
+    const entries = getChangelogByApp(slug, locale as "en" | "zh");
     return (
       <>
         <section className="container py-16 md:py-20">
@@ -89,25 +90,22 @@ export default async function ChangelogSlugPage({ params }: ChangelogSlugPagePro
             className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
-            All changelog
+            {t("backToAll")}
           </Link>
           <h1 className="text-4xl font-semibold tracking-tight">
-            {app.name} Changelog
+            {app.name} {t("title")}
           </h1>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Release history for {app.name}.
-          </p>
           <Link
             href={`/apps/${app.slug}`}
             className="mt-4 inline-block text-sm text-primary hover:underline"
           >
-            View app →
+            MMH →
           </Link>
         </section>
         <section className="container pb-20">
           <div className="space-y-4">
             {entries.length === 0 ? (
-              <p className="text-muted-foreground">No releases yet.</p>
+              <p className="text-muted-foreground">{t("empty")}</p>
             ) : (
               entries.map((e) => (
                 <Link

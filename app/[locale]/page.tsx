@@ -1,17 +1,31 @@
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AppScreenshots } from "@/components/app-screenshots";
 import { HeroSection } from "@/components/hero-section";
-import { getLatestReleasedApp } from "@/lib/data/apps";
+import { Link } from "@/i18n/navigation";
+import {
+  getLocalizedLatestReleasedApp,
+  type AppMessages,
+} from "@/lib/data/apps-i18n";
 
-export default function HomePage() {
-  const app = getLatestReleasedApp();
-  if (!app) return <HeroSection />;
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const messages = (await import(`@/messages/${locale}.json`)).default;
+  const appMessages = messages.apps as Record<string, AppMessages>;
+  const app = getLocalizedLatestReleasedApp(appMessages);
+
+  const t = await getTranslations("home");
+
+  if (!app) return null;
 
   const highlights = app.features.slice(0, 4);
 
   return (
     <>
-      <HeroSection />
+      <HeroSection app={app} />
 
       <section className="border-t border-border/40 py-16 md:py-20">
         <div className="container max-w-3xl">
@@ -28,17 +42,13 @@ export default function HomePage() {
           </ul>
           <p className="mt-10 text-center text-sm text-muted-foreground">
             <Link href="/apps/mmh" className="text-primary hover:underline">
-              Full details, screenshots & FAQ →
+              {t("fullDetails")}
             </Link>
           </p>
         </div>
       </section>
 
-      <AppScreenshots
-        screenshots={app.screenshots ?? []}
-        appName={app.name}
-        showTitle={false}
-      />
+      <AppScreenshots screenshots={app.screenshots ?? []} showTitle={false} />
     </>
   );
 }
