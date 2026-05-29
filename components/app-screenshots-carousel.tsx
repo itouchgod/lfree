@@ -149,10 +149,10 @@ export function AppScreenshotsCarousel({
                 aria-label={dotLabels[i] ?? shot.caption ?? `Screenshot ${i + 1}`}
                 onClick={() => setActive(i)}
                 className={cn(
-                  "rounded-full transition-all duration-500 ease-out",
+                  "h-1.5 rounded-full transition-all duration-500 ease-out",
                   active === i
-                    ? "h-2 w-2 bg-foreground/90"
-                    : "h-2 w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                    ? "w-7 bg-foreground/85"
+                    : "w-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/55"
                 )}
               />
             ))}
