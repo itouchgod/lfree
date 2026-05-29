@@ -88,10 +88,10 @@
   },
   "changelog": {
     "title": "Changelog",
-    "description": "Release notes for MMH.",
+    "description": "MMH release history.",
     "empty": "No releases yet.",
-    "backToMmh": "← Back to MMH",
-    "backToAll": "Back to changelog"
+    "backToMmh": "← MMH",
+    "backToAll": "Changelog"
   },
   "docs": {
     "title": "Documentation",

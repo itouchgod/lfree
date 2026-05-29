@@ -13,6 +13,9 @@ export interface ContentFrontmatter {
   appSlug?: string;
   category?: string;
   readingTime?: string;
+  highlights?: string[];
+  /** Hide from public changelog lists (default: true) */
+  published?: boolean;
 }
 
 export interface ContentItem {
@@ -84,6 +87,8 @@ export function getAllContentSlugs(type: ContentType, locale: Locale = "en"): st
 
 export function getChangelogByApp(appSlug: string, locale: Locale = "en"): ContentItem[] {
   return getAllContent("changelog", locale).filter(
-    (item) => item.frontmatter.appSlug === appSlug
+    (item) =>
+      item.frontmatter.appSlug === appSlug &&
+      item.frontmatter.published !== false
   );
 }

@@ -13,6 +13,7 @@ import {
   getLocalizedApp,
   type AppMessages,
 } from "@/lib/data/apps-i18n";
+import { ChangelogTimeline } from "@/components/changelog-timeline";
 import { getChangelogByApp } from "@/lib/data/changelog";
 
 type Props = {
@@ -45,7 +46,7 @@ export default async function AppDetailPage({ params }: Props) {
   const t = await getTranslations("appDetail");
   const tMmh = await getTranslations("apps.mmh");
   const tStatus = await getTranslations("status");
-  const changelog = getChangelogByApp(slug, locale as "en" | "zh").slice(0, 3);
+  const changelog = getChangelogByApp(slug, locale as "en" | "zh").slice(0, 2);
 
   return (
     <>
@@ -109,22 +110,17 @@ export default async function AppDetailPage({ params }: Props) {
       </section>
 
       {changelog.length > 0 && (
-        <section className="container py-16">
-          <h2 className="mb-6 text-2xl font-semibold">{t("recentUpdates")}</h2>
-          <div className="space-y-4">
-            {changelog.map((entry) => (
-              <Link
-                key={entry.slug}
-                href={`/changelog/${entry.slug}`}
-                className="block rounded-xl border border-border/40 p-4 transition-colors hover:border-primary/30 hover:bg-card/50"
-              >
-                <p className="font-medium">{entry.frontmatter.title}</p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {entry.frontmatter.description}
-                </p>
-              </Link>
-            ))}
+        <section className="container max-w-xl py-12">
+          <div className="mb-6 flex items-center justify-between gap-4">
+            <h2 className="text-lg font-semibold">{t("recentUpdates")}</h2>
+            <Link
+              href="/changelog"
+              className="text-sm text-primary hover:underline"
+            >
+              {t("changelog")} →
+            </Link>
           </div>
+          <ChangelogTimeline entries={changelog} compact />
         </section>
       )}
 

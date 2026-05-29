@@ -88,10 +88,10 @@
   },
   "changelog": {
     "title": "更新日志",
-    "description": "MMH 版本发布记录。",
-    "empty": "暂无发布记录。",
-    "backToMmh": "← 返回 MMH",
-    "backToAll": "返回更新日志"
+    "description": "MMH 版本记录",
+    "empty": "暂无记录",
+    "backToMmh": "← MMH",
+    "backToAll": "更新日志"
   },
   "docs": {
     "title": "文档",
