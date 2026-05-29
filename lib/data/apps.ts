@@ -15,6 +15,12 @@ export interface AppDownload {
   url: string;
 }
 
+export interface AppScreenshot {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface App {
   slug: string;
   name: string;
@@ -29,7 +35,7 @@ export interface App {
   downloads?: AppDownload[];
   latestVersion?: string;
   featured?: boolean;
-  screenshotCount: number;
+  screenshots?: AppScreenshot[];
 }
 
 export const apps: App[] = [
@@ -55,7 +61,23 @@ export const apps: App[] = [
         url: "https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Intel.zip",
       },
     ],
-    screenshotCount: 3,
+    screenshots: [
+      {
+        src: "/apps/mmh/setup.png",
+        alt: "MMH initial setup — select encrypted storage folder and create master password",
+        caption: "First launch — choose vault folder and set master password",
+      },
+      {
+        src: "/apps/mmh/unlock.png",
+        alt: "MMH unlock screen with combination dial and master password field",
+        caption: "Unlock your vault with the master password",
+      },
+      {
+        src: "/apps/mmh/vault.png",
+        alt: "MMH main window with encrypted folders, secure notes and sidebar navigation",
+        caption: "Main vault — encrypted folders and secure notes",
+      },
+    ],
     features: [
       "Local-only encryption for photos and videos",
       "Quick-hide vault with biometric unlock",
@@ -89,7 +111,6 @@ export const apps: App[] = [
     type: "macOS Productivity Tool",
     status: "Prototype",
     featured: true,
-    screenshotCount: 3,
     features: [
       "Grid of favorite folders with custom icons",
       "Global hotkey to open from anywhere",
@@ -118,7 +139,6 @@ export const apps: App[] = [
     type: "Business Workflow System",
     status: "Internal Tool",
     featured: true,
-    screenshotCount: 2,
     features: [
       "End-to-end quote → confirm → invoice pipeline",
       "PDF generation with branded templates",

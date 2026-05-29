@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BookOpen, FileText } from "lucide-react";
 import { AppDownloadButtons } from "@/components/app-download-buttons";
+import { AppScreenshots } from "@/components/app-screenshots";
 import { CtaSection } from "@/components/cta-section";
 import { Badge, statusToBadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -81,21 +82,10 @@ export default async function AppDetailPage({ params }: AppDetailPageProps) {
         </section>
       )}
 
-      <section className="container pb-16">
-        <h2 className="mb-6 text-xl font-semibold">Screenshots</h2>
-        <div className="grid gap-4 md:grid-cols-3">
-          {Array.from({ length: app.screenshotCount }).map((_, i) => (
-            <div
-              key={i}
-              className="aspect-video rounded-2xl border border-border/50 bg-gradient-to-br from-muted to-card shadow-soft"
-            >
-              <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
-                Screenshot {i + 1}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <AppScreenshots
+        screenshots={app.screenshots ?? []}
+        appName={app.name}
+      />
 
       <section className="border-y border-border/40 bg-card/20 py-16">
         <div className="container">

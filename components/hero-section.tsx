@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { getLatestReleasedApp } from "@/lib/data/apps";
 
 export function HeroSection() {
   const latestApp = getLatestReleasedApp();
+  const heroScreenshot = latestApp?.screenshots?.[2] ?? latestApp?.screenshots?.[0];
 
   return (
     <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32">
@@ -50,17 +52,35 @@ export function HeroSection() {
           className="mx-auto mt-20 max-w-5xl"
         >
           <div className="relative rounded-2xl border border-border/50 bg-card/40 p-2 shadow-elevated backdrop-blur-md">
-            <div className="aspect-[16/9] overflow-hidden rounded-xl bg-gradient-to-br from-muted/80 via-card to-background">
-              <div className="flex h-full flex-col items-center justify-center gap-3 p-8 text-center">
-                <div className="flex gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-amber-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
+            <div className="overflow-hidden rounded-xl bg-gradient-to-br from-muted/80 via-card to-background">
+              {heroScreenshot ? (
+                <div className="relative mx-auto aspect-[16/10] max-h-[420px] w-full">
+                  <div className="absolute left-4 top-4 z-10 flex gap-2">
+                    <span className="h-3 w-3 rounded-full bg-red-500/80" />
+                    <span className="h-3 w-3 rounded-full bg-amber-500/80" />
+                    <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <Image
+                    src={heroScreenshot.src}
+                    alt={heroScreenshot.alt}
+                    fill
+                    className="object-contain object-center p-6 pt-10"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    priority
+                  />
                 </div>
-                <p className="text-sm text-muted-foreground">
-                  App preview · Product screenshots coming soon
-                </p>
-              </div>
+              ) : (
+                <div className="flex aspect-[16/9] flex-col items-center justify-center gap-3 p-8 text-center">
+                  <div className="flex gap-2">
+                    <span className="h-3 w-3 rounded-full bg-red-500/80" />
+                    <span className="h-3 w-3 rounded-full bg-amber-500/80" />
+                    <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    App preview · Product screenshots coming soon
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
