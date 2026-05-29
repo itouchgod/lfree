@@ -20,7 +20,6 @@ export const footerHrefs = [
   { href: "/apps/mmh", key: "mmh" as const },
   { href: "/docs/mmh-overview", key: "documentation" as const },
   { href: "/changelog", key: "changelog" as const },
-  { href: "/contact", key: "contact" as const },
   { href: "/privacy", key: "privacy" as const },
   { href: "/terms", key: "terms" as const },
 ] as const;

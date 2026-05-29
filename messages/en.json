@@ -7,7 +7,6 @@
     "mmh": "MMH",
     "docs": "Docs",
     "changelog": "Changelog",
-    "contact": "Contact",
     "download": "Download",
     "downloadMmh": "Download MMH",
     "openMenu": "Open menu",
@@ -79,8 +78,7 @@
     "faq": "FAQ",
     "changelog": "Changelog",
     "documentation": "Documentation",
-    "allApps": "All Apps",
-    "contact": "Contact"
+    "allApps": "All Apps"
   },
   "download": {
     "appleSilicon": "Apple Silicon",
@@ -98,20 +96,6 @@
     "title": "Documentation",
     "description": "Guides and references for MMH.",
     "back": "Back to docs"
-  },
-  "contact": {
-    "title": "Contact",
-    "description": "Questions or feedback about MMH — reach out anytime.",
-    "cardTitle": "Send a message",
-    "cardHint": "Form backend coming soon. For now, email directly.",
-    "name": "Name",
-    "namePlaceholder": "Your name",
-    "email": "Email",
-    "emailPlaceholder": "you@example.com",
-    "message": "Message",
-    "messagePlaceholder": "Tell me about your feedback or questions...",
-    "submit": "Open Email Client",
-    "orEmail": "Or email"
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -154,7 +138,6 @@
     "mmh": "MMH",
     "documentation": "Documentation",
     "changelog": "Changelog",
-    "contact": "Contact",
     "privacy": "Privacy",
     "terms": "Terms"
   }

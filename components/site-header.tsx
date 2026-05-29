@@ -44,9 +44,6 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           <LocaleSwitcher />
-          <Button variant="ghost" asChild>
-            <Link href="/contact">{t("contact")}</Link>
-          </Button>
           <Button asChild>
             <Link href="/apps/mmh">{t("download")}</Link>
           </Button>
@@ -81,11 +78,6 @@ export function SiteHeader() {
                 <Button asChild className="w-full">
                   <Link href="/apps/mmh" onClick={() => setOpen(false)}>
                     {t("downloadMmh")}
-                  </Link>
-                </Button>
-                <Button variant="secondary" asChild className="w-full">
-                  <Link href="/contact" onClick={() => setOpen(false)}>
-                    {t("contact")}
                   </Link>
                 </Button>
               </div>

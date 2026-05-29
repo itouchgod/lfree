@@ -15,6 +15,7 @@ import {
 } from "@/lib/data/apps-i18n";
 import { ChangelogTimeline } from "@/components/changelog-timeline";
 import { getChangelogByApp } from "@/lib/data/changelog";
+import { siteConfig } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -146,8 +147,8 @@ export default async function AppDetailPage({ params }: Props) {
         <div className="rounded-2xl border border-border/50 bg-card/30 p-8 text-center">
           <h2 className="text-xl font-semibold">{tMmh("ctaTitle")}</h2>
           <p className="mt-2 text-muted-foreground">{tMmh("ctaDescription")}</p>
-          <Button className="mt-6" asChild>
-            <Link href="/contact">{t("contact")}</Link>
+          <Button className="mt-6" variant="secondary" asChild>
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </Button>
         </div>
       </section>

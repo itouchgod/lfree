@@ -89,7 +89,6 @@ lib/
 | `/changelog` | 更新日志 |
 | `/pricing` | 定价 |
 | `/about` | 关于 |
-| `/contact` | 联系 |
 | `/privacy` | 隐私政策 |
 | `/terms` | 服务条款 |
 
@@ -106,7 +105,7 @@ lib/
 
 - Supabase：动态内容与用户数据
 - Stripe：付费与订阅
-- Resend：联系表单与邮件通知
+- Resend：邮件通知（可选）
 - GitHub Release Webhook：自动更新 Changelog
 
 ## 视觉风格

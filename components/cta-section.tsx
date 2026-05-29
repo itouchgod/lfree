@@ -1,22 +1,21 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/site";
 
 interface CtaSectionProps {
   title?: string;
   description?: string;
   primaryHref?: string;
   primaryLabel?: string;
-  secondaryHref?: string;
-  secondaryLabel?: string;
+  showEmail?: boolean;
 }
 
 export function CtaSection({
   title = "Ready to explore the lab?",
-  description = "Browse apps, read the docs, or get in touch for early access and custom workflows.",
-  primaryHref = "/apps",
-  primaryLabel = "View Apps",
-  secondaryHref = "/contact",
-  secondaryLabel = "Contact",
+  description = "Browse apps, read the docs, or download MMH.",
+  primaryHref = "/apps/mmh",
+  primaryLabel = "Download MMH",
+  showEmail = true,
 }: CtaSectionProps) {
   return (
     <section className="container py-20">
@@ -28,9 +27,11 @@ export function CtaSection({
             <Button size="lg" asChild>
               <Link href={primaryHref}>{primaryLabel}</Link>
             </Button>
-            <Button size="lg" variant="secondary" asChild>
-              <Link href={secondaryHref}>{secondaryLabel}</Link>
-            </Button>
+            {showEmail && (
+              <Button size="lg" variant="secondary" asChild>
+                <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+              </Button>
+            )}
           </div>
         </div>
       </div>

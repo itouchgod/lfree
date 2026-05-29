@@ -7,7 +7,6 @@
     "mmh": "MMH",
     "docs": "文档",
     "changelog": "更新日志",
-    "contact": "联系",
     "download": "下载",
     "downloadMmh": "下载 MMH",
     "openMenu": "打开菜单",
@@ -79,8 +78,7 @@
     "faq": "常见问题",
     "changelog": "更新日志",
     "documentation": "文档",
-    "allApps": "全部应用",
-    "contact": "联系"
+    "allApps": "全部应用"
   },
   "download": {
     "appleSilicon": "Apple 芯片",
@@ -98,20 +96,6 @@
     "title": "文档",
     "description": "MMH 使用指南与参考。",
     "back": "返回文档"
-  },
-  "contact": {
-    "title": "联系",
-    "description": "关于 MMH 的问题或反馈，欢迎随时联系。",
-    "cardTitle": "发送消息",
-    "cardHint": "表单功能即将上线，目前请直接发送邮件。",
-    "name": "姓名",
-    "namePlaceholder": "你的名字",
-    "email": "邮箱",
-    "emailPlaceholder": "you@example.com",
-    "message": "留言",
-    "messagePlaceholder": "写下你的反馈或问题...",
-    "submit": "打开邮件客户端",
-    "orEmail": "或发送邮件至"
   },
   "privacy": {
     "title": "隐私政策",
@@ -154,7 +138,6 @@
     "mmh": "MMH",
     "documentation": "文档",
     "changelog": "更新日志",
-    "contact": "联系",
     "privacy": "隐私",
     "terms": "条款"
   }

@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
 
-  const staticPaths = ["", "/apps/mmh", "/docs", "/changelog", "/contact", "/privacy", "/terms"];
+  const staticPaths = ["", "/apps/mmh", "/docs", "/changelog", "/privacy", "/terms"];
 
   const staticRoutes = routing.locales.flatMap((locale) =>
     staticPaths.map((path) => ({

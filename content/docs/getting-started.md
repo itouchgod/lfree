@@ -14,7 +14,7 @@ Welcome to the documentation center.
 
 ## Support
 
-For early access or questions, use the [contact page](/contact).
+For questions, email [ukluocn@gmail.com](mailto:ukluocn@gmail.com).
 
 ## Changelog
 

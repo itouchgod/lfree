@@ -5,6 +5,7 @@ import { CtaSection } from "@/components/cta-section";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -23,7 +24,7 @@ const plans = [
       "Early access for waitlist members",
     ],
     cta: "Join Waitlist",
-    href: "/contact",
+    href: `mailto:${siteConfig.email}`,
   },
   {
     name: "Pro / Teams",
@@ -35,8 +36,8 @@ const plans = [
       "Integration planning",
       "Priority support channel",
     ],
-    cta: "Contact",
-    href: "/contact",
+    cta: "Email",
+    href: `mailto:${siteConfig.email}`,
     highlighted: true,
   },
   {
@@ -50,7 +51,7 @@ const plans = [
       "Helps fund MMH & FileNest",
     ],
     cta: "Get in Touch",
-    href: "/contact",
+    href: `mailto:${siteConfig.email}`,
   },
 ];
 
@@ -91,7 +92,11 @@ export default function PricingPage() {
                   variant={plan.highlighted ? "default" : "secondary"}
                   asChild
                 >
-                  <Link href={plan.href}>{plan.cta}</Link>
+                  {plan.href.startsWith("mailto:") ? (
+                    <a href={plan.href}>{plan.cta}</a>
+                  ) : (
+                    <Link href={plan.href}>{plan.cta}</Link>
+                  )}
                 </Button>
               </CardContent>
             </Card>

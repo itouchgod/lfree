@@ -160,7 +160,7 @@ export const apps: App[] = [
       {
         question: "Can I request a similar system?",
         answer:
-          "Reach out via the contact page to discuss custom workflow tooling.",
+          "Email ukluocn@gmail.com to discuss custom workflow tooling.",
       },
     ],
   },
