@@ -8,7 +8,7 @@ import { CtaSection } from "@/components/cta-section";
 import { Badge, statusToBadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { apps, getAppBySlug } from "@/lib/data/apps";
+import { getPublishedApps, getPublishedAppBySlug } from "@/lib/data/apps";
 import { getChangelogByApp } from "@/lib/data/changelog";
 
 interface AppDetailPageProps {
@@ -16,14 +16,14 @@ interface AppDetailPageProps {
 }
 
 export async function generateStaticParams() {
-  return apps.map((app) => ({ slug: app.slug }));
+  return getPublishedApps().map((app) => ({ slug: app.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: AppDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const app = getAppBySlug(slug);
+  const app = getPublishedAppBySlug(slug);
   if (!app) return { title: "App Not Found" };
   return {
     title: app.name,
@@ -33,7 +33,7 @@ export async function generateMetadata({
 
 export default async function AppDetailPage({ params }: AppDetailPageProps) {
   const { slug } = await params;
-  const app = getAppBySlug(slug);
+  const app = getPublishedAppBySlug(slug);
   if (!app) notFound();
 
   const changelog = getChangelogByApp(slug).slice(0, 3);

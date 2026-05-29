@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllContentSlugs } from "@/lib/content";
-import { apps } from "@/lib/data/apps";
+import { getPublishedApps } from "@/lib/data/apps";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,12 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticRoutes = [
     "",
-    "/apps",
     "/docs",
-    "/blog",
     "/changelog",
-    "/pricing",
-    "/about",
     "/contact",
     "/privacy",
     "/terms",
@@ -24,18 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  const appRoutes = apps.map((app) => ({
+  const appRoutes = getPublishedApps().map((app) => ({
     url: `${base}/apps/${app.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.9,
-  }));
-
-  const blogRoutes = getAllContentSlugs("blog").map((slug) => ({
-    url: `${base}/blog/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
   }));
 
   const docsRoutes = getAllContentSlugs("docs").map((slug) => ({
@@ -52,19 +41,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const appChangelogRoutes = apps.map((app) => ({
-    url: `${base}/changelog/${app.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
-
   return [
     ...staticRoutes,
     ...appRoutes,
-    ...blogRoutes,
     ...docsRoutes,
     ...changelogRoutes,
-    ...appChangelogRoutes,
   ];
 }

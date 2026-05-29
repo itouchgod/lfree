@@ -6,9 +6,8 @@ import { MarkdownContent } from "@/components/markdown-content";
 import { Badge } from "@/components/ui/badge";
 import { getAllContentSlugs } from "@/lib/content";
 import { getChangelogEntry } from "@/lib/data/changelog";
-import { getAppBySlug } from "@/lib/data/apps";
+import { getPublishedApps, getPublishedAppBySlug } from "@/lib/data/apps";
 import { getChangelogByApp } from "@/lib/data/changelog";
-import { apps } from "@/lib/data/apps";
 import { formatDate } from "@/lib/utils";
 
 interface ChangelogSlugPageProps {
@@ -17,7 +16,7 @@ interface ChangelogSlugPageProps {
 
 export async function generateStaticParams() {
   const entrySlugs = getAllContentSlugs("changelog").map((slug) => ({ slug }));
-  const appSlugs = apps.map((app) => ({ slug: app.slug }));
+  const appSlugs = getPublishedApps().map((app) => ({ slug: app.slug }));
   return [...entrySlugs, ...appSlugs];
 }
 
@@ -32,7 +31,7 @@ export async function generateMetadata({
       description: entry.frontmatter.description,
     };
   }
-  const app = getAppBySlug(slug);
+  const app = getPublishedAppBySlug(slug);
   if (app) {
     return {
       title: `${app.name} Changelog`,
@@ -48,7 +47,7 @@ export default async function ChangelogSlugPage({ params }: ChangelogSlugPagePro
   const entry = getChangelogEntry(slug);
   if (entry) {
     const app = entry.frontmatter.appSlug
-      ? getAppBySlug(entry.frontmatter.appSlug)
+      ? getPublishedAppBySlug(entry.frontmatter.appSlug)
       : undefined;
 
     return (
@@ -79,7 +78,7 @@ export default async function ChangelogSlugPage({ params }: ChangelogSlugPagePro
     );
   }
 
-  const app = getAppBySlug(slug);
+  const app = getPublishedAppBySlug(slug);
   if (app) {
     const entries = getChangelogByApp(slug);
     return (

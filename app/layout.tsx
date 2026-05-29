@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — Private Tools for Focused Digital Life`,
+    default: `${siteConfig.name} — MMH for macOS`,
     template: `%s · ${siteConfig.name}`,
   },
   description: siteConfig.description,

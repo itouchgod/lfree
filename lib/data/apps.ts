@@ -35,6 +35,8 @@ export interface App {
   downloads?: AppDownload[];
   latestVersion?: string;
   featured?: boolean;
+  /** Visible on site listings and navigation */
+  published?: boolean;
   screenshots?: AppScreenshot[];
 }
 
@@ -48,6 +50,7 @@ export const apps: App[] = [
     type: "macOS Privacy Utility",
     status: "Released",
     featured: true,
+    published: true,
     latestVersion: "1.0.0",
     downloads: [
       {
@@ -110,7 +113,8 @@ export const apps: App[] = [
       "A visual folder launcher for quickly accessing frequently used directories.",
     type: "macOS Productivity Tool",
     status: "Prototype",
-    featured: true,
+    featured: false,
+    published: false,
     features: [
       "Grid of favorite folders with custom icons",
       "Global hotkey to open from anywhere",
@@ -138,7 +142,8 @@ export const apps: App[] = [
       "A custom workflow system for quotation, confirmation, invoice and document management.",
     type: "Business Workflow System",
     status: "Internal Tool",
-    featured: true,
+    featured: false,
+    published: false,
     features: [
       "End-to-end quote → confirm → invoice pipeline",
       "PDF generation with branded templates",
@@ -165,12 +170,21 @@ export function getAppBySlug(slug: string): App | undefined {
   return apps.find((app) => app.slug === slug);
 }
 
+export function getPublishedAppBySlug(slug: string): App | undefined {
+  const app = getAppBySlug(slug);
+  return app?.published ? app : undefined;
+}
+
+export function getPublishedApps(): App[] {
+  return apps.filter((app) => app.published);
+}
+
 export function getFeaturedApps(): App[] {
-  return apps.filter((app) => app.featured);
+  return getPublishedApps();
 }
 
 export function getLatestReleasedApp(): App | undefined {
-  return apps.find((app) => app.status === "Released");
+  return getPublishedApps().find((app) => app.status === "Released");
 }
 
 export function getAppDownloads(app: App): AppDownload[] {

@@ -49,7 +49,7 @@ export function SiteHeader() {
             <Link href="/contact">Contact</Link>
           </Button>
           <Button asChild>
-            <Link href="/apps">View Apps</Link>
+            <Link href="/apps/mmh">Download</Link>
           </Button>
         </div>
 
@@ -76,8 +76,8 @@ export function SiteHeader() {
               ))}
               <hr className="my-4 border-border" />
               <Button asChild className="w-full">
-                <Link href="/apps" onClick={() => setOpen(false)}>
-                  View Apps
+                <Link href="/apps/mmh" onClick={() => setOpen(false)}>
+                  Download MMH
                 </Link>
               </Button>
               <Button variant="secondary" asChild className="w-full">

@@ -4,14 +4,21 @@ import type { AppScreenshot } from "@/lib/data/apps";
 interface AppScreenshotsProps {
   screenshots: AppScreenshot[];
   appName: string;
+  showTitle?: boolean;
 }
 
-export function AppScreenshots({ screenshots, appName }: AppScreenshotsProps) {
+export function AppScreenshots({
+  screenshots,
+  appName,
+  showTitle = true,
+}: AppScreenshotsProps) {
   if (screenshots.length === 0) return null;
 
   return (
-    <section className="container pb-16">
-      <h2 className="mb-6 text-xl font-semibold">Screenshots</h2>
+    <section className="container pb-20">
+      {showTitle && (
+        <h2 className="mb-6 text-xl font-semibold">Screenshots</h2>
+      )}
       <div className="grid gap-6 md:grid-cols-3">
         {screenshots.map((shot, i) => (
           <figure

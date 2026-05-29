@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "LFree",
   description:
-    "A personal software lab building calm, intelligent and practical apps for macOS, productivity and AI workflows.",
+    "MMH — a calm macOS app for protecting your photos, videos and local files with local-only encryption.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lfree.cc",
   developer: "itouchgod",
   author: "itouchgod",
@@ -13,30 +13,16 @@ export const siteConfig = {
 } as const;
 
 export const navLinks = [
-  { href: "/apps", label: "Apps" },
+  { href: "/apps/mmh", label: "MMH" },
   { href: "/docs", label: "Docs" },
-  { href: "/blog", label: "Blog" },
   { href: "/changelog", label: "Changelog" },
-  { href: "/pricing", label: "Pricing" },
-  { href: "/about", label: "About" },
 ] as const;
 
-export const footerLinks = {
-  product: [
-    { href: "/apps", label: "Apps" },
-    { href: "/changelog", label: "Changelog" },
-    { href: "/pricing", label: "Pricing" },
-  ],
-  resources: [
-    { href: "/docs", label: "Documentation" },
-    { href: "/blog", label: "Blog" },
-  ],
-  company: [
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
-  ],
-  legal: [
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/terms", label: "Terms of Service" },
-  ],
-} as const;
+export const footerLinks = [
+  { href: "/apps/mmh", label: "MMH" },
+  { href: "/docs/mmh-overview", label: "Documentation" },
+  { href: "/changelog", label: "Changelog" },
+  { href: "/contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+] as const;
