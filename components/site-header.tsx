@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { SiteLogo } from "@/components/site-logo";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -19,9 +20,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex shrink-0 items-center gap-2.5 font-semibold tracking-tight">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/60 text-sm text-primary-foreground shadow-soft">
-            L
-          </span>
+          <SiteLogo size={32} priority />
           <span>{siteConfig.name}</span>
         </Link>
 

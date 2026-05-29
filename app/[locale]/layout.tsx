@@ -39,6 +39,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       template: `%s · ${siteConfig.name}`,
     },
     description: t("siteDescription"),
+    icons: {
+      icon: [{ url: siteConfig.logo, type: "image/png", sizes: "512x512" }],
+      apple: [{ url: siteConfig.logo, sizes: "180x180", type: "image/png" }],
+    },
     openGraph: {
       type: "website",
       locale: locale === "zh" ? "zh_CN" : "en_US",
@@ -46,6 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: siteConfig.name,
       title: siteConfig.name,
       description: t("siteDescription"),
+      images: [{ url: siteConfig.logo, width: 1024, height: 1024, alt: siteConfig.name }],
     },
     robots: { index: true, follow: true },
   };

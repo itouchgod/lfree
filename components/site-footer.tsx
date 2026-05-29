@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { SiteLogo } from "@/components/site-logo";
 import { footerHrefs, siteConfig } from "@/lib/site";
 
 export async function SiteFooter() {
@@ -10,7 +11,8 @@ export async function SiteFooter() {
     <footer className="mt-auto border-t border-border/40">
       <div className="container flex flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between">
         <div className="space-y-2">
-          <Link href="/" className="font-semibold tracking-tight">
+          <Link href="/" className="inline-flex items-center gap-2.5 font-semibold tracking-tight">
+            <SiteLogo size={28} />
             {siteConfig.name}
           </Link>
           <p className="max-w-sm text-sm text-muted-foreground">
