@@ -21,7 +21,7 @@ export function HeroSection({ app }: HeroSectionProps) {
     <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28">
       <div className="absolute inset-0 -z-10 bg-gradient-radial opacity-50" />
       <div className="container">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:items-center lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -53,24 +53,17 @@ export function HeroSection({ app }: HeroSectionProps) {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-              className="relative mx-auto w-full max-w-md lg:max-w-none"
+              className="flex w-full items-center justify-center lg:justify-end"
             >
-              <div className="rounded-2xl border border-border/50 bg-card/40 p-2 shadow-elevated">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-muted/20">
-                  <div className="absolute left-3 top-3 z-10 flex gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
-                  </div>
-                  <Image
-                    src={heroScreenshot.src}
-                    alt={heroScreenshot.alt}
-                    fill
-                    className="object-contain object-top p-4 pt-8"
-                    sizes="(max-width: 1024px) 90vw, 480px"
-                    priority
-                  />
-                </div>
+              <div className="relative aspect-[1024/631] w-full max-w-xl lg:max-w-none">
+                <Image
+                  src={heroScreenshot.src}
+                  alt={heroScreenshot.alt}
+                  fill
+                  className="object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.55)]"
+                  sizes="(max-width: 1024px) 92vw, 560px"
+                  priority
+                />
               </div>
             </motion.div>
           )}
