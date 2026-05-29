@@ -40,9 +40,3 @@ You can also download from the [MMH product page](/apps/mmh).
 
 - macOS **14 Sonoma** or later
 - Apple Silicon Mac recommended; Intel Macs should use the Intel build
-
-## Need help?
-
-- [Contact](/contact)
-- [GitHub Releases](https://github.com/itouchgod/mmh/releases)
-- [Changelog](/changelog)

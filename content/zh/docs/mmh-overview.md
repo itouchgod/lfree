@@ -40,9 +40,3 @@ MMH 是一款安静的 macOS 隐私工具，在本地加密保护你的照片、
 
 - macOS **14 Sonoma** 或更高版本
 - 建议 Apple 芯片 Mac，Intel 机型请下载 Intel 版本
-
-## 需要帮助？
-
-- [联系开发者](/zh/contact)
-- [GitHub 发布页](https://github.com/itouchgod/mmh/releases)
-- [更新日志](/zh/changelog)
