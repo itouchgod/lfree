@@ -1,39 +1,48 @@
 ---
 title: "MMH Overview"
-description: "Early documentation for the MMH macOS privacy utility."
+description: "Download, install and use the MMH macOS privacy utility."
 date: "2026-05-18"
 category: "MMH"
 ---
 
-MMH helps you protect personal photos, videos and local files on macOS.
+MMH is a calm macOS privacy app that encrypts and protects your photos, videos and local files — everything stays on your Mac.
 
-## Download v1.0.0
+> **Current version: v1.0.0** · Now available
 
-Choose the build for your Mac:
+## Download
 
-| Chip | Download |
-|------|----------|
-| Apple Silicon (M1/M2/M3/M4) | [MMH-Apple-Silicon.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Apple-Silicon.zip) |
-| Intel | [MMH-Intel.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Intel.zip) |
+Choose the build that matches your Mac:
 
-Or visit the [MMH app page](/apps/mmh) on this site.
+| Mac type | Package |
+|----------|---------|
+| **Apple Silicon** (M1 / M2 / M3 / M4) | [MMH-Apple-Silicon.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Apple-Silicon.zip) |
+| **Intel** | [MMH-Intel.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Intel.zip) |
+
+Not sure which chip you have? Open **About This Mac** and check **Chip** or **Processor**.
+
+You can also download from the [MMH product page](/apps/mmh).
 
 ## Install
 
-1. Download the correct `.zip` for your chip (About This Mac → Chip / Processor).
-2. Unzip and drag **MMH.app** to Applications.
-3. Open MMH from Launchpad. If blocked, allow it in **System Settings → Privacy & Security**.
+1. Download and unzip the `.zip` file
+2. Drag **MMH.app** into your Applications folder
+3. Open MMH from Launchpad
+4. If macOS blocks the app, go to **System Settings → Privacy & Security** and click **Open Anyway**
 
 ## Features
 
-- Local vault with quick-hide
-- Biometric unlock via Touch ID
-- Drag-and-drop import from Finder
+- **Local vault** — Encrypt photos, videos and files in a folder you choose
+- **Quick-hide** — Hide sensitive content in one step
+- **Touch ID unlock** — Fast access with your fingerprint
+- **Drag & drop** — Import files directly from Finder
 
 ## System requirements
 
-- macOS 14 Sonoma or later
+- macOS **14 Sonoma** or later
+- Apple Silicon Mac recommended; Intel Macs should use the Intel build
 
-## Feedback
+## Need help?
 
-Questions or issues: [contact](/contact) or [GitHub Releases](https://github.com/itouchgod/mmh/releases).
+- [Contact](/contact)
+- [GitHub Releases](https://github.com/itouchgod/mmh/releases)
+- [Changelog](/changelog)

@@ -1,41 +1,48 @@
 ---
 title: "MMH 使用说明"
-description: "MMH macOS 隐私工具早期文档。"
+description: "下载、安装与使用 MMH macOS 隐私工具。"
 date: "2026-05-18"
 category: "MMH"
 ---
 
-MMH 帮助你在 macOS 上保护个人照片、视频与本地文件。
+MMH 是一款安静的 macOS 隐私工具，在本地加密保护你的照片、视频与文件，无需上传到云端。
 
-## 状态
+> **当前版本：v1.0.0** · 已正式发布
 
-MMH **v1.0.0** 已发布。
+## 下载
 
-## 下载 v1.0.0
+请根据你的 Mac 芯片选择对应安装包：
 
-| 芯片 | 下载 |
-|------|------|
-| Apple 芯片 (M1/M2/M3/M4) | [MMH-Apple-Silicon.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Apple-Silicon.zip) |
-| Intel | [MMH-Intel.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Intel.zip) |
+| 适用机型 | 安装包 |
+|----------|--------|
+| **Apple 芯片**（M1 / M2 / M3 / M4） | [MMH-Apple-Silicon.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Apple-Silicon.zip) |
+| **Intel 芯片** | [MMH-Intel.zip](https://github.com/itouchgod/mmh/releases/download/v1.0.0/MMH-Intel.zip) |
 
-也可访问本站 [MMH 页面](/zh/apps/mmh)。
+不确定芯片类型？打开 **关于本机**，查看「芯片」或「处理器」一栏。
 
-## 安装
+也可前往 [MMH 产品页](/zh/apps/mmh) 直接下载。
 
-1. 根据「关于本机」中的芯片类型下载对应 `.zip`。
-2. 解压后将 **MMH.app** 拖入「应用程序」。
-3. 从启动台打开；若被拦截，请在「系统设置 → 隐私与安全性」中允许。
+## 安装步骤
 
-## 功能
+1. 下载并解压 `.zip` 文件
+2. 将 **MMH.app** 拖入「应用程序」文件夹
+3. 从启动台打开 MMH
+4. 若系统提示无法打开，请前往 **系统设置 → 隐私与安全性** 中点击「仍要打开」
 
-- 本地保险库与快速隐藏
-- 触控 ID 解锁
-- 从访达拖放导入
+## 主要功能
+
+- **本地保险库** — 照片、视频与文件加密保存在你选择的位置
+- **快速隐藏** — 一键隐藏敏感内容
+- **触控 ID 解锁** — 用指纹快速进入保险库
+- **拖放导入** — 从访达直接拖入文件
 
 ## 系统要求
 
-- macOS 14 Sonoma 或更高版本
+- macOS **14 Sonoma** 或更高版本
+- 建议 Apple 芯片 Mac，Intel 机型请下载 Intel 版本
 
-## 反馈
+## 需要帮助？
 
-问题或建议：[联系页面](/zh/contact) 或 [GitHub Releases](https://github.com/itouchgod/mmh/releases)。
+- [联系开发者](/zh/contact)
+- [GitHub 发布页](https://github.com/itouchgod/mmh/releases)
+- [更新日志](/zh/changelog)

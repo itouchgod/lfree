@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { MarkdownContent } from "@/components/markdown-content";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getAllContentSlugs } from "@/lib/content";
 import { getDoc } from "@/lib/data/docs";
@@ -32,30 +34,52 @@ export default async function DocDetailPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("docs");
+  const tNav = await getTranslations("nav");
 
   const doc = getDoc(slug, locale as "en" | "zh");
   if (!doc) notFound();
 
+  const isMmhDoc = slug === "mmh-overview";
+
   return (
-    <article className="container max-w-3xl py-16 md:py-20">
-      <Link
-        href="/docs"
-        className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        {t("back")}
-      </Link>
-      <header className="mb-10 space-y-4 border-b border-border/40 pb-10">
-        <p className="text-sm text-muted-foreground">
-          {formatDate(doc.frontmatter.date)}
-          {doc.frontmatter.category && ` · ${doc.frontmatter.category}`}
-        </p>
-        <h1 className="text-4xl font-semibold tracking-tight">
-          {doc.frontmatter.title}
-        </h1>
-        <p className="text-lg text-muted-foreground">{doc.frontmatter.description}</p>
-      </header>
-      <MarkdownContent content={doc.content} />
+    <article className="pb-20">
+      <div className="border-b border-border/40 bg-card/20">
+        <div className="container max-w-3xl py-10 md:py-14">
+          <Link
+            href="/docs"
+            className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            {t("back")}
+          </Link>
+          <div className="flex flex-wrap items-center gap-2">
+            {doc.frontmatter.category && (
+              <Badge variant="secondary">{doc.frontmatter.category}</Badge>
+            )}
+            <span className="text-sm text-muted-foreground">
+              {formatDate(doc.frontmatter.date)}
+            </span>
+          </div>
+          <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
+            {doc.frontmatter.title}
+          </h1>
+          <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+            {doc.frontmatter.description}
+          </p>
+          {isMmhDoc && (
+            <Button className="mt-6" asChild>
+              <Link href="/apps/mmh">
+                <Download className="h-4 w-4" />
+                {tNav("download")} MMH
+              </Link>
+            </Button>
+          )}
+        </div>
+      </div>
+
+      <div className="container max-w-3xl py-12 md:py-16">
+        <MarkdownContent content={doc.content} />
+      </div>
     </article>
   );
 }

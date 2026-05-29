@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #0c0e12;
@@ -80,4 +81,39 @@ body {
 
 ::selection {
   background: rgba(107, 159, 255, 0.3);
+}
+
+.doc-content .doc-ul > li {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.doc-content .doc-ul > li::before {
+  content: "";
+  margin-top: 0.65rem;
+  height: 0.375rem;
+  width: 0.375rem;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: var(--primary);
+}
+
+.doc-content blockquote p {
+  margin-bottom: 0;
+}
+
+.doc-content table a {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.75rem;
+  padding: 0.375rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  text-decoration: none;
+}
+
+.doc-content table a:hover {
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
 }

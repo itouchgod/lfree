@@ -19,32 +19,35 @@ export default async function DocsPage({ params }: Props) {
   setRequestLocale(locale);
   const t = await getTranslations("docs");
   const docs = getDocs(locale as "en" | "zh").filter(
-    (d) => d.slug === "mmh-overview" || d.slug === "getting-started"
+    (d) => d.slug === "mmh-overview"
   );
 
   return (
     <>
       <PageHeader title={t("title")} description={t("description")} />
-      <section className="container pb-20">
-        <div className="grid gap-4 md:grid-cols-2">
+      <section className="container max-w-2xl pb-20">
+        <div className="space-y-4">
           {docs.map((doc) => (
             <Link key={doc.slug} href={`/docs/${doc.slug}`}>
-              <Card className="h-full transition-all hover:border-primary/30">
+              <Card className="transition-all hover:border-primary/30 hover:shadow-soft">
                 <CardHeader className="flex-row items-start gap-4 space-y-0">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <FileText className="h-5 w-5" />
                   </div>
-                  <div>
-                    <CardTitle className="text-base">{doc.frontmatter.title}</CardTitle>
-                    <p className="mt-1 text-sm text-muted-foreground">
+                  <div className="min-w-0 flex-1">
+                    <CardTitle className="text-lg">{doc.frontmatter.title}</CardTitle>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {doc.frontmatter.description}
+                    </p>
+                    <p className="mt-3 text-xs text-muted-foreground">
                       {formatDate(doc.frontmatter.date)}
                     </p>
                   </div>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    {doc.frontmatter.description}
-                  </p>
+                <CardContent className="pt-0">
+                  <span className="text-sm font-medium text-primary">
+                    {locale === "zh" ? "阅读文档 →" : "Read guide →"}
+                  </span>
                 </CardContent>
               </Card>
             </Link>
