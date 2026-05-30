@@ -1,9 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { AppScreenshots } from "@/components/app-screenshots";
-import { HeroSection } from "@/components/hero-section";
-import { Link } from "@/i18n/navigation";
+import { AppCard } from "@/components/app-card";
 import {
-  getLocalizedLatestReleasedApp,
+  getLocalizedPublishedApps,
   type AppMessages,
 } from "@/lib/data/apps-i18n";
 
@@ -15,40 +13,42 @@ export default async function HomePage({ params }: Props) {
 
   const messages = (await import(`@/messages/${locale}.json`)).default;
   const appMessages = messages.apps as Record<string, AppMessages>;
-  const app = getLocalizedLatestReleasedApp(appMessages);
+  const apps = getLocalizedPublishedApps(appMessages);
 
   const t = await getTranslations("home");
-
-  if (!app) return null;
-
-  const highlights = app.features.slice(0, 4);
+  const tStatus = await getTranslations("status");
 
   return (
     <>
-      <HeroSection app={app} />
-
-      <section className="border-t border-border/40 py-16 md:py-20">
-        <div className="container max-w-3xl">
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {highlights.map((feature) => (
-              <li
-                key={feature}
-                className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
-              >
-                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 text-center text-sm text-muted-foreground">
-            <Link href="/apps/mmh" className="text-primary hover:underline">
-              {t("fullDetails")}
-            </Link>
+      <section className="relative overflow-hidden pt-16 pb-12 md:pt-24 md:pb-16">
+        <div className="absolute inset-0 -z-10 bg-gradient-radial opacity-50" />
+        <div className="container max-w-3xl text-center">
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            {t("title")}
+          </h1>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            {t("description")}
           </p>
         </div>
       </section>
 
-      <AppScreenshots screenshots={app.screenshots ?? []} showTitle={false} />
+      <section className="border-t border-border/40 pb-24 md:pb-28">
+        <div className="container">
+          <h2 className="mb-8 text-center text-sm font-medium uppercase tracking-wider text-muted-foreground">
+            {t("products")}
+          </h2>
+          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
+            {apps.map((app) => (
+              <AppCard
+                key={app.slug}
+                app={app}
+                statusLabel={tStatus(app.status)}
+                actionLabel={t("viewApp", { name: app.name })}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

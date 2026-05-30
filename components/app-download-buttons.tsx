@@ -12,7 +12,7 @@ interface AppDownloadButtonsProps {
 
 export function AppDownloadButtons({ app, size = "default" }: AppDownloadButtonsProps) {
   const t = useTranslations("download");
-  const tApp = useTranslations("apps.mmh");
+  const tApp = useTranslations(`apps.${app.slug}`);
   const downloads = getAppDownloads(app);
   const versionLabel = app.latestVersion ? `v${app.latestVersion}` : "";
 

@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getAllContentSlugs } from "@/lib/content";
+import { appSlugFromDocSlug } from "@/lib/app-docs";
+import { getPublishedAppBySlug } from "@/lib/data/apps";
 import { getDoc } from "@/lib/data/docs";
 import { formatDate } from "@/lib/utils";
 
@@ -39,7 +41,8 @@ export default async function DocDetailPage({ params }: Props) {
   const doc = getDoc(slug, locale as "en" | "zh");
   if (!doc) notFound();
 
-  const isMmhDoc = slug === "mmh-overview";
+  const appSlug = appSlugFromDocSlug(slug);
+  const app = getPublishedAppBySlug(appSlug);
 
   return (
     <article className="pb-20">
@@ -66,11 +69,11 @@ export default async function DocDetailPage({ params }: Props) {
           <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
             {doc.frontmatter.description}
           </p>
-          {isMmhDoc && (
+          {app && (
             <Button className="mt-6" asChild>
-              <Link href="/apps/mmh">
+              <Link href={`/apps/${app.slug}`}>
                 <Download className="h-4 w-4" />
-                {tNav("download")} MMH
+                {tNav("download")} {app.name}
               </Link>
             </Button>
           )}

@@ -8,6 +8,7 @@ import { Badge, statusToBadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
+import { docSlugForApp } from "@/lib/app-docs";
 import { appsBase } from "@/lib/data/apps-i18n";
 import {
   getLocalizedApp,
@@ -45,9 +46,10 @@ export default async function AppDetailPage({ params }: Props) {
   if (!app) notFound();
 
   const t = await getTranslations("appDetail");
-  const tMmh = await getTranslations("apps.mmh");
+  const tApp = await getTranslations(`apps.${slug}`);
   const tStatus = await getTranslations("status");
   const changelog = getChangelogByApp(slug, locale as "en" | "zh").slice(0, 2);
+  const docSlug = docSlugForApp(slug);
 
   return (
     <>
@@ -72,24 +74,25 @@ export default async function AppDetailPage({ params }: Props) {
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="/docs/mmh-overview">
+                <Link href={`/docs/${docSlug}`}>
                   <BookOpen className="h-4 w-4" />
                   {t("documentation")}
                 </Link>
+              </Button>
+              <Button variant="ghost" asChild>
+                <Link href="/apps">{t("allApps")}</Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {slug === "mmh" && (
-        <section className="container pb-8">
-          <div className="rounded-2xl border border-border/50 bg-card/40 p-6 text-sm leading-relaxed text-muted-foreground">
-            <p className="font-medium text-foreground">{tMmh("installNoteTitle")}</p>
-            <p className="mt-2">{tMmh("installNote")}</p>
-          </div>
-        </section>
-      )}
+      <section className="container pb-8">
+        <div className="max-w-3xl rounded-2xl border border-border/50 bg-card/40 p-6 text-sm leading-relaxed text-muted-foreground">
+          <p className="font-medium text-foreground">{tApp("installNoteTitle")}</p>
+          <p className="mt-2">{tApp("installNote")}</p>
+        </div>
+      </section>
 
       <AppScreenshots screenshots={app.screenshots ?? []} />
 
@@ -145,8 +148,8 @@ export default async function AppDetailPage({ params }: Props) {
 
       <section className="container pb-20">
         <div className="rounded-2xl border border-border/50 bg-card/30 p-8 text-center">
-          <h2 className="text-xl font-semibold">{tMmh("ctaTitle")}</h2>
-          <p className="mt-2 text-muted-foreground">{tMmh("ctaDescription")}</p>
+          <h2 className="text-xl font-semibold">{tApp("ctaTitle")}</h2>
+          <p className="mt-2 text-muted-foreground">{tApp("ctaDescription")}</p>
           <Button className="mt-6" variant="secondary" asChild>
             <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
           </Button>

@@ -1,14 +1,16 @@
 {
   "meta": {
-    "siteTitle": "LFree — MMH macOS 隐私工具",
-    "siteDescription": "MMH — 安静、本地的 macOS 应用，用加密保护你的照片、视频与本地文件。"
+    "siteTitle": "LFree — itouchgod 的 macOS 应用",
+    "siteDescription": "MMH 与 FileNest — 本地优先的 macOS 工具：私人媒体保护与常用文件夹快速访问。"
   },
   "nav": {
+    "apps": "应用",
     "mmh": "MMH",
+    "filenest": "FileNest",
     "docs": "文档",
     "changelog": "更新日志",
     "download": "下载",
-    "downloadMmh": "下载 MMH",
+    "downloadApps": "下载应用",
     "openMenu": "打开菜单",
     "closeMenu": "关闭"
   },
@@ -18,7 +20,10 @@
     "switch": "语言"
   },
   "home": {
-    "fullDetails": "完整介绍、截图与常见问题 →"
+    "title": "为 macOS 打造的本地工具",
+    "description": "独立开发的隐私与效率应用 — 无需账号，不依赖云端。",
+    "products": "应用",
+    "viewApp": "查看 {name} →"
   },
   "apps": {
     "mmh": {
@@ -68,6 +73,46 @@
       ],
       "ctaTitle": "对 MMH 感兴趣？",
       "ctaDescription": "欢迎反馈或咨询使用问题。"
+    },
+    "filenest": {
+      "name": "FileNest",
+      "tagline": "在 macOS 上收藏、打标签并快速打开常用文件夹",
+      "description": "轻量级 macOS 文件夹管理工具：拖入常用目录，添加标签与收藏，搜索后从窗口或菜单栏一键用访达打开。",
+      "type": "macOS 文件夹管理",
+      "installNoteTitle": "安装说明",
+      "installNote": "下载后解压（或使用 DMG），将 FileNest.app 拖入「应用程序」，从启动台打开。首次打开时，macOS 可能要求在「隐私与安全性」中允许运行。",
+      "installationGuide": "安装指南 →",
+      "downloadChoose": "下载 {name} {version} — 请选择 Mac 芯片版本：",
+      "comingSoon": "即将推出",
+      "features": [
+        "拖入文件夹，用自定义标签分类整理",
+        "收藏夹与全文搜索，快速定位目录",
+        "一键在访达中打开任意条目",
+        "菜单栏快速访问与最近打开记录",
+        "JSON 导入导出备份，数据仅存本机",
+        "无需登录，不依赖云同步"
+      ],
+      "faq": [
+        {
+          "question": "应该下载哪个版本？",
+          "answer": "Apple 芯片（M1/M2/M3/M4）或 Intel — 在「关于本机」中查看芯片/处理器。下载对应 .zip，解压后打开 FileNest.app。"
+        },
+        {
+          "question": "数据保存在哪里？",
+          "answer": "文件夹、标签与设置均以 JSON 形式保存在 Mac 本地。FileNest 不需要登录，也不会同步到云端。"
+        },
+        {
+          "question": "和访达有什么区别？",
+          "answer": "访达适合浏览任意路径。FileNest 把你关心的目录集中在一处，可打标签、可搜索，从窗口或菜单栏即可进入，不必层层点开文件夹。"
+        },
+        {
+          "question": "支持哪些 macOS 版本？",
+          "answer": "FileNest 面向 macOS 13 Ventura 及更高版本。"
+        }
+      ],
+      "screenshots": [],
+      "ctaTitle": "关于 FileNest 有问题？",
+      "ctaDescription": "欢迎邮件反馈问题或功能建议。"
     }
   },
   "screenshotTabs": ["首次设置", "解锁", "主界面"],
@@ -87,14 +132,14 @@
   },
   "changelog": {
     "title": "更新日志",
-    "description": "MMH 版本记录",
+    "description": "MMH 与 FileNest 版本记录",
     "empty": "暂无记录",
-    "backToMmh": "← MMH",
+    "backToApps": "← 全部应用",
     "backToAll": "更新日志"
   },
   "docs": {
     "title": "文档",
-    "description": "MMH 使用指南与参考。",
+    "description": "LFree 应用使用指南与参考。",
     "back": "返回文档"
   },
   "privacy": {
@@ -136,6 +181,7 @@
   "loading": "加载中...",
   "footer": {
     "mmh": "MMH",
+    "filenest": "FileNest",
     "documentation": "文档",
     "changelog": "更新日志",
     "privacy": "隐私",

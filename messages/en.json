@@ -1,14 +1,16 @@
 {
   "meta": {
-    "siteTitle": "LFree — MMH for macOS",
-    "siteDescription": "MMH — a calm macOS app for protecting your photos, videos and local files with local-only encryption."
+    "siteTitle": "LFree — macOS apps by itouchgod",
+    "siteDescription": "MMH and FileNest — local-first macOS tools for private media protection and fast folder access."
   },
   "nav": {
+    "apps": "Apps",
     "mmh": "MMH",
+    "filenest": "FileNest",
     "docs": "Docs",
     "changelog": "Changelog",
     "download": "Download",
-    "downloadMmh": "Download MMH",
+    "downloadApps": "Download apps",
     "openMenu": "Open menu",
     "closeMenu": "Close"
   },
@@ -18,7 +20,10 @@
     "switch": "Language"
   },
   "home": {
-    "fullDetails": "Full details, screenshots & FAQ →"
+    "title": "macOS tools, built locally",
+    "description": "Independent apps for privacy and productivity — no accounts, no cloud required.",
+    "products": "Apps",
+    "viewApp": "View {name} →"
   },
   "apps": {
     "mmh": {
@@ -68,6 +73,46 @@
       ],
       "ctaTitle": "Interested in MMH?",
       "ctaDescription": "Get in touch for feedback or questions about the app."
+    },
+    "filenest": {
+      "name": "FileNest",
+      "tagline": "Collect, tag, and open your favorite folders on macOS",
+      "description": "A lightweight macOS tool to manage and quickly access frequently used folders. Drag folders in, add tags and favorites, search, and open them in Finder from the app or menu bar.",
+      "type": "macOS Folder Manager",
+      "installNoteTitle": "Install note",
+      "installNote": "After download, unzip the archive (or use the DMG), drag FileNest.app to Applications, then open from Launchpad. On first launch, macOS may ask you to allow the app in Privacy & Security settings.",
+      "installationGuide": "Installation guide →",
+      "downloadChoose": "Download {name} {version} — choose your Mac chip:",
+      "comingSoon": "Coming Soon",
+      "features": [
+        "Drag folders in and organize with custom tags",
+        "Favorites and fast search across your library",
+        "Open any entry in Finder with one click",
+        "Menu bar quick access and recent folders",
+        "Import and export JSON backups — data stays local",
+        "No account, no cloud sync required"
+      ],
+      "faq": [
+        {
+          "question": "Which download should I choose?",
+          "answer": "Apple Silicon (M1/M2/M3/M4) or Intel — check About This Mac → Chip / Processor. Download the matching .zip, unzip, and open FileNest.app."
+        },
+        {
+          "question": "Where is my data stored?",
+          "answer": "All folders, tags, and settings are saved locally on your Mac as JSON. FileNest does not require login and does not sync to the cloud."
+        },
+        {
+          "question": "How is FileNest different from Finder?",
+          "answer": "Finder is great for browsing any path. FileNest keeps the folders you care about in one place — tagged, searchable, and reachable from the window or menu bar."
+        },
+        {
+          "question": "Which macOS versions are supported?",
+          "answer": "FileNest targets macOS 13 Ventura and later."
+        }
+      ],
+      "screenshots": [],
+      "ctaTitle": "Questions about FileNest?",
+      "ctaDescription": "Email us for feedback, bugs, or feature ideas."
     }
   },
   "screenshotTabs": ["Setup", "Unlock", "Vault"],
@@ -87,14 +132,14 @@
   },
   "changelog": {
     "title": "Changelog",
-    "description": "MMH release history.",
+    "description": "Release history for MMH and FileNest.",
     "empty": "No releases yet.",
-    "backToMmh": "← MMH",
+    "backToApps": "← All apps",
     "backToAll": "Changelog"
   },
   "docs": {
     "title": "Documentation",
-    "description": "Guides and references for MMH.",
+    "description": "Guides and references for LFree apps.",
     "back": "Back to docs"
   },
   "privacy": {
@@ -136,6 +181,7 @@
   "loading": "Loading...",
   "footer": {
     "mmh": "MMH",
+    "filenest": "FileNest",
     "documentation": "Documentation",
     "changelog": "Changelog",
     "privacy": "Privacy",

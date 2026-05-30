@@ -92,9 +92,16 @@ lib/
 | `/privacy` | 隐私政策 |
 | `/terms` | 服务条款 |
 
+## 已发布应用
+
+| App | 仓库 | 版本 |
+|-----|------|------|
+| MMH | [itouchgod/mmh](https://github.com/itouchgod/mmh) | v1.0.0 |
+| FileNest | [itouchgod/filenest](https://github.com/itouchgod/filenest) | v0.1.3 |
+
 ## 添加内容
 
-- **新 App**：编辑 `lib/data/apps.ts`
+- **新 App**：编辑 `lib/data/apps.ts`，并在 `messages/en.json` / `messages/zh.json` 的 `apps` 下增加翻译；文档放在 `content/docs/{slug}-overview.md`
 - **新博客/文档/日志**：在 `content/blog|docs|changelog/` 下新增 `.md` 文件，使用 YAML frontmatter
 
 ## 环境变量

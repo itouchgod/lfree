@@ -108,29 +108,53 @@ export const apps: App[] = [
   {
     slug: "filenest",
     name: "FileNest",
-    tagline: "Visual folder launcher for power users",
+    tagline: "Collect, tag, and open your favorite folders on macOS",
     description:
-      "A visual folder launcher for quickly accessing frequently used directories.",
-    type: "macOS Productivity Tool",
-    status: "Prototype",
-    featured: false,
-    published: false,
+      "A lightweight macOS desktop tool to manage and quickly access frequently used folders. Drag folders in, add tags and favorites, search, and open them in Finder from the app window or menu bar.",
+    type: "macOS Folder Manager",
+    status: "Released",
+    featured: true,
+    published: true,
+    latestVersion: "0.1.3",
+    downloads: [
+      {
+        label: "Apple Silicon",
+        arch: "apple-silicon",
+        url: "https://github.com/itouchgod/filenest/releases/download/v0.1.3/FileNest-mac-arm64.zip",
+      },
+      {
+        label: "Intel",
+        arch: "intel",
+        url: "https://github.com/itouchgod/filenest/releases/download/v0.1.3/FileNest-mac-x64.zip",
+      },
+    ],
     features: [
-      "Grid of favorite folders with custom icons",
-      "Global hotkey to open from anywhere",
-      "Recent directories and smart suggestions",
-      "Per-workspace layouts for different projects",
-      "Lightweight menu bar companion",
+      "Drag folders in and organize with custom tags",
+      "Favorites and fast search across your library",
+      "Open any entry in Finder with one click",
+      "Menu bar quick access and recent folders",
+      "Import and export JSON backups — data stays local",
+      "No account, no cloud sync required",
     ],
     faq: [
       {
-        question: "How is FileNest different from Finder?",
+        question: "Which download should I choose?",
         answer:
-          "FileNest focuses on speed — one hotkey to reach your most-used folders without navigating nested paths.",
+          "Apple Silicon (M1/M2/M3/M4) or Intel — check About This Mac → Chip / Processor. Download the matching .zip, unzip, and open FileNest.app.",
       },
       {
-        question: "Can I sync layouts across Macs?",
-        answer: "Sync is planned for a future release via iCloud or manual export.",
+        question: "Where is my data stored?",
+        answer:
+          "All folders, tags, and settings are saved locally on your Mac as JSON. FileNest does not require login and does not sync to the cloud.",
+      },
+      {
+        question: "How is FileNest different from Finder?",
+        answer:
+          "Finder is great for browsing any path. FileNest keeps the folders you care about in one place — tagged, searchable, and reachable from the window or menu bar without digging through nested directories.",
+      },
+      {
+        question: "Which macOS versions are supported?",
+        answer: "FileNest targets macOS 13 Ventura and later.",
       },
     ],
   },

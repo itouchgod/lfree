@@ -3,6 +3,8 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/page-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "@/i18n/navigation";
+import { docSlugForApp } from "@/lib/app-docs";
+import { getPublishedApps } from "@/lib/data/apps";
 import { getDocs } from "@/lib/data/docs";
 import { formatDate } from "@/lib/utils";
 
@@ -18,8 +20,11 @@ export default async function DocsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("docs");
-  const docs = getDocs(locale as "en" | "zh").filter(
-    (d) => d.slug === "mmh-overview"
+  const publishedDocSlugs = new Set(
+    getPublishedApps().map((app) => docSlugForApp(app.slug))
+  );
+  const docs = getDocs(locale as "en" | "zh").filter((d) =>
+    publishedDocSlugs.has(d.slug)
   );
 
   return (

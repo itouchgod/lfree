@@ -9,7 +9,8 @@ Welcome to the documentation center.
 
 ## Browse by product
 
-- [MMH Overview](/docs/mmh-overview) — privacy utility setup (preview)
+- [MMH Overview](/docs/mmh-overview) — private media protection for macOS
+- [FileNest Overview](/docs/filenest-overview) — folder manager setup and download
 - App-specific guides will expand as products reach public beta
 
 ## Support

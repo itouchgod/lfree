@@ -12,14 +12,15 @@ export const siteConfig = {
 } as const;
 
 export const navHrefs = [
-  { href: "/apps/mmh", key: "mmh" as const },
+  { href: "/apps", key: "apps" as const },
   { href: "/docs", key: "docs" as const },
   { href: "/changelog", key: "changelog" as const },
 ] as const;
 
 export const footerHrefs = [
   { href: "/apps/mmh", key: "mmh" as const },
-  { href: "/docs/mmh-overview", key: "documentation" as const },
+  { href: "/apps/filenest", key: "filenest" as const },
+  { href: "/docs", key: "documentation" as const },
   { href: "/changelog", key: "changelog" as const },
   { href: "/privacy", key: "privacy" as const },
   { href: "/terms", key: "terms" as const },

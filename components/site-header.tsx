@@ -44,7 +44,7 @@ export function SiteHeader() {
         <div className="hidden items-center gap-3 md:flex">
           <LocaleSwitcher />
           <Button asChild>
-            <Link href="/apps/mmh">{t("download")}</Link>
+            <Link href="/apps">{t("download")}</Link>
           </Button>
         </div>
 
@@ -75,8 +75,8 @@ export function SiteHeader() {
                 ))}
                 <hr className="my-4 border-border" />
                 <Button asChild className="w-full">
-                  <Link href="/apps/mmh" onClick={() => setOpen(false)}>
-                    {t("downloadMmh")}
+                  <Link href="/apps" onClick={() => setOpen(false)}>
+                    {t("downloadApps")}
                   </Link>
                 </Button>
               </div>

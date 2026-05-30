@@ -14,7 +14,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ app }: HeroSectionProps) {
-  const t = useTranslations("apps.mmh");
+  const t = useTranslations(`apps.${app.slug}`);
   const heroScreenshot = app.screenshots?.[2] ?? app.screenshots?.[0];
 
   return (
@@ -44,7 +44,9 @@ export function HeroSection({ app }: HeroSectionProps) {
               asChild
               className="px-0 text-muted-foreground hover:text-foreground"
             >
-              <Link href="/docs/mmh-overview">{t("installationGuide")}</Link>
+              <Link href={`/docs/${app.slug}-overview`}>
+                {t("installationGuide")}
+              </Link>
             </Button>
           </motion.div>
 

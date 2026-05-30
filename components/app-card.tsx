@@ -1,14 +1,16 @@
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Badge, statusToBadgeVariant } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "@/i18n/navigation";
 import type { App } from "@/lib/data/apps";
 
 interface AppCardProps {
   app: App;
+  statusLabel: string;
+  actionLabel: string;
 }
 
-export function AppCard({ app }: AppCardProps) {
+export function AppCard({ app, statusLabel, actionLabel }: AppCardProps) {
   return (
     <Link href={`/apps/${app.slug}`} className="group block h-full">
       <Card className="h-full transition-all duration-300 hover:border-primary/30 hover:shadow-glow">
@@ -24,9 +26,17 @@ export function AppCard({ app }: AppCardProps) {
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm leading-relaxed text-muted-foreground">
-            {app.description}
+            {app.tagline}
           </p>
-          <Badge variant={statusToBadgeVariant(app.status)}>{app.status}</Badge>
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <Badge variant={statusToBadgeVariant(app.status)}>{statusLabel}</Badge>
+            {app.latestVersion && (
+              <span className="text-xs text-muted-foreground">v{app.latestVersion}</span>
+            )}
+          </div>
+          <span className="inline-block text-sm font-medium text-primary">
+            {actionLabel}
+          </span>
         </CardContent>
       </Card>
     </Link>
