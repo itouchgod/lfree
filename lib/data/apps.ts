@@ -157,6 +157,23 @@ export const apps: App[] = [
         answer: "FileNest targets macOS 13 Ventura and later.",
       },
     ],
+    screenshots: [
+      {
+        src: "/apps/filenest/main.png",
+        alt: "FileNest main window — folder cards with paths, favorites, and search",
+        caption: "Folder library — favorites, search, and grid layout",
+      },
+      {
+        src: "/apps/filenest/grid.png",
+        alt: "FileNest compact grid view with folder icons",
+        caption: "Compact grid — quick visual scan of your folders",
+      },
+      {
+        src: "/apps/filenest/edit.png",
+        alt: "FileNest edit folder dialog with tags and display name",
+        caption: "Edit folder — tags, favorites, and custom display name",
+      },
+    ],
   },
   {
     slug: "lc-app",

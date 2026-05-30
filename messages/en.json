@@ -57,6 +57,7 @@
           "answer": "MMH targets macOS 14 Sonoma and later."
         }
       ],
+      "screenshotTabs": ["Setup", "Unlock", "Vault"],
       "screenshots": [
         {
           "alt": "MMH initial setup — select encrypted storage folder and create master password",
@@ -110,12 +111,25 @@
           "answer": "FileNest targets macOS 13 Ventura and later."
         }
       ],
-      "screenshots": [],
+      "screenshots": [
+        {
+          "alt": "FileNest main window — folder cards with paths, favorites, and search",
+          "caption": "Folder library — favorites, search, and grid layout"
+        },
+        {
+          "alt": "FileNest compact grid view with folder icons",
+          "caption": "Compact grid — quick visual scan of your folders"
+        },
+        {
+          "alt": "FileNest edit folder dialog with tags and display name",
+          "caption": "Edit folder — tags, favorites, and custom display name"
+        }
+      ],
+      "screenshotTabs": ["Library", "Grid", "Edit"],
       "ctaTitle": "Questions about FileNest?",
       "ctaDescription": "Email us for feedback, bugs, or feature ideas."
     }
   },
-  "screenshotTabs": ["Setup", "Unlock", "Vault"],
   "appDetail": {
     "screenshots": "Screenshots",
     "features": "Features",

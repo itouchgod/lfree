@@ -94,7 +94,10 @@ export default async function AppDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <AppScreenshots screenshots={app.screenshots ?? []} />
+      <AppScreenshots
+        screenshots={app.screenshots ?? []}
+        dotLabels={appMessages[slug]?.screenshotTabs ?? []}
+      />
 
       <section className="border-y border-border/40 bg-card/20 py-16">
         <div className="container">

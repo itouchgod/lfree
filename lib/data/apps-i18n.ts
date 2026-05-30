@@ -19,6 +19,7 @@ export type AppMessages = {
   features: string[];
   faq: { question: string; answer: string }[];
   screenshots: { alt: string; caption: string }[];
+  screenshotTabs?: string[];
   ctaTitle?: string;
   ctaDescription?: string;
 };
