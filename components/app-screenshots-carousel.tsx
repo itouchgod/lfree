@@ -11,12 +11,14 @@ interface AppScreenshotsCarouselProps {
   screenshots: AppScreenshot[];
   title?: string;
   dotLabels?: string[];
+  layout?: "uniform" | "mixed";
 }
 
 export function AppScreenshotsCarousel({
   screenshots,
   title,
   dotLabels = [],
+  layout = "mixed",
 }: AppScreenshotsCarouselProps) {
   const [active, setActive] = useState(0);
   const count = screenshots.length;
@@ -32,7 +34,8 @@ export function AppScreenshotsCarousel({
   if (count === 0) return null;
 
   const current = screenshots[active];
-  const isMainView = active === count - 1;
+  const isUniform = layout === "uniform";
+  const isMainView = !isUniform && active === count - 1;
   const canPrev = active > 0;
   const canNext = active < count - 1;
 
@@ -52,7 +55,7 @@ export function AppScreenshotsCarousel({
         <div
           className={cn(
             "relative flex items-center justify-center px-12 md:px-16",
-            isMainView
+            isUniform || isMainView
               ? "min-h-[380px] md:min-h-[460px]"
               : "min-h-[320px] md:min-h-[400px]"
           )}
@@ -83,8 +86,8 @@ export function AppScreenshotsCarousel({
               transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
               className={cn(
                 "relative mx-auto",
-                isMainView
-                  ? "h-[320px] w-full max-w-4xl md:h-[420px]"
+                isUniform || isMainView
+                  ? "aspect-[1024/694] w-full max-w-4xl"
                   : "h-[260px] w-[200px] sm:h-[280px] sm:w-[220px]"
               )}
             >
@@ -93,7 +96,11 @@ export function AppScreenshotsCarousel({
                 alt={current.alt}
                 fill
                 className="object-contain object-center drop-shadow-2xl"
-                sizes={isMainView ? "(max-width: 1024px) 90vw, 896px" : "220px"}
+                sizes={
+                  isUniform || isMainView
+                    ? "(max-width: 1024px) 90vw, 896px"
+                    : "220px"
+                }
                 priority={active === 0}
               />
             </motion.div>

@@ -38,6 +38,8 @@ export interface App {
   /** Visible on site listings and navigation */
   published?: boolean;
   screenshots?: AppScreenshot[];
+  /** uniform = same frame for every slide (landscape); mixed = compact slides + large last (MMH) */
+  screenshotLayout?: "uniform" | "mixed";
 }
 
 export const apps: App[] = [
@@ -157,6 +159,7 @@ export const apps: App[] = [
         answer: "FileNest targets macOS 13 Ventura and later.",
       },
     ],
+    screenshotLayout: "uniform",
     screenshots: [
       {
         src: "/apps/filenest/main.png",

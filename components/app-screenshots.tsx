@@ -6,12 +6,14 @@ interface AppScreenshotsProps {
   screenshots: AppScreenshot[];
   showTitle?: boolean;
   dotLabels?: string[];
+  layout?: "uniform" | "mixed";
 }
 
 export async function AppScreenshots({
   screenshots,
   showTitle = true,
   dotLabels = [],
+  layout = "mixed",
 }: AppScreenshotsProps) {
   if (screenshots.length === 0) return null;
 
@@ -22,6 +24,7 @@ export async function AppScreenshots({
       screenshots={screenshots}
       title={showTitle ? t("screenshots") : undefined}
       dotLabels={dotLabels}
+      layout={layout}
     />
   );
 }
