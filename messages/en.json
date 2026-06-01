@@ -8,6 +8,7 @@
     "mmh": "MMH",
     "filenest": "FileNest",
     "docs": "Docs",
+    "blog": "Blog",
     "changelog": "Changelog",
     "download": "Download",
     "downloadApps": "Download apps",
@@ -20,10 +21,35 @@
     "switch": "Language"
   },
   "home": {
+    "eyebrow": "Local-first · Indie-built · macOS",
     "title": "macOS tools, built locally",
-    "description": "Independent apps for privacy and productivity — no accounts, no cloud required.",
+    "description": "A focused product library for independent Mac apps, release notes, docs, and practical local-first workflows.",
+    "primaryCta": "Browse Apps",
+    "secondaryCta": "See Updates",
+    "featured": "Featured App",
     "products": "Apps",
-    "viewApp": "View {name} →"
+    "productsTitle": "Current public products",
+    "allApps": "All apps",
+    "latestUpdates": "Latest Updates",
+    "viewChangelog": "View full changelog",
+    "guides": "Guides",
+    "viewApp": "View {name} →",
+    "stats": {
+      "apps": "Public apps",
+      "released": "Released",
+      "updates": "Recent updates"
+    }
+  },
+  "appsPage": {
+    "description": "Browse LFree's public macOS apps and filter by type, status, or keyword.",
+    "searchPlaceholder": "Search apps, tags, or use cases",
+    "allCategories": "All categories",
+    "allStatuses": "All statuses",
+    "filters": "Filters",
+    "empty": "No matching apps found.",
+    "showing": "Showing",
+    "result": "result",
+    "results": "results"
   },
   "apps": {
     "mmh": {
@@ -31,6 +57,20 @@
       "tagline": "Private media protection for macOS",
       "description": "A private and calm macOS app for protecting personal photos, videos and local files.",
       "type": "macOS Privacy Utility",
+      "category": "Privacy",
+      "tags": ["Encryption", "Local-first", "Media vault", "No account"],
+      "homeHighlights": [
+        "Private vault for personal photos and videos",
+        "Designed around local-only storage",
+        "Two-chip downloads for Apple Silicon and Intel Macs"
+      ],
+      "metadata": {
+        "macos": "macOS 14 Sonoma or later",
+        "downloadFormat": ".zip app bundle",
+        "dataLocation": "Local encrypted vault folder",
+        "networkAccess": "No cloud sync or account required",
+        "releaseChannel": "GitHub Releases"
+      },
       "installNoteTitle": "Install note",
       "installNote": "After download, unzip the archive, drag MMH.app to Applications, then open from Launchpad. On first launch, macOS may ask you to allow the app in Privacy & Security settings.",
       "installationGuide": "Installation guide →",
@@ -80,6 +120,20 @@
       "tagline": "Collect, tag, and open your favorite folders on macOS",
       "description": "A lightweight macOS tool to manage and quickly access frequently used folders. Drag folders in, add tags and favorites, search, and open them in Finder from the app or menu bar.",
       "type": "macOS Folder Manager",
+      "category": "Productivity",
+      "tags": ["Folder launcher", "Tags", "Menu bar", "Local JSON"],
+      "homeHighlights": [
+        "Fast access to the folders you use every day",
+        "Search, tags and favorites without a cloud account",
+        "Menu bar access plus JSON backup import/export"
+      ],
+      "metadata": {
+        "macos": "macOS 13 Ventura or later",
+        "downloadFormat": ".zip app bundle",
+        "dataLocation": "Local JSON library on your Mac",
+        "networkAccess": "No login or cloud sync required",
+        "releaseChannel": "GitHub Releases"
+      },
       "installNoteTitle": "Install note",
       "installNote": "After download, unzip the archive (or use the DMG), drag FileNest.app to Applications, then open from Launchpad. On first launch, macOS may ask you to allow the app in Privacy & Security settings.",
       "installationGuide": "Installation guide →",
@@ -139,10 +193,51 @@
     "documentation": "Documentation",
     "allApps": "All Apps"
   },
+  "appInfo": {
+    "title": "App Info",
+    "version": "Version",
+    "updated": "Updated",
+    "macos": "macOS",
+    "architecture": "Chip",
+    "format": "Format",
+    "data": "Data",
+    "network": "Network",
+    "channel": "Release"
+  },
   "download": {
     "appleSilicon": "Apple Silicon",
     "intel": "Intel",
     "download": "Download"
+  },
+  "downloadPanel": {
+    "eyebrow": "Download",
+    "title": "Choose the build for your Mac",
+    "description": "Download {name} {version}. If you're not sure which chip you have, check About This Mac.",
+    "comingSoon": "Coming Soon",
+    "installTitle": "Install note",
+    "installDescription": "After download, unzip the archive and move the app into Applications. If macOS blocks the first launch, allow it in Privacy & Security.",
+    "releaseNotes": "View release notes",
+    "repository": "View GitHub repository"
+  },
+  "search": {
+    "title": "Search",
+    "description": "Search apps, docs, release notes, and writing.",
+    "label": "Site search",
+    "placeholder": "Search apps, docs, or updates",
+    "count": "{count} results for \"{query}\"",
+    "starter": "Showing {count} useful entries",
+    "empty": "No matching content found.",
+    "types": {
+      "app": "App",
+      "doc": "Doc",
+      "changelog": "Update",
+      "blog": "Article"
+    }
+  },
+  "cta": {
+    "title": "Keep exploring LFree",
+    "description": "Browse apps, read the docs, or download the macOS tools that are available today.",
+    "primary": "Download MMH"
   },
   "changelog": {
     "title": "Changelog",
@@ -155,6 +250,49 @@
     "title": "Documentation",
     "description": "Guides and references for LFree apps.",
     "back": "Back to docs"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Notes on building calm macOS apps, privacy tools, and local-first workflows.",
+    "back": "Back to blog"
+  },
+  "about": {
+    "title": "About",
+    "description": "A personal software lab focused on privacy, productivity and thoughtful workflows.",
+    "body1": "{name} is an independent product site for macOS utilities, productivity apps, and custom workflow systems.",
+    "body2": "Current projects include MMH, FileNest, and the internal LC App workflow tool. They share one direction: quiet interfaces, local data when it matters, and features shaped around real work.",
+    "builtBy": "Built by",
+    "reachOut": "Reach out at",
+    "body3": "This site ({host}) is the home for releases, documentation, changelogs, and writing from the lab."
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "Indie apps stay lightweight and affordable; custom workflow work is quoted clearly.",
+    "note": "Formal checkout options will be added alongside the public release roadmap.",
+    "plans": [
+      {
+        "name": "Indie Apps",
+        "price": "TBD",
+        "description": "One-time purchase or free download plans for public macOS utilities.",
+        "features": ["Updates within major versions", "Email support", "Early beta access", "Built for individual users"],
+        "cta": "Join Waitlist"
+      },
+      {
+        "name": "Pro / Teams",
+        "price": "Custom",
+        "description": "For quote, confirmation, invoice, and document workflows such as LC App.",
+        "features": ["Custom deployment", "Branded document templates", "Integration planning", "Priority support"],
+        "cta": "Email",
+        "highlighted": true
+      },
+      {
+        "name": "Sponsor",
+        "price": "Optional",
+        "description": "Support ongoing development of privacy-first indie software.",
+        "features": ["Early beta access", "Direct feedback channel", "Helps fund MMH and FileNest", "Optional public credit"],
+        "cta": "Get in Touch"
+      }
+    ]
   },
   "privacy": {
     "title": "Privacy Policy",
@@ -197,7 +335,9 @@
     "mmh": "MMH",
     "filenest": "FileNest",
     "documentation": "Documentation",
+    "blog": "Blog",
     "changelog": "Changelog",
+    "about": "About",
     "privacy": "Privacy",
     "terms": "Terms"
   }

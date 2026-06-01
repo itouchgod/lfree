@@ -1,66 +1,40 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Check } from "lucide-react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { CtaSection } from "@/components/cta-section";
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Pricing",
-  description: "Simple pricing for indie apps and custom workflow tooling.",
+type Props = { params: Promise<{ locale: string }> };
+
+type Plan = {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  cta: string;
+  highlighted?: boolean;
 };
 
-const plans = [
-  {
-    name: "Indie Apps",
-    price: "TBD",
-    description: "One-time purchase for public macOS utilities when released.",
-    features: [
-      "Lifetime updates for major versions",
-      "Family sharing on App Store (where applicable)",
-      "Email support",
-      "Early access for waitlist members",
-    ],
-    cta: "Join Waitlist",
-    href: `mailto:${siteConfig.email}`,
-  },
-  {
-    name: "Pro / Teams",
-    price: "Custom",
-    description: "For workflow systems like LC App and bespoke business tooling.",
-    features: [
-      "Custom deployment",
-      "Document templates & branding",
-      "Integration planning",
-      "Priority support channel",
-    ],
-    cta: "Email",
-    href: `mailto:${siteConfig.email}`,
-    highlighted: true,
-  },
-  {
-    name: "Sponsor",
-    price: "Optional",
-    description: "Support ongoing development of privacy-first indie software.",
-    features: [
-      "Name in supporters page (optional)",
-      "Early beta access",
-      "Direct feedback channel",
-      "Helps fund MMH & FileNest",
-    ],
-    cta: "Get in Touch",
-    href: `mailto:${siteConfig.email}`,
-  },
-];
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "pricing" });
+  return { title: t("title"), description: t("description") };
+}
 
-export default function PricingPage() {
+export default async function PricingPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("pricing");
+  const plans = t.raw("plans") as Plan[];
+
   return (
     <>
       <PageHeader
-        title="Pricing"
-        description="Fair, transparent pricing — indie apps stay affordable; custom work is quoted clearly."
+        title={t("title")}
+        description={t("description")}
       />
       <section className="container pb-20">
         <div className="grid gap-6 lg:grid-cols-3">
@@ -92,18 +66,14 @@ export default function PricingPage() {
                   variant={plan.highlighted ? "default" : "secondary"}
                   asChild
                 >
-                  {plan.href.startsWith("mailto:") ? (
-                    <a href={plan.href}>{plan.cta}</a>
-                  ) : (
-                    <Link href={plan.href}>{plan.cta}</Link>
-                  )}
+                  <a href={`mailto:${siteConfig.email}`}>{plan.cta}</a>
                 </Button>
               </CardContent>
             </Card>
           ))}
         </div>
         <p className="mt-12 text-center text-sm text-muted-foreground">
-          Stripe checkout integration planned — pricing will be finalized before public launch.
+          {t("note")}
         </p>
       </section>
       <CtaSection />

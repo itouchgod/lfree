@@ -27,13 +27,25 @@ export interface App {
   tagline: string;
   description: string;
   type: string;
+  category: string;
+  tags: string[];
   status: AppStatus;
   features: string[];
+  homeHighlights: string[];
   faq: AppFaq[];
   /** @deprecated Prefer `downloads` for multi-arch macOS builds */
   downloadUrl?: string;
   downloads?: AppDownload[];
   latestVersion?: string;
+  releasedAt?: string;
+  updatedAt?: string;
+  macos: string;
+  downloadFormat: string;
+  dataLocation: string;
+  networkAccess: string;
+  releaseChannel?: string;
+  repositoryUrl?: string;
+  releaseUrl?: string;
   featured?: boolean;
   /** Visible on site listings and navigation */
   published?: boolean;
@@ -50,10 +62,21 @@ export const apps: App[] = [
     description:
       "A private and calm macOS app for protecting personal photos, videos and local files.",
     type: "macOS Privacy Utility",
+    category: "Privacy",
+    tags: ["Encryption", "Local-first", "Media vault", "No account"],
     status: "Released",
     featured: true,
     published: true,
     latestVersion: "1.0.0",
+    releasedAt: "2026-05-18",
+    updatedAt: "2026-05-18",
+    macos: "macOS 14 Sonoma or later",
+    downloadFormat: ".zip app bundle",
+    dataLocation: "Local encrypted vault folder",
+    networkAccess: "No cloud sync or account required",
+    releaseChannel: "GitHub Releases",
+    repositoryUrl: "https://github.com/itouchgod/mmh",
+    releaseUrl: "https://github.com/itouchgod/mmh/releases/tag/v1.0.0",
     downloads: [
       {
         label: "Apple Silicon",
@@ -90,6 +113,11 @@ export const apps: App[] = [
       "No cloud sync — your data stays on device",
       "Minimal UI designed for daily calm use",
     ],
+    homeHighlights: [
+      "Private vault for personal photos and videos",
+      "Designed around local-only storage",
+      "Two-chip downloads for Apple Silicon and Intel Macs",
+    ],
     faq: [
       {
         question: "Which download should I choose?",
@@ -114,10 +142,21 @@ export const apps: App[] = [
     description:
       "A lightweight macOS desktop tool to manage and quickly access frequently used folders. Drag folders in, add tags and favorites, search, and open them in Finder from the app window or menu bar.",
     type: "macOS Folder Manager",
+    category: "Productivity",
+    tags: ["Folder launcher", "Tags", "Menu bar", "Local JSON"],
     status: "Released",
     featured: true,
     published: true,
     latestVersion: "0.1.3",
+    releasedAt: "2026-05-29",
+    updatedAt: "2026-05-29",
+    macos: "macOS 13 Ventura or later",
+    downloadFormat: ".zip app bundle",
+    dataLocation: "Local JSON library on your Mac",
+    networkAccess: "No login or cloud sync required",
+    releaseChannel: "GitHub Releases",
+    repositoryUrl: "https://github.com/itouchgod/filenest",
+    releaseUrl: "https://github.com/itouchgod/filenest/releases/tag/v0.1.3",
     downloads: [
       {
         label: "Apple Silicon",
@@ -137,6 +176,11 @@ export const apps: App[] = [
       "Menu bar quick access and recent folders",
       "Import and export JSON backups — data stays local",
       "No account, no cloud sync required",
+    ],
+    homeHighlights: [
+      "Fast access to the folders you use every day",
+      "Search, tags and favorites without a cloud account",
+      "Menu bar access plus JSON backup import/export",
     ],
     faq: [
       {
@@ -185,15 +229,26 @@ export const apps: App[] = [
     description:
       "A custom workflow system for quotation, confirmation, invoice and document management.",
     type: "Business Workflow System",
+    category: "Workflow",
+    tags: ["Internal", "Documents", "PDF", "Accounting"],
     status: "Internal Tool",
     featured: false,
     published: false,
+    macos: "Private deployment",
+    downloadFormat: "Not public",
+    dataLocation: "Private business workspace",
+    networkAccess: "Deployment-specific",
     features: [
       "End-to-end quote → confirm → invoice pipeline",
       "PDF generation with branded templates",
       "Client and project document archive",
       "Status tracking dashboard",
       "Export for accounting workflows",
+    ],
+    homeHighlights: [
+      "Quote-to-invoice workflow",
+      "Branded document templates",
+      "Private business deployment",
     ],
     faq: [
       {

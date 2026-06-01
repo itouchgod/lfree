@@ -11,6 +11,16 @@ export type AppMessages = {
   tagline: string;
   description: string;
   type: string;
+  category?: string;
+  tags?: string[];
+  homeHighlights?: string[];
+  metadata?: {
+    macos?: string;
+    downloadFormat?: string;
+    dataLocation?: string;
+    networkAccess?: string;
+    releaseChannel?: string;
+  };
   installNoteTitle?: string;
   installNote?: string;
   installationGuide?: string;
@@ -44,6 +54,14 @@ export function mergeAppTranslations(
     tagline: t.tagline,
     description: t.description,
     type: t.type,
+    category: t.category ?? base.category,
+    tags: t.tags ?? base.tags,
+    homeHighlights: t.homeHighlights ?? base.homeHighlights,
+    macos: t.metadata?.macos ?? base.macos,
+    downloadFormat: t.metadata?.downloadFormat ?? base.downloadFormat,
+    dataLocation: t.metadata?.dataLocation ?? base.dataLocation,
+    networkAccess: t.metadata?.networkAccess ?? base.networkAccess,
+    releaseChannel: t.metadata?.releaseChannel ?? base.releaseChannel,
     features: t.features,
     faq: t.faq,
     screenshots,

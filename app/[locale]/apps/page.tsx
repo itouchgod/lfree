@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { AppCard } from "@/components/app-card";
+import { AppBrowser } from "@/components/app-browser";
 import { PageHeader } from "@/components/page-header";
 import {
   getLocalizedPublishedApps,
@@ -24,22 +24,33 @@ export default async function AppsPage({ params }: Props) {
 
   const t = await getTranslations("nav");
   const tHome = await getTranslations("home");
+  const tApps = await getTranslations("appsPage");
   const tStatus = await getTranslations("status");
 
   return (
     <>
-      <PageHeader title={t("apps")} description={tHome("description")} />
-      <section className="container max-w-4xl pb-24">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {apps.map((app) => (
-            <AppCard
-              key={app.slug}
-              app={app}
-              statusLabel={tStatus(app.status)}
-              actionLabel={tHome("viewApp", { name: app.name })}
-            />
-          ))}
-        </div>
+      <PageHeader title={t("apps")} description={tApps("description")} />
+      <section className="container max-w-5xl pb-24">
+        <AppBrowser
+          apps={apps}
+          labels={{
+            searchPlaceholder: tApps("searchPlaceholder"),
+            allCategories: tApps("allCategories"),
+            allStatuses: tApps("allStatuses"),
+            filters: tApps("filters"),
+            empty: tApps("empty"),
+            showing: tApps("showing"),
+            result: tApps("result"),
+            results: tApps("results"),
+            actionTemplate: tHome("viewApp", { name: "{name}" }),
+            statusLabels: {
+              Released: tStatus("Released"),
+              "In Development": tStatus("In Development"),
+              Prototype: tStatus("Prototype"),
+              "Internal Tool": tStatus("Internal Tool"),
+            },
+          }}
+        />
       </section>
     </>
   );

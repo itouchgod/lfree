@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { BookOpen, FileText } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { AppDownloadPanel } from "@/components/app-download-panel";
 import { AppDownloadButtons } from "@/components/app-download-buttons";
+import { AppInfoGrid } from "@/components/app-info-grid";
 import { AppScreenshots } from "@/components/app-screenshots";
 import { Badge, statusToBadgeVariant } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -47,6 +49,7 @@ export default async function AppDetailPage({ params }: Props) {
 
   const t = await getTranslations("appDetail");
   const tApp = await getTranslations(`apps.${slug}`);
+  const tInfo = await getTranslations("appInfo");
   const tStatus = await getTranslations("status");
   const changelog = getChangelogByApp(slug, locale as "en" | "zh").slice(0, 2);
   const docSlug = docSlugForApp(slug);
@@ -87,12 +90,29 @@ export default async function AppDetailPage({ params }: Props) {
         </div>
       </section>
 
+      <AppInfoGrid
+        app={app}
+        labels={{
+          title: tInfo("title"),
+          version: tInfo("version"),
+          updated: tInfo("updated"),
+          macos: tInfo("macos"),
+          architecture: tInfo("architecture"),
+          format: tInfo("format"),
+          data: tInfo("data"),
+          network: tInfo("network"),
+          channel: tInfo("channel"),
+        }}
+      />
+
       <section className="container pb-8">
         <div className="max-w-3xl rounded-2xl border border-border/50 bg-card/40 p-6 text-sm leading-relaxed text-muted-foreground">
           <p className="font-medium text-foreground">{tApp("installNoteTitle")}</p>
           <p className="mt-2">{tApp("installNote")}</p>
         </div>
       </section>
+
+      <AppDownloadPanel app={app} />
 
       <AppScreenshots
         screenshots={app.screenshots ?? []}

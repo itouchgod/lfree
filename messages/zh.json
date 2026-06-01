@@ -8,6 +8,7 @@
     "mmh": "MMH",
     "filenest": "FileNest",
     "docs": "文档",
+    "blog": "文章",
     "changelog": "更新日志",
     "download": "下载",
     "downloadApps": "下载应用",
@@ -20,10 +21,35 @@
     "switch": "语言"
   },
   "home": {
+    "eyebrow": "本地优先 · 独立开发 · macOS",
     "title": "为 macOS 打造的本地工具",
-    "description": "独立开发的隐私与效率应用 — 无需账号，不依赖云端。",
+    "description": "一个持续更新的个人 Mac App 产品库：隐私、效率、文档和版本记录集中在这里。",
+    "primaryCta": "浏览应用",
+    "secondaryCta": "查看更新",
+    "featured": "重点应用",
     "products": "应用",
-    "viewApp": "查看 {name} →"
+    "productsTitle": "当前可用产品",
+    "allApps": "全部应用",
+    "latestUpdates": "最近更新",
+    "viewChangelog": "查看完整日志",
+    "guides": "使用指南",
+    "viewApp": "查看 {name} →",
+    "stats": {
+      "apps": "公开应用",
+      "released": "已发布",
+      "updates": "近期更新"
+    }
+  },
+  "appsPage": {
+    "description": "浏览 LFree 当前公开的 macOS 应用，按类型、状态或关键词快速筛选。",
+    "searchPlaceholder": "搜索应用、标签或用途",
+    "allCategories": "全部类型",
+    "allStatuses": "全部状态",
+    "filters": "筛选",
+    "empty": "没有找到匹配的应用。",
+    "showing": "显示",
+    "result": "个结果",
+    "results": "个结果"
   },
   "apps": {
     "mmh": {
@@ -31,6 +57,20 @@
       "tagline": "macOS 私人媒体保护工具",
       "description": "安静、私密的 macOS 应用，保护个人照片、视频与本地文件。",
       "type": "macOS 隐私工具",
+      "category": "隐私",
+      "tags": ["加密", "本地优先", "媒体保险库", "无需账号"],
+      "homeHighlights": [
+        "保护个人照片与视频的本地保险库",
+        "围绕本地存储设计，不依赖云端",
+        "提供 Apple 芯片与 Intel 两种下载"
+      ],
+      "metadata": {
+        "macos": "macOS 14 Sonoma 或更高版本",
+        "downloadFormat": ".zip 应用包",
+        "dataLocation": "本地加密保险库文件夹",
+        "networkAccess": "无需云同步或账号",
+        "releaseChannel": "GitHub Releases"
+      },
       "installNoteTitle": "安装说明",
       "installNote": "下载后解压，将 MMH.app 拖入「应用程序」文件夹，从启动台打开。首次打开时，macOS 可能要求在「隐私与安全性」中允许运行。",
       "installationGuide": "安装指南 →",
@@ -80,6 +120,20 @@
       "tagline": "在 macOS 上收藏、打标签并快速打开常用文件夹",
       "description": "轻量级 macOS 文件夹管理工具：拖入常用目录，添加标签与收藏，搜索后从窗口或菜单栏一键用访达打开。",
       "type": "macOS 文件夹管理",
+      "category": "效率",
+      "tags": ["文件夹启动器", "标签", "菜单栏", "本地 JSON"],
+      "homeHighlights": [
+        "快速进入每天常用的文件夹",
+        "搜索、标签、收藏都不需要云账号",
+        "支持菜单栏访问与 JSON 备份导入导出"
+      ],
+      "metadata": {
+        "macos": "macOS 13 Ventura 或更高版本",
+        "downloadFormat": ".zip 应用包",
+        "dataLocation": "保存在 Mac 本地的 JSON 文件库",
+        "networkAccess": "无需登录或云同步",
+        "releaseChannel": "GitHub Releases"
+      },
       "installNoteTitle": "安装说明",
       "installNote": "下载后解压（或使用 DMG），将 FileNest.app 拖入「应用程序」，从启动台打开。首次打开时，macOS 可能要求在「隐私与安全性」中允许运行。",
       "installationGuide": "安装指南 →",
@@ -139,10 +193,51 @@
     "documentation": "文档",
     "allApps": "全部应用"
   },
+  "appInfo": {
+    "title": "软件信息",
+    "version": "版本",
+    "updated": "更新",
+    "macos": "系统",
+    "architecture": "芯片",
+    "format": "格式",
+    "data": "数据",
+    "network": "联网",
+    "channel": "发布"
+  },
   "download": {
     "appleSilicon": "Apple 芯片",
     "intel": "Intel",
     "download": "下载"
+  },
+  "downloadPanel": {
+    "eyebrow": "下载",
+    "title": "选择适合你 Mac 的版本",
+    "description": "下载 {name} {version}。如果不确定芯片类型，可以在「关于本机」中查看。",
+    "comingSoon": "即将推出",
+    "installTitle": "安装提示",
+    "installDescription": "下载后解压，将应用拖入「应用程序」。首次打开如被 macOS 拦截，可在「隐私与安全性」中允许。",
+    "releaseNotes": "查看发布说明",
+    "repository": "查看 GitHub 仓库"
+  },
+  "search": {
+    "title": "搜索",
+    "description": "搜索应用、文档、更新日志和文章。",
+    "label": "站内搜索",
+    "placeholder": "搜索应用、文档或更新",
+    "count": "找到 {count} 个与「{query}」相关的结果",
+    "starter": "显示 {count} 个常用入口",
+    "empty": "没有找到相关内容。",
+    "types": {
+      "app": "应用",
+      "doc": "文档",
+      "changelog": "更新",
+      "blog": "文章"
+    }
+  },
+  "cta": {
+    "title": "继续了解 LFree",
+    "description": "浏览应用、阅读文档，或直接下载当前可用的 macOS 工具。",
+    "primary": "下载 MMH"
   },
   "changelog": {
     "title": "更新日志",
@@ -155,6 +250,49 @@
     "title": "文档",
     "description": "LFree 应用使用指南与参考。",
     "back": "返回文档"
+  },
+  "blog": {
+    "title": "文章",
+    "description": "关于 macOS 应用、隐私工具与本地优先工作流的开发笔记。",
+    "back": "返回文章"
+  },
+  "about": {
+    "title": "关于",
+    "description": "一个专注隐私、效率与细致工作流的个人软件实验室。",
+    "body1": "{name} 是一个独立产品站，用来持续整理 macOS 工具、效率应用和定制业务系统。",
+    "body2": "当前项目包括 MMH、FileNest 和内部工作流工具 LC App。它们共享同一种方向：界面安静、数据尽量留在本地、功能围绕真实问题展开。",
+    "builtBy": "开发者",
+    "reachOut": "你可以通过这里联系我：",
+    "body3": "本站（{host}）用于发布应用、文档、更新日志和开发文章。"
+  },
+  "pricing": {
+    "title": "定价",
+    "description": "独立应用保持轻量可负担；定制工作流按需求清晰报价。",
+    "note": "后续会根据公开发布节奏补充正式购买方式。",
+    "plans": [
+      {
+        "name": "独立应用",
+        "price": "待定",
+        "description": "面向公开 macOS 工具的一次性购买或免费下载策略。",
+        "features": ["主版本内持续更新", "邮件支持", "优先体验测试版", "适合个人用户"],
+        "cta": "加入等待名单"
+      },
+      {
+        "name": "Pro / 团队",
+        "price": "定制",
+        "description": "适合 LC App 这类报价、确认、发票和文档工作流。",
+        "features": ["定制部署", "品牌化文档模板", "集成规划", "优先支持"],
+        "cta": "邮件咨询",
+        "highlighted": true
+      },
+      {
+        "name": "赞助",
+        "price": "可选",
+        "description": "支持隐私优先的独立软件持续开发。",
+        "features": ["提前体验测试版", "直接反馈通道", "支持 MMH 与 FileNest 后续开发", "可选择公开署名"],
+        "cta": "联系我"
+      }
+    ]
   },
   "privacy": {
     "title": "隐私政策",
@@ -197,7 +335,9 @@
     "mmh": "MMH",
     "filenest": "FileNest",
     "documentation": "文档",
+    "blog": "文章",
     "changelog": "更新日志",
+    "about": "关于",
     "privacy": "隐私",
     "terms": "条款"
   }

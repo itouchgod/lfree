@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { LocaleSwitcher } from "@/components/locale-switcher";
+import { SiteSearch } from "@/components/site-search";
 import { SiteLogo } from "@/components/site-logo";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -42,6 +43,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
+          <SiteSearch />
           <LocaleSwitcher />
           <Button asChild>
             <Link href="/apps">{t("download")}</Link>
@@ -58,6 +60,8 @@ export function SiteHeader() {
             </SheetTrigger>
             <SheetContent>
               <div className="mt-8 flex flex-col gap-2">
+                <SiteSearch compact onSearch={() => setOpen(false)} />
+                <hr className="my-4 border-border" />
                 {navHrefs.map((link) => (
                   <Link
                     key={link.href}

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "@/i18n/navigation";
 import { formatDate } from "@/lib/utils";
 import type { ContentItem } from "@/lib/content";
 

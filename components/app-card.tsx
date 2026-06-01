@@ -28,6 +28,14 @@ export function AppCard({ app, statusLabel, actionLabel }: AppCardProps) {
           <p className="text-sm leading-relaxed text-muted-foreground">
             {app.tagline}
           </p>
+          <div className="flex flex-wrap gap-2">
+            <Badge variant="secondary">{app.category}</Badge>
+            {app.tags.slice(0, 2).map((tag) => (
+              <Badge key={tag} variant="muted">
+                {tag}
+              </Badge>
+            ))}
+          </div>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <Badge variant={statusToBadgeVariant(app.status)}>{statusLabel}</Badge>
             {app.latestVersion && (

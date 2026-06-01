@@ -1,25 +1,30 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { MarkdownContent } from "@/components/markdown-content";
+import { Link } from "@/i18n/navigation";
 import { getAllContentSlugs } from "@/lib/content";
 import { getBlogPost } from "@/lib/data/blog";
 import { formatDate } from "@/lib/utils";
 
 interface BlogPostPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return getAllContentSlugs("blog").map((slug) => ({ slug }));
+  const slugs = new Set<string>();
+  for (const locale of ["en", "zh"] as const) {
+    getAllContentSlugs("blog", locale).forEach((slug) => slugs.add(slug));
+  }
+  return Array.from(slugs).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getBlogPost(slug);
+  const { locale, slug } = await params;
+  const post = getBlogPost(slug, locale as "en" | "zh");
   if (!post) return { title: "Post Not Found" };
   return {
     title: post.frontmatter.title,
@@ -28,9 +33,11 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params;
-  const post = getBlogPost(slug);
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+  const post = getBlogPost(slug, locale as "en" | "zh");
   if (!post) notFound();
+  const t = await getTranslations("blog");
 
   return (
     <article className="container max-w-3xl py-16 md:py-20">
@@ -39,7 +46,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" />
-        Back to blog
+        {t("back")}
       </Link>
       <header className="mb-10 space-y-4 border-b border-border/40 pb-10">
         <p className="text-sm text-muted-foreground">
