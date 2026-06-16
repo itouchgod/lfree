@@ -1,5 +1,4 @@
-import { CalendarDays, Cpu, Database, HardDriveDownload, RadioTower } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { CalendarDays, Cpu, Database, RadioTower } from "lucide-react";
 import type { App } from "@/lib/data/apps";
 import { formatDate } from "@/lib/utils";
 
@@ -36,13 +35,8 @@ export function AppInfoGrid({ app, labels }: AppInfoGridProps) {
     },
     {
       label: labels.macos,
-      value: app.macos,
+      value: [app.macos, app.downloadFormat].filter(Boolean).join(" · "),
       icon: <Cpu className={iconClassName} />,
-    },
-    {
-      label: labels.format,
-      value: app.downloadFormat,
-      icon: <HardDriveDownload className={iconClassName} />,
     },
     {
       label: labels.data,
@@ -58,21 +52,11 @@ export function AppInfoGrid({ app, labels }: AppInfoGridProps) {
 
   return (
     <section className="container pb-8">
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <h2 className="text-base font-semibold">{labels.title}</h2>
-        <div className="flex flex-wrap gap-1.5">
-          {app.tags.map((tag) => (
-            <Badge key={tag} variant="secondary">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-      </div>
-      <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
         {items.map((item) => (
           <div
             key={item.label}
-            className="rounded-lg border border-border/50 bg-card/35 p-3"
+            className="rounded-lg border border-border/50 bg-card/30 p-3"
           >
             <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
               {item.icon}
