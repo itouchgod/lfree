@@ -11,21 +11,21 @@ interface MarkdownContentProps {
 
 const components: Components = {
   h2: ({ children }) => (
-    <h2 className="mb-4 mt-12 border-t border-border/50 pt-10 text-2xl font-semibold tracking-tight text-foreground first:mt-0 first:border-0 first:pt-0">
+    <h2 className="mb-3 mt-9 border-t border-border/40 pt-6 text-xl font-semibold tracking-tight text-foreground first:mt-0 first:border-0 first:pt-0">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="mb-3 mt-8 text-lg font-semibold text-foreground">{children}</h3>
+    <h3 className="mb-2 mt-6 text-base font-semibold text-foreground">{children}</h3>
   ),
   p: ({ children }) => (
-    <p className="mb-4 leading-7 text-muted-foreground">{children}</p>
+    <p className="mb-3 leading-7 text-muted-foreground">{children}</p>
   ),
   ul: ({ children }) => (
-    <ul className="doc-ul mb-6 space-y-3">{children}</ul>
+    <ul className="doc-ul mb-5 space-y-2.5">{children}</ul>
   ),
   ol: ({ children }) => (
-    <ol className="mb-6 list-decimal space-y-3 pl-6 marker:text-primary">{children}</ol>
+    <ol className="mb-5 list-decimal space-y-2.5 pl-5 marker:text-primary">{children}</ol>
   ),
   li: ({ children }) => (
     <li className="leading-7 text-muted-foreground">{children}</li>
@@ -52,7 +52,7 @@ const components: Components = {
     );
   },
   table: ({ children }) => (
-    <div className="mb-8 overflow-hidden rounded-xl border border-border/60 bg-card/40">
+    <div className="mb-6 overflow-hidden rounded-lg border border-border/50 bg-card/30">
       <table className="w-full text-left text-sm">{children}</table>
     </div>
   ),
@@ -64,16 +64,16 @@ const components: Components = {
   tbody: ({ children }) => <tbody className="divide-y divide-border/40">{children}</tbody>,
   tr: ({ children }) => <tr className="transition-colors hover:bg-muted/20">{children}</tr>,
   th: ({ children }) => (
-    <th className="px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+    <th className="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
       {children}
     </th>
   ),
   td: ({ children }) => (
-    <td className="px-5 py-4 align-middle text-muted-foreground">{children}</td>
+    <td className="px-4 py-3 align-middle text-muted-foreground">{children}</td>
   ),
-  hr: () => <hr className="my-10 border-border/40" />,
+  hr: () => <hr className="my-8 border-border/40" />,
   blockquote: ({ children }) => (
-    <blockquote className="mb-6 rounded-xl border-l-2 border-primary bg-primary/5 px-5 py-4 text-muted-foreground">
+    <blockquote className="mb-5 rounded-lg border-l-2 border-primary bg-primary/5 px-4 py-3 text-sm text-muted-foreground">
       {children}
     </blockquote>
   ),

@@ -3,7 +3,6 @@ import { ArrowLeft, Download } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { MarkdownContent } from "@/components/markdown-content";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getAllContentSlugs } from "@/lib/content";
@@ -45,32 +44,27 @@ export default async function DocDetailPage({ params }: Props) {
   const app = getPublishedAppBySlug(appSlug);
 
   return (
-    <article className="pb-20">
-      <div className="border-b border-border/40 bg-card/20">
-        <div className="container max-w-3xl py-10 md:py-14">
+    <article className="pb-16">
+      <div className="border-b border-border/30 bg-card/15">
+        <div className="container max-w-2xl py-8 md:py-10">
           <Link
             href="/docs"
-            className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="mb-5 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
             {t("back")}
           </Link>
-          <div className="flex flex-wrap items-center gap-2">
-            {doc.frontmatter.category && (
-              <Badge variant="secondary">{doc.frontmatter.category}</Badge>
-            )}
-            <span className="text-sm text-muted-foreground">
-              {formatDate(doc.frontmatter.date)}
-            </span>
-          </div>
-          <h1 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">
+          <p className="text-sm text-muted-foreground">
+            {doc.frontmatter.category} · {formatDate(doc.frontmatter.date)}
+          </p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
             {doc.frontmatter.title}
           </h1>
-          <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground md:text-lg">
             {doc.frontmatter.description}
           </p>
           {app && (
-            <Button className="mt-6" asChild>
+            <Button className="mt-5" size="sm" asChild>
               <Link href={`/apps/${app.slug}`}>
                 <Download className="h-4 w-4" />
                 {tNav("download")} {app.name}
@@ -80,8 +74,8 @@ export default async function DocDetailPage({ params }: Props) {
         </div>
       </div>
 
-      <div className="container max-w-3xl py-12 md:py-16">
-        <MarkdownContent content={doc.content} />
+      <div className="container max-w-2xl py-8 md:py-10">
+        <MarkdownContent content={doc.content} className="text-[15px]" />
       </div>
     </article>
   );

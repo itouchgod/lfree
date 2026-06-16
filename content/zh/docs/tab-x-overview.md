@@ -7,8 +7,6 @@ category: "Tab X"
 
 Tab X 是一个本地运行的 Chrome Manifest V3 扩展，会替换默认新标签页，提供标签、快捷入口、稍后再看清单和时间信息组成的安静仪表盘。
 
-> **当前版本：v1.0.0** · 以源码形式提供
-
 ## 下载
 
 Tab X 目前通过 GitHub 源码分发。
@@ -17,8 +15,6 @@ Tab X 目前通过 GitHub 源码分发。
 |----|------|
 | **源码 zip** | [tab-x main.zip](https://github.com/itouchgod/tab-x/archive/refs/heads/main.zip) |
 | **仓库** | [github.com/itouchgod/tab-x](https://github.com/itouchgod/tab-x) |
-
-也可在 [Tab X 产品页](/zh/apps/tab-x) 下载。
 
 ## 安装
 
@@ -31,7 +27,7 @@ Tab X 目前通过 GitHub 源码分发。
 
 如果之前已经加载过 Tab X，更新文件后在扩展卡片上点击 **Reload / 重新加载** 即可。
 
-## 功能
+## 重点说明
 
 - **新标签页仪表盘** — 替换 Chrome 默认新标签页，形成更聚焦的工作区
 - **标签分组** — 按主域名整理打开的标签，并支持直接跳转与关闭
@@ -53,7 +49,4 @@ Tab X 不运行服务器，也不需要账号、Node.js、npm 或数据库。
 | 稍后再看与手动快捷入口 | `chrome.storage.local` |
 | 搜索框 | `chrome.search`，并带有 URL 回退 |
 
-## 要求
-
-- 支持 Manifest V3 的 Google Chrome
-- 手动加载时需要开启开发者模式
+支持 Manifest V3 的 Google Chrome，且手动加载时需要开启开发者模式。
