@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { CtaSection } from "@/components/cta-section";
 import { PageHeader } from "@/components/page-header";
 import { siteConfig } from "@/lib/site";
 
@@ -16,14 +15,12 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("about");
+  const host = siteConfig.url.replace("https://", "");
 
   return (
     <>
-      <PageHeader
-        title={t("title")}
-        description={t("description")}
-      />
-      <section className="container max-w-3xl space-y-8 pb-20 text-muted-foreground leading-relaxed">
+      <PageHeader title={t("title")} description={t("description")} />
+      <section className="container max-w-2xl space-y-5 pb-16 text-muted-foreground leading-relaxed">
         <p>{t("body1", { name: siteConfig.name })}</p>
         <p>{t("body2")}</p>
         <p>
@@ -42,9 +39,8 @@ export default async function AboutPage({ params }: Props) {
           </a>
           .
         </p>
-        <p>{t("body3", { host: siteConfig.url.replace("https://", "") })}</p>
+        <p>{t("body3", { host })}</p>
       </section>
-      <CtaSection />
     </>
   );
 }

@@ -23,7 +23,7 @@
   },
   "home": {
     "eyebrow": "Local-first · Indie-built · Privacy-minded",
-    "title": "Quiet local-first tools",
+    "title": "Practical local-first tools",
     "description": "A small collection for privacy, productivity, and calmer browser workflows.",
     "primaryCta": "Browse Apps",
     "secondaryCta": "See Updates",
@@ -315,12 +315,12 @@
   },
   "about": {
     "title": "About",
-    "description": "A personal software lab focused on privacy, productivity and thoughtful workflows.",
-    "body1": "{name} is an independent product site for macOS utilities, productivity apps, and custom workflow systems.",
-    "body2": "Current projects include MMH, FileNest, and the internal LC App workflow tool. They share one direction: quiet interfaces, local data when it matters, and features shaped around real work.",
+    "description": "A small independent software project focused on local-first, privacy, and productivity.",
+    "body1": "{name} publishes local-first apps and tools with an emphasis on privacy, productivity, and calmer browser workflows.",
+    "body2": "Current public projects include MMH, FileNest, and Tab X. They aim to stay simple, direct, and respectful of user-owned data.",
     "builtBy": "Built by",
     "reachOut": "Reach out at",
-    "body3": "This site ({host}) is the home for releases, documentation, and changelogs from the lab."
+    "body3": "This site ({host}) provides apps, docs, and changelogs."
   },
   "pricing": {
     "title": "Pricing",
