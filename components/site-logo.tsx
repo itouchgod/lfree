@@ -17,8 +17,10 @@ export function SiteLogo({ size = 32, className, priority }: SiteLogoProps) {
       width={width}
       height={size}
       preload={priority}
+      loading={priority ? "eager" : undefined}
+      fetchPriority={priority ? "high" : undefined}
       className={cn(
-        "object-contain opacity-100 [filter:brightness(1.45)_contrast(1.08)_drop-shadow(0_0_18px_rgba(34,211,238,0.22))]",
+        "object-contain opacity-100 [filter:invert(1)_hue-rotate(180deg)_saturate(1.35)_brightness(1.45)_contrast(1.05)_drop-shadow(0_0_18px_rgba(34,211,238,0.28))]",
         className
       )}
     />
