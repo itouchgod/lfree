@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: siteConfig.name,
       title: siteConfig.name,
       description: t("siteDescription"),
-      images: [{ url: siteConfig.logo, width: 1024, height: 1024, alt: siteConfig.name }],
+      images: [{ url: siteConfig.logo, width: 860, height: 270, alt: siteConfig.name }],
     },
     robots: { index: true, follow: true },
   };
