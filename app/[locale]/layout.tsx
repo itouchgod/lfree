@@ -40,8 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: t("siteDescription"),
     icons: {
-      icon: [{ url: siteConfig.logo, type: "image/png", sizes: "512x512" }],
-      apple: [{ url: siteConfig.logo, sizes: "180x180", type: "image/png" }],
+      icon: [{ url: "/icon.png?v=lfree-20260616", type: "image/png", sizes: "1024x1024" }],
+      shortcut: [{ url: "/favicon.ico?v=lfree-20260616" }],
+      apple: [{ url: "/apple-icon.png?v=lfree-20260616", sizes: "1024x1024", type: "image/png" }],
     },
     openGraph: {
       type: "website",

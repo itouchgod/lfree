@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "LFree",
-  logo: "/logo.png",
+  logo: "/brand/lfreelogo.png",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lfree.cc",
   developer: "itouchgod",
   author: "itouchgod",
