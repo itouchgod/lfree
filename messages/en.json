@@ -1,12 +1,13 @@
 {
   "meta": {
-    "siteTitle": "LFree — macOS apps by itouchgod",
-    "siteDescription": "MMH and FileNest — local-first macOS tools for private media protection and fast folder access."
+    "siteTitle": "LFree — local-first apps by itouchgod",
+    "siteDescription": "MMH, FileNest, and Tab X — local-first tools for private media, fast folder access, and calmer browser tabs."
   },
   "nav": {
     "apps": "Apps",
     "mmh": "MMH",
     "filenest": "FileNest",
+    "tabx": "Tab X",
     "docs": "Docs",
     "blog": "Blog",
     "changelog": "Changelog",
@@ -21,9 +22,9 @@
     "switch": "Language"
   },
   "home": {
-    "eyebrow": "Local-first · Indie-built · macOS",
-    "title": "macOS tools, built locally",
-    "description": "A focused product library for independent Mac apps, release notes, docs, and practical local-first workflows.",
+    "eyebrow": "Local-first · Indie-built · Privacy-minded",
+    "title": "Local tools, built calmly",
+    "description": "A focused product library for independent apps, release notes, docs, and practical local-first workflows.",
     "primaryCta": "Browse Apps",
     "secondaryCta": "See Updates",
     "featured": "Featured App",
@@ -41,7 +42,7 @@
     }
   },
   "appsPage": {
-    "description": "Browse LFree's public macOS apps and filter by type, status, or keyword.",
+    "description": "Browse LFree's public local-first apps and filter by type, status, or keyword.",
     "searchPlaceholder": "Search apps, tags, or use cases",
     "allCategories": "All categories",
     "allStatuses": "All statuses",
@@ -182,6 +183,62 @@
       "screenshotTabs": ["Library", "Grid", "Edit"],
       "ctaTitle": "Questions about FileNest?",
       "ctaDescription": "Email us for feedback, bugs, or feature ideas."
+    },
+    "tab-x": {
+      "name": "Tab X",
+      "tagline": "Calm Chrome new tab dashboard for tabs, shortcuts, and time",
+      "description": "A local Chrome Manifest V3 extension that replaces the new tab page with a calm dashboard for open tabs, top sites, saved-for-later links, and a Ganzhi clock.",
+      "type": "Chrome New Tab Extension",
+      "category": "Browser Productivity",
+      "tags": ["Chrome extension", "New tab", "Tab manager", "Local storage"],
+      "homeHighlights": [
+        "A calmer Chrome new tab for tab-heavy browsing",
+        "Domain-grouped tab cleanup with duplicate detection",
+        "No server, account, build step, npm, or database"
+      ],
+      "metadata": {
+        "macos": "Google Chrome with Manifest V3 support",
+        "downloadFormat": "Source zip / unpacked extension",
+        "dataLocation": "Chrome extension local storage",
+        "networkAccess": "No server, account, npm, or database required",
+        "releaseChannel": "GitHub source"
+      },
+      "installNoteTitle": "Install note",
+      "installNote": "Download and unzip the source archive, open chrome://extensions, enable Developer mode, click Load unpacked, then select the extension/ folder. Open a new tab to start using Tab X.",
+      "installationGuide": "Installation guide →",
+      "downloadChoose": "Download {name} {version}:",
+      "comingSoon": "Coming Soon",
+      "features": [
+        "Replaces Chrome's new tab page with a focused dashboard",
+        "Groups open tabs by main domain with direct jump and close controls",
+        "Shows top sites, manual shortcuts, and drag-to-save shortcuts",
+        "Detects duplicate URLs and can close extras while keeping one copy",
+        "Saves tabs for later in a local checklist before closing them",
+        "Runs entirely inside Chrome with chrome.storage.local"
+      ],
+      "faq": [
+        {
+          "question": "Is Tab X on the Chrome Web Store?",
+          "answer": "Not yet. Download the source zip from GitHub, unzip it, then load the extension/ folder from chrome://extensions with Developer mode enabled."
+        },
+        {
+          "question": "Does Tab X send my tabs to a server?",
+          "answer": "No. Tab X runs as a local Chrome extension and stores saved links and shortcuts with chrome.storage.local."
+        },
+        {
+          "question": "Why does it need tab and history permissions?",
+          "answer": "Tab permissions let Tab X group, focus, and close open tabs. History and topSites are used only to create local shortcut suggestions when Chrome provides them."
+        }
+      ],
+      "screenshots": [
+        {
+          "alt": "Tab X Chrome new tab dashboard with top sites, grouped open tabs, and saved-for-later panel",
+          "caption": "Dashboard — grouped tabs, top sites, saved links, and time at a glance"
+        }
+      ],
+      "screenshotTabs": ["Dashboard"],
+      "ctaTitle": "Want to try Tab X?",
+      "ctaDescription": "Load the unpacked extension from GitHub or email us with feedback."
     }
   },
   "appDetail": {
@@ -197,8 +254,8 @@
     "title": "App Info",
     "version": "Version",
     "updated": "Updated",
-    "macos": "macOS",
-    "architecture": "Chip",
+    "macos": "Platform",
+    "architecture": "Build",
     "format": "Format",
     "data": "Data",
     "network": "Network",
@@ -211,11 +268,11 @@
   },
   "downloadPanel": {
     "eyebrow": "Download",
-    "title": "Choose the build for your Mac",
-    "description": "Download {name} {version}. If you're not sure which chip you have, check About This Mac.",
+    "title": "Get the latest build",
+    "description": "Download {name} {version}. For Mac apps, choose the package that matches your chip.",
     "comingSoon": "Coming Soon",
     "installTitle": "Install note",
-    "installDescription": "After download, unzip the archive and move the app into Applications. If macOS blocks the first launch, allow it in Privacy & Security.",
+    "installDescription": "Follow the install note on this page. Mac apps are unzipped and moved to Applications; Chrome extensions are loaded unpacked from chrome://extensions.",
     "releaseNotes": "View release notes",
     "repository": "View GitHub repository"
   },
@@ -241,14 +298,14 @@
   },
   "changelog": {
     "title": "Changelog",
-    "description": "Release history for MMH and FileNest.",
+    "description": "Release history for MMH, FileNest, and Tab X.",
     "empty": "No releases yet.",
     "backToApps": "← All apps",
     "backToAll": "Changelog"
   },
   "docs": {
     "title": "Documentation",
-    "description": "Guides and references for LFree apps.",
+    "description": "Guides and references for LFree tools.",
     "back": "Back to docs"
   },
   "blog": {
@@ -334,6 +391,7 @@
   "footer": {
     "mmh": "MMH",
     "filenest": "FileNest",
+    "tabx": "Tab X",
     "documentation": "Documentation",
     "blog": "Blog",
     "changelog": "Changelog",

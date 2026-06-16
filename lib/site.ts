@@ -21,6 +21,7 @@ export const navHrefs = [
 export const footerHrefs = [
   { href: "/apps/mmh", key: "mmh" as const },
   { href: "/apps/filenest", key: "filenest" as const },
+  { href: "/apps/tab-x", key: "tabx" as const },
   { href: "/docs", key: "documentation" as const },
   { href: "/blog", key: "blog" as const },
   { href: "/changelog", key: "changelog" as const },

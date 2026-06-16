@@ -223,6 +223,67 @@ export const apps: App[] = [
     ],
   },
   {
+    slug: "tab-x",
+    name: "Tab X",
+    tagline: "Calm Chrome new tab dashboard for tabs, shortcuts, and time",
+    description:
+      "A local Chrome Manifest V3 extension that replaces the new tab page with a calm dashboard for open tabs, top sites, saved-for-later links, and a Ganzhi clock.",
+    type: "Chrome New Tab Extension",
+    category: "Browser Productivity",
+    tags: ["Chrome extension", "New tab", "Tab manager", "Local storage"],
+    status: "Released",
+    featured: true,
+    published: true,
+    latestVersion: "1.0.0",
+    releasedAt: "2026-06-16",
+    updatedAt: "2026-06-16",
+    macos: "Google Chrome with Manifest V3 support",
+    downloadFormat: "Source zip / unpacked extension",
+    dataLocation: "Chrome extension local storage",
+    networkAccess: "No server, account, npm, or database required",
+    releaseChannel: "GitHub source",
+    repositoryUrl: "https://github.com/itouchgod/tab-x",
+    downloadUrl: "https://github.com/itouchgod/tab-x/archive/refs/heads/main.zip",
+    features: [
+      "Replaces Chrome's new tab page with a focused dashboard",
+      "Groups open tabs by main domain with direct jump and close controls",
+      "Shows top sites, manual shortcuts, and drag-to-save shortcuts",
+      "Detects duplicate URLs and can close extras while keeping one copy",
+      "Saves tabs for later in a local checklist before closing them",
+      "Runs entirely inside Chrome with chrome.storage.local",
+    ],
+    homeHighlights: [
+      "A calmer Chrome new tab for tab-heavy browsing",
+      "Domain-grouped tab cleanup with duplicate detection",
+      "No server, account, build step, npm, or database",
+    ],
+    faq: [
+      {
+        question: "Is Tab X on the Chrome Web Store?",
+        answer:
+          "Not yet. Download the source zip from GitHub, unzip it, then load the extension/ folder from chrome://extensions with Developer mode enabled.",
+      },
+      {
+        question: "Does Tab X send my tabs to a server?",
+        answer:
+          "No. Tab X runs as a local Chrome extension and stores saved links and shortcuts with chrome.storage.local.",
+      },
+      {
+        question: "Why does it need tab and history permissions?",
+        answer:
+          "Tab permissions let Tab X group, focus, and close open tabs. History and topSites are used only to create local shortcut suggestions when Chrome provides them.",
+      },
+    ],
+    screenshotLayout: "uniform",
+    screenshots: [
+      {
+        src: "/apps/tab-x/dashboard.png",
+        alt: "Tab X Chrome new tab dashboard with top sites, grouped open tabs, and saved-for-later panel",
+        caption: "Dashboard — grouped tabs, top sites, saved links, and time at a glance",
+      },
+    ],
+  },
+  {
     slug: "lc-app",
     name: "LC App",
     tagline: "Quotation-to-invoice workflow system",

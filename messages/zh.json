@@ -1,12 +1,13 @@
 {
   "meta": {
-    "siteTitle": "LFree — itouchgod 的 macOS 应用",
-    "siteDescription": "MMH 与 FileNest — 本地优先的 macOS 工具：私人媒体保护与常用文件夹快速访问。"
+    "siteTitle": "LFree — itouchgod 的本地优先应用",
+    "siteDescription": "MMH、FileNest 与 Tab X — 本地优先工具：私人媒体保护、常用文件夹快速访问与更安静的浏览器标签页。"
   },
   "nav": {
     "apps": "应用",
     "mmh": "MMH",
     "filenest": "FileNest",
+    "tabx": "Tab X",
     "docs": "文档",
     "blog": "文章",
     "changelog": "更新日志",
@@ -21,9 +22,9 @@
     "switch": "语言"
   },
   "home": {
-    "eyebrow": "本地优先 · 独立开发 · macOS",
-    "title": "为 macOS 打造的本地工具",
-    "description": "一个持续更新的个人 Mac App 产品库：隐私、效率、文档和版本记录集中在这里。",
+    "eyebrow": "本地优先 · 独立开发 · 重视隐私",
+    "title": "安静好用的本地工具",
+    "description": "一个持续更新的个人应用产品库：隐私、效率、文档和版本记录集中在这里。",
     "primaryCta": "浏览应用",
     "secondaryCta": "查看更新",
     "featured": "重点应用",
@@ -41,7 +42,7 @@
     }
   },
   "appsPage": {
-    "description": "浏览 LFree 当前公开的 macOS 应用，按类型、状态或关键词快速筛选。",
+    "description": "浏览 LFree 当前公开的本地优先应用，按类型、状态或关键词快速筛选。",
     "searchPlaceholder": "搜索应用、标签或用途",
     "allCategories": "全部类型",
     "allStatuses": "全部状态",
@@ -182,6 +183,62 @@
       "screenshotTabs": ["文件夹库", "网格", "编辑"],
       "ctaTitle": "关于 FileNest 有问题？",
       "ctaDescription": "欢迎邮件反馈问题或功能建议。"
+    },
+    "tab-x": {
+      "name": "Tab X",
+      "tagline": "用于管理标签、快捷入口和时间的 Chrome 新标签页仪表盘",
+      "description": "本地运行的 Chrome Manifest V3 扩展，会替换新标签页，提供打开标签分组、常用站点、稍后再看清单和干支时钟。",
+      "type": "Chrome 新标签页扩展",
+      "category": "浏览器效率",
+      "tags": ["Chrome 扩展", "新标签页", "标签管理", "本地存储"],
+      "homeHighlights": [
+        "让标签很多的 Chrome 新标签页更安静",
+        "按域名整理标签，并检测重复页面",
+        "无需服务器、账号、构建步骤、npm 或数据库"
+      ],
+      "metadata": {
+        "macos": "支持 Manifest V3 的 Google Chrome",
+        "downloadFormat": "源码 zip / 未打包扩展",
+        "dataLocation": "Chrome 扩展本地存储",
+        "networkAccess": "无需服务器、账号、npm 或数据库",
+        "releaseChannel": "GitHub 源码"
+      },
+      "installNoteTitle": "安装说明",
+      "installNote": "下载并解压源码压缩包，打开 chrome://extensions，启用「开发者模式」，点击「加载已解压的扩展程序」，选择其中的 extension/ 文件夹。打开新标签页即可使用 Tab X。",
+      "installationGuide": "安装指南 →",
+      "downloadChoose": "下载 {name} {version}：",
+      "comingSoon": "即将推出",
+      "features": [
+        "替换 Chrome 新标签页，提供聚焦的仪表盘",
+        "按主域名分组打开的标签，并支持直接跳转和关闭",
+        "展示 Top sites、手动快捷入口和拖拽保存快捷入口",
+        "检测重复 URL，并可一键关闭多余副本只保留一个",
+        "关闭标签前可保存到本地稍后再看清单",
+        "完全运行在 Chrome 内，使用 chrome.storage.local 存储数据"
+      ],
+      "faq": [
+        {
+          "question": "Tab X 已上架 Chrome Web Store 吗？",
+          "answer": "暂未上架。可从 GitHub 下载源码 zip，解压后在 chrome://extensions 中开启开发者模式，并加载 extension/ 文件夹。"
+        },
+        {
+          "question": "Tab X 会把我的标签发送到服务器吗？",
+          "answer": "不会。Tab X 作为本地 Chrome 扩展运行，稍后再看和快捷入口数据保存在 chrome.storage.local。"
+        },
+        {
+          "question": "为什么需要标签页和历史记录权限？",
+          "answer": "标签页权限用于分组、切换和关闭已打开标签；历史记录与 topSites 只用于在本地生成快捷入口建议。"
+        }
+      ],
+      "screenshots": [
+        {
+          "alt": "Tab X Chrome 新标签页仪表盘，包含常用站点、按域名分组的打开标签和稍后再看面板",
+          "caption": "仪表盘 — 标签分组、常用站点、稍后再看和时间信息"
+        }
+      ],
+      "screenshotTabs": ["仪表盘"],
+      "ctaTitle": "想试试 Tab X？",
+      "ctaDescription": "可以从 GitHub 加载未打包扩展，或邮件反馈使用体验。"
     }
   },
   "appDetail": {
@@ -197,8 +254,8 @@
     "title": "软件信息",
     "version": "版本",
     "updated": "更新",
-    "macos": "系统",
-    "architecture": "芯片",
+    "macos": "平台",
+    "architecture": "版本类型",
     "format": "格式",
     "data": "数据",
     "network": "联网",
@@ -211,11 +268,11 @@
   },
   "downloadPanel": {
     "eyebrow": "下载",
-    "title": "选择适合你 Mac 的版本",
-    "description": "下载 {name} {version}。如果不确定芯片类型，可以在「关于本机」中查看。",
+    "title": "获取最新版本",
+    "description": "下载 {name} {version}。如果是 Mac 应用，请选择与你芯片匹配的安装包。",
     "comingSoon": "即将推出",
     "installTitle": "安装提示",
-    "installDescription": "下载后解压，将应用拖入「应用程序」。首次打开如被 macOS 拦截，可在「隐私与安全性」中允许。",
+    "installDescription": "请按本页安装说明操作。Mac 应用下载后解压并拖入「应用程序」；Chrome 扩展则在 chrome://extensions 中加载已解压目录。",
     "releaseNotes": "查看发布说明",
     "repository": "查看 GitHub 仓库"
   },
@@ -241,14 +298,14 @@
   },
   "changelog": {
     "title": "更新日志",
-    "description": "MMH 与 FileNest 版本记录",
+    "description": "MMH、FileNest 与 Tab X 版本记录",
     "empty": "暂无记录",
     "backToApps": "← 全部应用",
     "backToAll": "更新日志"
   },
   "docs": {
     "title": "文档",
-    "description": "LFree 应用使用指南与参考。",
+    "description": "LFree 工具使用指南与参考。",
     "back": "返回文档"
   },
   "blog": {
@@ -334,6 +391,7 @@
   "footer": {
     "mmh": "MMH",
     "filenest": "FileNest",
+    "tabx": "Tab X",
     "documentation": "文档",
     "blog": "文章",
     "changelog": "更新日志",
