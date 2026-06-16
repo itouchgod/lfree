@@ -9,11 +9,10 @@ export async function SiteFooter() {
 
   return (
     <footer className="mt-auto border-t border-border/40">
-      <div className="container flex flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between">
+      <div className="container flex flex-col gap-6 py-9 md:flex-row md:items-center md:justify-between">
         <div className="space-y-2">
-          <Link href="/" className="inline-flex items-center gap-2.5 font-semibold tracking-tight">
-            <SiteLogo size={28} />
-            {siteConfig.name}
+          <Link href="/" className="inline-flex items-center" aria-label={siteConfig.name}>
+            <SiteLogo size={32} />
           </Link>
           <p className="max-w-sm text-sm text-muted-foreground">
             {meta("siteDescription")}
@@ -33,7 +32,7 @@ export async function SiteFooter() {
         </nav>
       </div>
 
-      <div className="container border-t border-border/40 py-6 text-xs text-muted-foreground">
+      <div className="container border-t border-border/40 py-5 text-xs text-muted-foreground">
         <p>
           © {new Date().getFullYear()} {siteConfig.name} · {siteConfig.developer}{" "}
           ·{" "}

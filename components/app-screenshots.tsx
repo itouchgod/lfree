@@ -7,6 +7,7 @@ interface AppScreenshotsProps {
   showTitle?: boolean;
   dotLabels?: string[];
   layout?: "uniform" | "mixed";
+  embedded?: boolean;
 }
 
 export async function AppScreenshots({
@@ -14,6 +15,7 @@ export async function AppScreenshots({
   showTitle = true,
   dotLabels = [],
   layout = "mixed",
+  embedded = false,
 }: AppScreenshotsProps) {
   if (screenshots.length === 0) return null;
 
@@ -25,6 +27,7 @@ export async function AppScreenshots({
       title={showTitle ? t("screenshots") : undefined}
       dotLabels={dotLabels}
       layout={layout}
+      embedded={embedded}
     />
   );
 }

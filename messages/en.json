@@ -278,7 +278,7 @@
   },
   "search": {
     "title": "Search",
-    "description": "Search apps, docs, release notes, and writing.",
+    "description": "Search apps, docs, and release notes.",
     "label": "Site search",
     "placeholder": "Search apps, docs, or updates",
     "count": "{count} results for \"{query}\"",
@@ -320,7 +320,7 @@
     "body2": "Current projects include MMH, FileNest, and the internal LC App workflow tool. They share one direction: quiet interfaces, local data when it matters, and features shaped around real work.",
     "builtBy": "Built by",
     "reachOut": "Reach out at",
-    "body3": "This site ({host}) is the home for releases, documentation, changelogs, and writing from the lab."
+    "body3": "This site ({host}) is the home for releases, documentation, and changelogs from the lab."
   },
   "pricing": {
     "title": "Pricing",

@@ -19,19 +19,18 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
-      <div className="container flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="flex shrink-0 items-center gap-2.5 font-semibold tracking-tight">
-          <SiteLogo size={32} priority />
-          <span>{siteConfig.name}</span>
+      <div className="container flex h-14 items-center justify-between gap-4">
+        <Link href="/" className="flex shrink-0 items-center" aria-label={siteConfig.name}>
+          <SiteLogo size={34} priority />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-0.5 md:flex">
           {navHrefs.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground",
+                "rounded-lg px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground",
                 pathname === link.href || pathname.startsWith(`${link.href}/`)
                   ? "bg-accent text-foreground"
                   : ""
@@ -42,10 +41,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <SiteSearch />
           <LocaleSwitcher />
-          <Button asChild>
+          <Button asChild size="sm">
             <Link href="/apps">{t("download")}</Link>
           </Button>
         </div>

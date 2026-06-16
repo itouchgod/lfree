@@ -278,7 +278,7 @@
   },
   "search": {
     "title": "搜索",
-    "description": "搜索应用、文档、更新日志和文章。",
+    "description": "搜索应用、文档和更新日志。",
     "label": "站内搜索",
     "placeholder": "搜索应用、文档或更新",
     "count": "找到 {count} 个与「{query}」相关的结果",
@@ -320,7 +320,7 @@
     "body2": "当前项目包括 MMH、FileNest 和内部工作流工具 LC App。它们共享同一种方向：界面安静、数据尽量留在本地、功能围绕真实问题展开。",
     "builtBy": "开发者",
     "reachOut": "你可以通过这里联系我：",
-    "body3": "本站（{host}）用于发布应用、文档、更新日志和开发文章。"
+    "body3": "本站（{host}）用于发布应用、文档和更新日志。"
   },
   "pricing": {
     "title": "定价",

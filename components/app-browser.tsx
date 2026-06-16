@@ -57,8 +57,8 @@ export function AppBrowser({ apps, labels }: AppBrowserProps) {
   const resultLabel = filtered.length === 1 ? labels.result : labels.results;
 
   return (
-    <div className="space-y-8">
-      <div className="grid gap-3 rounded-2xl border border-border/50 bg-card/40 p-4 md:grid-cols-[minmax(0,1fr)_auto_auto]">
+    <div className="space-y-5">
+      <div className="grid gap-3 rounded-lg border border-border/50 bg-card/35 p-3 md:grid-cols-[minmax(0,1fr)_auto_auto]">
         <label className="relative block">
           <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
           <input
@@ -66,11 +66,11 @@ export function AppBrowser({ apps, labels }: AppBrowserProps) {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={labels.searchPlaceholder}
-            className="h-11 w-full rounded-xl border border-border/60 bg-background/70 pl-9 pr-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50"
+            className="h-10 w-full rounded-lg border border-border/60 bg-background/70 pl-9 pr-3 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50"
           />
         </label>
 
-        <div className="flex items-center gap-2 rounded-xl border border-border/60 bg-background/70 px-3 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 rounded-lg border border-border/60 bg-background/70 px-3 text-sm text-muted-foreground">
           <SlidersHorizontal className="h-4 w-4" />
           <select
             value={category}
@@ -91,7 +91,7 @@ export function AppBrowser({ apps, labels }: AppBrowserProps) {
           value={status}
           onChange={(event) => setStatus(event.target.value)}
           aria-label={labels.allStatuses}
-          className="h-11 rounded-xl border border-border/60 bg-background/70 px-3 text-sm text-foreground outline-none focus:border-primary/50"
+          className="h-10 rounded-lg border border-border/60 bg-background/70 px-3 text-sm text-foreground outline-none focus:border-primary/50"
         >
           <option value="all">{labels.allStatuses}</option>
           {statuses.map((item) => (
@@ -116,8 +116,8 @@ export function AppBrowser({ apps, labels }: AppBrowserProps) {
       ) : (
         <div
           className={cn(
-            "grid gap-6",
-            filtered.length === 1 ? "md:grid-cols-1" : "sm:grid-cols-2"
+            "grid gap-4",
+            filtered.length === 1 ? "md:grid-cols-1" : "sm:grid-cols-2 lg:grid-cols-3"
           )}
         >
           {filtered.map((app) => (

@@ -14,7 +14,6 @@ export const siteConfig = {
 export const navHrefs = [
   { href: "/apps", key: "apps" as const },
   { href: "/docs", key: "docs" as const },
-  { href: "/blog", key: "blog" as const },
   { href: "/changelog", key: "changelog" as const },
 ] as const;
 
@@ -23,7 +22,6 @@ export const footerHrefs = [
   { href: "/apps/filenest", key: "filenest" as const },
   { href: "/apps/tab-x", key: "tabx" as const },
   { href: "/docs", key: "documentation" as const },
-  { href: "/blog", key: "blog" as const },
   { href: "/changelog", key: "changelog" as const },
   { href: "/about", key: "about" as const },
   { href: "/privacy", key: "privacy" as const },

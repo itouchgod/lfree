@@ -10,6 +10,7 @@ interface AppDownloadPanelProps {
 export async function AppDownloadPanel({ app }: AppDownloadPanelProps) {
   const t = await getTranslations("downloadPanel");
   const tDownload = await getTranslations("download");
+  const tApp = await getTranslations(`apps.${app.slug}`);
   const downloads = getAppDownloads(app);
 
   const archLabels: Record<string, string> = {
@@ -19,15 +20,15 @@ export async function AppDownloadPanel({ app }: AppDownloadPanelProps) {
   };
 
   return (
-    <section className="container pb-16">
-      <div className="grid gap-6 rounded-2xl border border-border/50 bg-card/40 p-6 md:grid-cols-[minmax(0,1fr)_minmax(280px,0.7fr)] md:p-8">
+    <section className="container pb-10">
+      <div className="grid gap-5 rounded-lg border border-border/50 bg-card/35 p-4 md:grid-cols-[minmax(0,1fr)_minmax(260px,0.7fr)] md:p-5">
         <div>
           <div className="flex items-center gap-2 text-sm font-medium text-primary">
             <Download className="h-4 w-4" />
             {t("eyebrow")}
           </div>
-          <h2 className="mt-3 text-2xl font-semibold">{t("title")}</h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          <h2 className="mt-2 text-xl font-semibold">{t("title")}</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             {t("description", {
               name: app.name,
               version: app.latestVersion ? `v${app.latestVersion}` : "",
@@ -35,9 +36,9 @@ export async function AppDownloadPanel({ app }: AppDownloadPanelProps) {
           </p>
 
           {downloads.length > 0 ? (
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="mt-4 grid gap-2 sm:grid-cols-2">
               {downloads.map((download) => (
-                <Button key={download.arch} asChild className="justify-start">
+                <Button key={download.arch} asChild size="sm" className="justify-start">
                   <a href={download.url} target="_blank" rel="noopener noreferrer">
                     <Cpu className="h-4 w-4" />
                     {archLabels[download.arch] ?? download.label}
@@ -46,7 +47,7 @@ export async function AppDownloadPanel({ app }: AppDownloadPanelProps) {
               ))}
             </div>
           ) : (
-            <Button disabled className="mt-6">
+            <Button disabled size="sm" className="mt-4">
               <Download className="h-4 w-4" />
               {t("comingSoon")}
             </Button>
@@ -54,18 +55,18 @@ export async function AppDownloadPanel({ app }: AppDownloadPanelProps) {
         </div>
 
         <div className="space-y-3 text-sm">
-          <div className="rounded-xl border border-border/50 bg-background/50 p-4">
+          <div className="rounded-lg border border-border/50 bg-background/50 p-3">
             <div className="flex items-center gap-2 font-medium">
               <ShieldCheck className="h-4 w-4 text-primary" />
-              {t("installTitle")}
+              {tApp("installNoteTitle")}
             </div>
             <p className="mt-2 leading-relaxed text-muted-foreground">
-              {t("installDescription")}
+              {tApp("installNote")}
             </p>
           </div>
 
           {app.releaseUrl && (
-            <Button variant="secondary" asChild className="w-full justify-start">
+            <Button variant="secondary" size="sm" asChild className="w-full justify-start">
               <a href={app.releaseUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4" />
                 {t("releaseNotes")}
@@ -73,7 +74,7 @@ export async function AppDownloadPanel({ app }: AppDownloadPanelProps) {
             </Button>
           )}
           {app.repositoryUrl && (
-            <Button variant="outline" asChild className="w-full justify-start">
+            <Button variant="outline" size="sm" asChild className="w-full justify-start">
               <a href={app.repositoryUrl} target="_blank" rel="noopener noreferrer">
                 <Code2 className="h-4 w-4" />
                 {t("repository")}

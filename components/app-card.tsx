@@ -13,24 +13,24 @@ interface AppCardProps {
 export function AppCard({ app, statusLabel, actionLabel }: AppCardProps) {
   return (
     <Link href={`/apps/${app.slug}`} className="group block h-full">
-      <Card className="h-full transition-all duration-300 hover:border-primary/30 hover:shadow-glow">
-        <CardHeader>
+      <Card className="h-full transition-all duration-300 hover:border-primary/30 hover:bg-card hover:shadow-glow">
+        <CardHeader className="p-4 pb-3">
           <div className="flex items-start justify-between gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-lg font-semibold text-primary ring-1 ring-primary/20">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-sm font-semibold text-primary ring-1 ring-primary/20">
               {app.name.charAt(0)}
             </div>
-            <ArrowUpRight className="h-5 w-5 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-primary" />
+            <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 transition-all group-hover:opacity-100 group-hover:text-primary" />
           </div>
-          <CardTitle className="mt-4">{app.name}</CardTitle>
-          <p className="text-sm text-muted-foreground">{app.type}</p>
+          <CardTitle className="mt-3 text-base">{app.name}</CardTitle>
+          <p className="text-xs text-muted-foreground">{app.type}</p>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-sm leading-relaxed text-muted-foreground">
+        <CardContent className="space-y-3 p-4 pt-0">
+          <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
             {app.tagline}
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             <Badge variant="secondary">{app.category}</Badge>
-            {app.tags.slice(0, 2).map((tag) => (
+            {app.tags.slice(0, 1).map((tag) => (
               <Badge key={tag} variant="muted">
                 {tag}
               </Badge>

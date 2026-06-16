@@ -30,7 +30,7 @@ export default async function AppsPage({ params }: Props) {
   return (
     <>
       <PageHeader title={t("apps")} description={tApps("description")} />
-      <section className="container max-w-5xl pb-24">
+      <section className="container max-w-5xl pb-14">
         <AppBrowser
           apps={apps}
           labels={{

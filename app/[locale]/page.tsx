@@ -30,25 +30,25 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-14 pb-12 md:pt-20 md:pb-16">
+      <section className="relative overflow-hidden pt-10 pb-10 md:pt-14 md:pb-12">
         <div className="absolute inset-0 -z-10 bg-gradient-radial opacity-50" />
-        <div className="container grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.78fr)] lg:items-center">
+        <div className="container grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.72fr)] lg:items-center">
           <div className="max-w-3xl">
             <Badge variant="secondary">{t("eyebrow")}</Badge>
-            <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
               {t("title")}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               {t("description")}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg">
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button asChild>
                 <Link href="/apps">
                   <Download className="h-4 w-4" />
                   {t("primaryCta")}
                 </Link>
               </Button>
-              <Button asChild variant="secondary" size="lg">
+              <Button asChild variant="secondary">
                 <Link href="/changelog">
                   <Sparkles className="h-4 w-4" />
                   {t("secondaryCta")}
@@ -58,7 +58,7 @@ export default async function HomePage({ params }: Props) {
           </div>
 
           {featuredApp && (
-            <div className="rounded-2xl border border-border/50 bg-card/50 p-6 shadow-elevated">
+            <div className="rounded-lg border border-border/50 bg-card/50 p-5 shadow-elevated">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <p className="text-sm text-muted-foreground">{t("featured")}</p>
@@ -87,28 +87,9 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-y border-border/40 bg-card/20 py-8">
-        <div className="container grid gap-4 sm:grid-cols-3">
-          <div>
-            <p className="text-2xl font-semibold">{apps.length}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{t("stats.apps")}</p>
-          </div>
-          <div>
-            <p className="text-2xl font-semibold">
-              {apps.filter((app) => app.status === "Released").length}
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">{t("stats.released")}</p>
-          </div>
-          <div>
-            <p className="text-2xl font-semibold">{latestUpdates.length}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{t("stats.updates")}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="pb-16 pt-14 md:pb-20">
+      <section className="pb-12 pt-10 md:pb-14">
         <div className="container">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
                 {t("products")}
@@ -120,7 +101,7 @@ export default async function HomePage({ params }: Props) {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-3">
             {apps.map((app) => (
               <AppCard
                 key={app.slug}
@@ -133,7 +114,7 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-t border-border/40 bg-card/20 py-14 md:py-16">
+      <section className="border-t border-border/40 bg-card/20 py-10 md:py-12">
         <div className="container grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(300px,0.7fr)]">
           <div>
             <div className="mb-6 flex items-center justify-between gap-4">

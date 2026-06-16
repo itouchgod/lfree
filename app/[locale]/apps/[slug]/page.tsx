@@ -18,7 +18,6 @@ import {
 } from "@/lib/data/apps-i18n";
 import { ChangelogTimeline } from "@/components/changelog-timeline";
 import { getChangelogByApp } from "@/lib/data/changelog";
-import { siteConfig } from "@/lib/site";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -48,7 +47,6 @@ export default async function AppDetailPage({ params }: Props) {
   if (!app) notFound();
 
   const t = await getTranslations("appDetail");
-  const tApp = await getTranslations(`apps.${slug}`);
   const tInfo = await getTranslations("appInfo");
   const tStatus = await getTranslations("status");
   const changelog = getChangelogByApp(slug, locale as "en" | "zh").slice(0, 2);
@@ -56,20 +54,25 @@ export default async function AppDetailPage({ params }: Props) {
 
   return (
     <>
-      <section className="container py-16 md:py-20">
-        <div className="max-w-3xl space-y-6">
-          <Badge variant={statusToBadgeVariant(app.status)}>
-            {tStatus(app.status)}
-          </Badge>
-          <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            {app.name}
-          </h1>
-          <p className="text-lg text-muted-foreground">{app.tagline}</p>
-          <p className="leading-relaxed text-muted-foreground">{app.description}</p>
-          <p className="text-sm text-muted-foreground">{app.type}</p>
-          <div className="flex flex-col gap-6 pt-2">
-            <AppDownloadButtons app={app} />
-            <div className="flex flex-wrap gap-4">
+      <section className="container py-10 md:py-14">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.82fr)] lg:items-center">
+          <div className="max-w-2xl space-y-5">
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant={statusToBadgeVariant(app.status)}>
+                {tStatus(app.status)}
+              </Badge>
+              <span className="text-sm text-muted-foreground">{app.type}</span>
+            </div>
+            <div>
+              <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+                {app.name}
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground">{app.tagline}</p>
+            </div>
+            <p className="leading-relaxed text-muted-foreground">{app.description}</p>
+            <div className="flex flex-col gap-4 pt-1">
+              <AppDownloadButtons app={app} />
+              <div className="flex flex-wrap gap-2">
               <Button variant="secondary" asChild>
                 <Link href="/changelog">
                   <FileText className="h-4 w-4" />
@@ -85,8 +88,17 @@ export default async function AppDetailPage({ params }: Props) {
               <Button variant="ghost" asChild>
                 <Link href="/apps">{t("allApps")}</Link>
               </Button>
+              </div>
             </div>
           </div>
+
+          <AppScreenshots
+            screenshots={app.screenshots ?? []}
+            showTitle={false}
+            dotLabels={appMessages[slug]?.screenshotTabs ?? []}
+            layout={app.screenshotLayout ?? "mixed"}
+            embedded
+          />
         </div>
       </section>
 
@@ -105,29 +117,16 @@ export default async function AppDetailPage({ params }: Props) {
         }}
       />
 
-      <section className="container pb-8">
-        <div className="max-w-3xl rounded-2xl border border-border/50 bg-card/40 p-6 text-sm leading-relaxed text-muted-foreground">
-          <p className="font-medium text-foreground">{tApp("installNoteTitle")}</p>
-          <p className="mt-2">{tApp("installNote")}</p>
-        </div>
-      </section>
-
       <AppDownloadPanel app={app} />
 
-      <AppScreenshots
-        screenshots={app.screenshots ?? []}
-        dotLabels={appMessages[slug]?.screenshotTabs ?? []}
-        layout={app.screenshotLayout ?? "mixed"}
-      />
-
-      <section className="border-y border-border/40 bg-card/20 py-16">
+      <section className="border-y border-border/40 bg-card/20 py-10 md:py-12">
         <div className="container">
-          <h2 className="mb-8 text-2xl font-semibold">{t("features")}</h2>
-          <ul className="grid gap-4 md:grid-cols-2">
+          <h2 className="mb-5 text-xl font-semibold">{t("features")}</h2>
+          <ul className="grid gap-2 md:grid-cols-2">
             {app.features.map((feature) => (
               <li
                 key={feature}
-                className="flex gap-3 rounded-xl border border-border/40 bg-background/50 p-4 text-sm leading-relaxed"
+                className="flex gap-3 rounded-lg border border-border/40 bg-background/50 p-3 text-sm leading-relaxed"
               >
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                 {feature}
@@ -138,7 +137,7 @@ export default async function AppDetailPage({ params }: Props) {
       </section>
 
       {changelog.length > 0 && (
-        <section className="container max-w-xl py-12">
+        <section className="container max-w-xl py-10">
           <div className="mb-6 flex items-center justify-between gap-4">
             <h2 className="text-lg font-semibold">{t("recentUpdates")}</h2>
             <Link
@@ -152,31 +151,21 @@ export default async function AppDetailPage({ params }: Props) {
         </section>
       )}
 
-      <section className="container pb-20">
-        <h2 className="mb-8 text-2xl font-semibold">{t("faq")}</h2>
-        <div className="grid gap-4 md:grid-cols-2">
+      <section className="container pb-14">
+        <h2 className="mb-5 text-xl font-semibold">{t("faq")}</h2>
+        <div className="grid gap-3 md:grid-cols-2">
           {app.faq.map((item) => (
             <Card key={item.question}>
-              <CardHeader>
+              <CardHeader className="p-4 pb-2">
                 <CardTitle className="text-base">{item.question}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4 pt-0">
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {item.answer}
                 </p>
               </CardContent>
             </Card>
           ))}
-        </div>
-      </section>
-
-      <section className="container pb-20">
-        <div className="rounded-2xl border border-border/50 bg-card/30 p-8 text-center">
-          <h2 className="text-xl font-semibold">{tApp("ctaTitle")}</h2>
-          <p className="mt-2 text-muted-foreground">{tApp("ctaDescription")}</p>
-          <Button className="mt-6" variant="secondary" asChild>
-            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
-          </Button>
         </div>
       </section>
     </>

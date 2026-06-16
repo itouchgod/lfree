@@ -3,7 +3,6 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { PageHeader } from "@/components/page-header";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
-import { getBlogPosts } from "@/lib/data/blog";
 import { getChangelogEntries } from "@/lib/data/changelog";
 import { getDocs } from "@/lib/data/docs";
 import {
@@ -46,7 +45,6 @@ export default async function SearchPage({ params, searchParams }: Props) {
   const apps = getLocalizedPublishedApps(appMessages);
   const docs = getDocs(locale as "en" | "zh");
   const changelog = getChangelogEntries(locale as "en" | "zh");
-  const posts = getBlogPosts(locale as "en" | "zh");
 
   const t = await getTranslations("search");
 
@@ -84,14 +82,6 @@ export default async function SearchPage({ params, searchParams }: Props) {
       href: `/changelog/${entry.slug}`,
       meta: entry.frontmatter.date,
       haystack: `${entry.frontmatter.title} ${entry.frontmatter.description} ${entry.content}`,
-    })),
-    ...posts.map((post) => ({
-      type: t("types.blog"),
-      title: post.frontmatter.title,
-      description: post.frontmatter.description,
-      href: `/blog/${post.slug}`,
-      meta: post.frontmatter.category,
-      haystack: `${post.frontmatter.title} ${post.frontmatter.description} ${post.content}`,
     })),
   ];
 
