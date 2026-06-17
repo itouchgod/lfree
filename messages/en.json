@@ -186,15 +186,15 @@
     },
     "tab-x": {
       "name": "Tab X",
-      "tagline": "Calm Chrome dashboard for tabs, saved links, and focus",
-      "description": "A local Chrome Manifest V3 extension that replaces the new tab page with a calmer dashboard for open tabs, top sites, saved-for-later links, archived pages, and time.",
+      "tagline": "Calm Chrome dashboard for tabs, shortcuts, and time",
+      "description": "A local Chrome Manifest V3 extension that replaces the new tab page with an Apple-inspired dashboard for open tabs, top sites, saved links, archived pages, adaptive themes, and time.",
       "type": "Chrome New Tab Extension",
       "category": "Browser Productivity",
       "tags": ["Chrome extension", "New tab", "Tab manager", "Local storage"],
       "homeHighlights": [
-        "A calmer Chrome new tab for tab-heavy browsing",
-        "Domain-grouped tabs with saved and archived lists",
-        "No server, account, build step, npm, or database"
+        "Apple-inspired new tab dashboard for tab-heavy browsing",
+        "Grouped tabs, saved/archive lists, badge counts, and theme switching",
+        "Local-first Chrome extension with no server or account"
       ],
       "metadata": {
         "macos": "Google Chrome with Manifest V3 support",
@@ -209,13 +209,15 @@
       "downloadChoose": "Download {name} {version}:",
       "comingSoon": "Coming Soon",
       "features": [
-        "Replaces Chrome's new tab page with a focused, two-column dashboard",
-        "Groups open tabs by main domain with direct jump, bookmark, and close controls",
-        "Sorts open tab groups by most tabs or other cleanup-friendly views",
-        "Shows top sites, manual shortcuts, and a quick Add shortcut tile",
-        "Saves tabs for later and keeps archived pages in local lists",
-        "Keeps the Ganzhi header, natural-language clock, and custom Chrome entry",
-        "Runs entirely inside Chrome with chrome.storage.local"
+        "Replaces Chrome's new tab page with an Apple-inspired local dashboard",
+        "Shows Ganzhi time, a natural-language word clock, and an open-tab count badge",
+        "Groups open tabs by main domain, homepages, and localhost ports with expandable lists",
+        "Sorts open tab groups by most tabs, domain name, or recent activity",
+        "Shows top sites, manual shortcuts, drag-to-save shortcuts, and hidden automatic shortcuts",
+        "Saves tabs for later, archives completed items, and updates the side panel smoothly",
+        "Follows system dark mode and includes a manual footer theme toggle",
+        "Includes a sync-ready storage helper that keeps saved/archive records lightweight",
+        "Runs inside Chrome with local-first storage and no server, account, build step, npm, or database"
       ],
       "faq": [
         {
@@ -224,17 +226,17 @@
         },
         {
           "question": "Does Tab X send my tabs to a server?",
-          "answer": "No. Tab X runs as a local Chrome extension and stores saved links, archived pages, and shortcuts with chrome.storage.local."
+          "answer": "No. Tab X runs as a local Chrome extension. The dashboard uses chrome.storage.local for everyday data, and its optional sync helper stores only url, title, and timestamp fields."
         },
         {
           "question": "Why does it need tab and history permissions?",
-          "answer": "Tab permissions let Tab X group, focus, and close open tabs. History and topSites are used only to create local shortcut suggestions when Chrome provides them."
+          "answer": "Tab permissions let Tab X count, group, focus, save, and close open tabs. History and topSites are used only to create local shortcut suggestions when Chrome provides them, and favicon permission is used for stable site icons."
         }
       ],
       "screenshots": [
         {
-          "alt": "Tab X 1.1.0 Chrome new tab dashboard with top sites, grouped open tabs, saved-for-later panel, archived panel, and time",
-          "caption": "Dashboard — top sites, grouped tabs, saved links, archived pages, and time at a glance"
+          "alt": "Tab X 2.0.0 Chrome new tab dashboard with top sites, grouped open tabs, saved-for-later panel, archived panel, and time",
+          "caption": "Dashboard — grouped tabs, top sites, saved and archived links, theme controls, and time at a glance"
         }
       ],
       "screenshotTabs": ["Dashboard"],
