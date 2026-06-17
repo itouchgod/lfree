@@ -1,15 +1,15 @@
 ---
 title: "Tab X Overview"
 description: "Download, load, and use the Tab X Chrome new tab extension."
-date: "2026-06-16"
+date: "2026-06-17"
 category: "Tab X"
 ---
 
-Tab X is a local Chrome Manifest V3 extension that replaces the default new tab page with a calm dashboard for tabs, shortcuts, saved links, and time.
+Tab X is a local Chrome Manifest V3 extension that replaces the default new tab page with a calm dashboard for tabs, shortcuts, saved-for-later links, archived pages, and time.
 
 ## Download
 
-Tab X is currently distributed through GitHub source.
+Tab X 1.1.0 is currently distributed through GitHub source.
 
 | Package | Link |
 |---------|------|
@@ -29,12 +29,13 @@ If you already loaded Tab X before, click **Reload** on the extension card after
 
 ## Essentials
 
-- **New tab dashboard** — Replaces Chrome's new tab page with a focused workspace
-- **Grouped tabs** — Organizes open tabs by main domain with direct jump and close controls
-- **Duplicate cleanup** — Finds repeated URLs and can close extras while keeping one copy
-- **Top sites** — Shows Chrome top sites, local manual shortcuts, and drag-to-save shortcuts
+- **New tab dashboard** — Replaces Chrome's new tab page with a focused two-column workspace
+- **Grouped tabs** — Organizes open tabs by main domain with jump, bookmark, and close controls
+- **Sorting controls** — Sorts open tab groups by cleanup-friendly views such as most tabs
+- **Top sites** — Shows Chrome top sites, local manual shortcuts, and a quick Add shortcut tile
 - **Saved for later** — Stores selected tabs in a local checklist before closing them
-- **Ganzhi and word clock** — Shows a Ganzhi time header and natural-language clock
+- **Archived pages** — Keeps completed or archived pages in a separate local list
+- **Ganzhi and word clock** — Shows a Ganzhi time header, natural-language clock, and custom Chrome entry
 - **Local storage** — Uses Chrome extension APIs and `chrome.storage.local`
 
 ## Data and permissions
@@ -46,7 +47,7 @@ Tab X does not run a server and does not require an account, Node.js, npm, or a 
 | New tab replacement | Chrome Manifest V3 `chrome_url_overrides.newtab` |
 | Open tab grouping and focusing | `chrome.tabs`, `chrome.windows` |
 | Top site shortcuts | `chrome.topSites`, with `chrome.history` fallback |
-| Saved links and manual shortcuts | `chrome.storage.local` |
+| Saved links, archived pages, and manual shortcuts | `chrome.storage.local` |
 | Search box | `chrome.search`, with URL fallback |
 
 Use Google Chrome with Manifest V3 support, and enable Developer mode for manual loading.

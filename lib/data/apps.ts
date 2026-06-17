@@ -225,18 +225,18 @@ export const apps: App[] = [
   {
     slug: "tab-x",
     name: "Tab X",
-    tagline: "Calm Chrome new tab dashboard for tabs, shortcuts, and time",
+    tagline: "Calm Chrome dashboard for tabs, saved links, and focus",
     description:
-      "A local Chrome Manifest V3 extension that replaces the new tab page with a calm dashboard for open tabs, top sites, saved-for-later links, and a Ganzhi clock.",
+      "A local Chrome Manifest V3 extension that replaces the new tab page with a calmer dashboard for open tabs, top sites, saved-for-later links, archived pages, and time.",
     type: "Chrome New Tab Extension",
     category: "Browser Productivity",
     tags: ["Chrome extension", "New tab", "Tab manager", "Local storage"],
     status: "Released",
     featured: true,
     published: true,
-    latestVersion: "1.0.0",
+    latestVersion: "1.1.0",
     releasedAt: "2026-06-16",
-    updatedAt: "2026-06-16",
+    updatedAt: "2026-06-17",
     macos: "Google Chrome with Manifest V3 support",
     downloadFormat: "Source zip / unpacked extension",
     dataLocation: "Chrome extension local storage",
@@ -245,16 +245,17 @@ export const apps: App[] = [
     repositoryUrl: "https://github.com/itouchgod/tab-x",
     downloadUrl: "https://github.com/itouchgod/tab-x/archive/refs/heads/main.zip",
     features: [
-      "Replaces Chrome's new tab page with a focused dashboard",
-      "Groups open tabs by main domain with direct jump and close controls",
-      "Shows top sites, manual shortcuts, and drag-to-save shortcuts",
-      "Detects duplicate URLs and can close extras while keeping one copy",
-      "Saves tabs for later in a local checklist before closing them",
+      "Replaces Chrome's new tab page with a focused, two-column dashboard",
+      "Groups open tabs by main domain with direct jump, bookmark, and close controls",
+      "Sorts open tab groups by most tabs or other cleanup-friendly views",
+      "Shows top sites, manual shortcuts, and a quick Add shortcut tile",
+      "Saves tabs for later and keeps archived pages in local lists",
+      "Keeps the Ganzhi header, natural-language clock, and custom Chrome entry",
       "Runs entirely inside Chrome with chrome.storage.local",
     ],
     homeHighlights: [
       "A calmer Chrome new tab for tab-heavy browsing",
-      "Domain-grouped tab cleanup with duplicate detection",
+      "Domain-grouped tabs with saved and archived lists",
       "No server, account, build step, npm, or database",
     ],
     faq: [
@@ -266,7 +267,7 @@ export const apps: App[] = [
       {
         question: "Does Tab X send my tabs to a server?",
         answer:
-          "No. Tab X runs as a local Chrome extension and stores saved links and shortcuts with chrome.storage.local.",
+          "No. Tab X runs as a local Chrome extension and stores saved links, archived pages, and shortcuts with chrome.storage.local.",
       },
       {
         question: "Why does it need tab and history permissions?",
@@ -278,8 +279,8 @@ export const apps: App[] = [
     screenshots: [
       {
         src: "/apps/tab-x/dashboard.png",
-        alt: "Tab X Chrome new tab dashboard with top sites, grouped open tabs, and saved-for-later panel",
-        caption: "Dashboard — grouped tabs, top sites, saved links, and time at a glance",
+        alt: "Tab X 1.1.0 Chrome new tab dashboard with top sites, grouped open tabs, saved-for-later panel, archived panel, and time",
+        caption: "Dashboard — top sites, grouped tabs, saved links, archived pages, and time at a glance",
       },
     ],
   },
