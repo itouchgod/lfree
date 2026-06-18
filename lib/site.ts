@@ -1,7 +1,13 @@
+function canonicalizeSiteUrl(url: string) {
+  const trimmed = url.replace(/\/$/, "");
+  if (trimmed === "https://lfree.cc") return "https://www.lfree.cc";
+  return trimmed;
+}
+
 export const siteConfig = {
   name: "LFree",
   logo: "/logo.png",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://lfree.cc",
+  url: canonicalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lfree.cc"),
   developer: "itouchgod",
   author: "itouchgod",
   email: "ukluocn@gmail.com",

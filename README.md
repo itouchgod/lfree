@@ -2,7 +2,7 @@
 
 面向国际用户的个人软件产品矩阵官网，用于展示、发布和持续更新多个自研 App。
 
-- **官网**：https://lfree.cc
+- **官网**：https://www.lfree.cc
 - **开发者**：itouchgod
 - **联系邮箱**：ukluocn@gmail.com
 - **Vercel 预览**：https://lfree.vercel.app
@@ -16,7 +16,7 @@
 
 | 变量 | 值 |
 |------|-----|
-| `NEXT_PUBLIC_SITE_URL` | `https://lfree.cc` |
+| `NEXT_PUBLIC_SITE_URL` | `https://www.lfree.cc` |
 
 ### 绑定域名 lfree.cc
 
