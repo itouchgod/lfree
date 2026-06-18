@@ -16,6 +16,16 @@ Tab X 2.0.0 is currently distributed through GitHub source.
 | **Source zip** | [tab-x main.zip](https://github.com/itouchgod/tab-x/archive/refs/heads/main.zip) |
 | **Repository** | [github.com/itouchgod/tab-x](https://github.com/itouchgod/tab-x) |
 
+## Chrome Web Store status
+
+- Current submitted version: **2.0.0**
+- Chrome Web Store item ID: `mdpnfjjeclibnejfdcfnbclhdhjannac`
+- Submission date: June 18, 2026
+- Current store status: **Pending review**
+- Publication mode: publish automatically after review approval
+
+Until the store listing is approved, use the GitHub source zip and manual loading steps below.
+
 ## Install
 
 1. Download and unzip the source archive
@@ -36,12 +46,12 @@ If you already loaded Tab X before, click **Reload** on the extension card after
 - **Top sites** — Shows Chrome top sites, history fallback shortcuts, manual shortcuts, and drag-to-save shortcuts
 - **Saved and archived** — Stores selected tabs for later, then moves completed items into an Archived accordion
 - **Adaptive theme** — Follows system dark mode and provides a manual footer theme toggle
-- **Sync-ready utility** — Includes a strict `chrome.storage.sync` helper for lightweight saved/archive records
-- **Local-first storage** — Uses Chrome extension APIs and `chrome.storage.local` for the live dashboard
+- **Synced saved records** — Uses `chrome.storage.sync` for Saved for later and Archived records
+- **Local preferences** — Keeps manual shortcuts, hidden automatic shortcuts, and sorting preferences in `chrome.storage.local`
 
 ## Data and permissions
 
-Tab X does not run a server and does not require an account, Node.js, npm, or a database.
+Tab X does not run a Tab X server and does not require an app account, Node.js, npm, or a database.
 
 | Area | API / Storage |
 |------|---------------|
@@ -51,12 +61,14 @@ Tab X does not run a server and does not require an account, Node.js, npm, or a 
 | Search box | `chrome.search`, with URL fallback |
 | Top site shortcuts | `chrome.topSites`, with `chrome.history` fallback |
 | Site icons | Chrome extension `/_favicon/` API with initials fallback |
-| Saved for later UI | `chrome.storage.local` key `deferred` |
+| New tab favicon | Bundled Chrome-style `icons/newtab-favicon.svg` asset |
+| Saved for later + Archived | `chrome.storage.sync` keys `savedForLater`, `archived`; sanitized to `url`, `title`, and `timestamp` |
+| Legacy saved-record migration | Old `chrome.storage.local` key `deferred` is migrated once into sync storage |
 | Manual shortcuts | `chrome.storage.local` key `favoriteLinks` |
 | Hidden automatic shortcuts | `chrome.storage.local` key `hiddenTopSiteUrls` |
 | Open tabs sort preference | `chrome.storage.local` key `openTabsSortMode` |
-| Optional sync storage utility | `chrome.storage.sync` keys `savedForLater`, `archived`, sanitized to `url`, `title`, and `timestamp` |
-| Sound and close feedback | Web Audio API and DOM/CSS animation |
+| Sound | Web Audio API |
+| Confetti | DOM/CSS animation |
 
 Use Google Chrome with Manifest V3 support, and enable Developer mode for manual loading.
 
@@ -68,4 +80,5 @@ Use Google Chrome with Manifest V3 support, and enable Developer mode for manual
 - Keeps localhost projects distinct by including port numbers in grouping
 - Adds expandable groups for large tab sets
 - Refines the Saved for later and Archived panel so updates feel local and smooth
-- Adds a sync-ready storage module that strips heavy metadata before writing records to Chrome sync
+- Moves Saved for later and Archived records to Chrome sync, with one-time migration from the old local `deferred` key
+- Strips heavy metadata before syncing, keeping only `url`, `title`, and `timestamp`

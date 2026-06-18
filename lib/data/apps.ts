@@ -230,7 +230,7 @@ export const apps: App[] = [
       "A local Chrome Manifest V3 extension that replaces the new tab page with an Apple-inspired dashboard for open tabs, top sites, saved links, archived pages, adaptive themes, and time.",
     type: "Chrome New Tab Extension",
     category: "Browser Productivity",
-    tags: ["Chrome extension", "New tab", "Tab manager", "Local storage"],
+    tags: ["Chrome extension", "New tab", "Tab manager", "Chrome sync"],
     status: "Released",
     featured: true,
     published: true,
@@ -239,9 +239,9 @@ export const apps: App[] = [
     updatedAt: "2026-06-18",
     macos: "Google Chrome with Manifest V3 support",
     downloadFormat: "Source zip / unpacked extension",
-    dataLocation: "Chrome extension local storage",
-    networkAccess: "No server, account, npm, or database required",
-    releaseChannel: "GitHub source",
+    dataLocation: "Chrome storage: sync for saved/archive records, local for shortcuts and preferences",
+    networkAccess: "No Tab X server, app account, npm, or database required",
+    releaseChannel: "GitHub source; Chrome Web Store pending review",
     repositoryUrl: "https://github.com/itouchgod/tab-x",
     downloadUrl: "https://github.com/itouchgod/tab-x/archive/refs/heads/main.zip",
     features: [
@@ -250,26 +250,26 @@ export const apps: App[] = [
       "Groups open tabs by main domain, homepages, and localhost ports with expandable lists",
       "Sorts open tab groups by most tabs, domain name, or recent activity",
       "Shows top sites, manual shortcuts, drag-to-save shortcuts, and hidden automatic shortcuts",
-      "Saves tabs for later, archives completed items, and updates the side panel smoothly",
+      "Saves tabs for later and archives completed items with chrome.storage.sync",
       "Follows system dark mode and includes a manual footer theme toggle",
-      "Includes a sync-ready storage helper that keeps saved/archive records lightweight",
-      "Runs inside Chrome with local-first storage and no server, account, build step, npm, or database",
+      "Migrates legacy local deferred records into lightweight synced records",
+      "Runs inside Chrome with no Tab X server, app account, build step, npm, or database",
     ],
     homeHighlights: [
       "Apple-inspired new tab dashboard for tab-heavy browsing",
-      "Grouped tabs, saved/archive lists, badge counts, and theme switching",
-      "Local-first Chrome extension with no server or account",
+      "Grouped tabs, synced saved/archive lists, badge counts, and theme switching",
+      "No Tab X server, app account, build step, npm, or database",
     ],
     faq: [
       {
         question: "Is Tab X on the Chrome Web Store?",
         answer:
-          "Not yet. Download the source zip from GitHub, unzip it, then load the extension/ folder from chrome://extensions with Developer mode enabled.",
+          "Version 2.0.0 has been submitted to the Chrome Web Store and is pending review. Until it is approved, download the source zip from GitHub and load the extension/ folder from chrome://extensions with Developer mode enabled. Store item ID: mdpnfjjeclibnejfdcfnbclhdhjannac.",
       },
       {
         question: "Does Tab X send my tabs to a server?",
         answer:
-          "No. Tab X runs as a local Chrome extension. The dashboard uses chrome.storage.local for everyday data, and its optional sync helper stores only url, title, and timestamp fields.",
+          "No. Tab X does not run a server or external database. Saved for later and Archived records use chrome.storage.sync with only url, title, and timestamp; shortcuts, hidden top sites, and sort preferences stay in chrome.storage.local.",
       },
       {
         question: "Why does it need tab and history permissions?",

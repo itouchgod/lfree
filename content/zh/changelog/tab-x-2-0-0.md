@@ -1,13 +1,13 @@
 ---
 title: "Tab X 2.0.0"
-description: "Tab X 2.0.0 带来 Apple 风格仪表盘升级，加入自适应深色模式、打开标签徽标计数、首页分组、可展开分组和同步就绪的稍后再看/归档存储工具。"
+description: "Tab X 2.0.0 带来 Apple 风格仪表盘升级，加入自适应深色模式、打开标签徽标计数、Chrome Web Store 提交记录、首页分组、可展开分组和同步的稍后再看/归档记录。"
 date: "2026-06-18"
 appSlug: "tab-x"
 published: true
 highlights:
   - "自适应深色模式与底部手动主题切换"
   - "打开标签徽标计数、首页分组和可展开分组"
-  - "同步就绪的稍后再看/归档存储工具"
+  - "同步的稍后再看/归档记录与旧记录迁移"
 ---
 
 Tab X 2.0.0 是一次面向标签较多浏览场景的仪表盘升级。
@@ -21,7 +21,9 @@ Tab X 2.0.0 是一次面向标签较多浏览场景的仪表盘升级。
 - localhost 分组包含端口号，便于区分本地开发项目
 - 大型域名分组默认显示前 8 个标签，并通过 `+N more` 展开
 - 优化稍后再看与 Archived，保存、归档、删除记录时交互更平滑
-- 新增严格的 `chrome.storage.sync` 工具，只保存 `url`、`title` 和 `timestamp`
+- 稍后再看与 Archived 改用 `chrome.storage.sync`，只保存 `url`、`title` 和 `timestamp`
+- 旧版 local `deferred` 记录会一次性迁移到同步存储
+- 补充 Chrome Web Store 提交状态：2.0.0，item ID `mdpnfjjeclibnejfdcfnbclhdhjannac`，当前等待审核
 
 ## 安装
 

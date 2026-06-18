@@ -1,13 +1,13 @@
 ---
 title: "Tab X 2.0.0"
-description: "Tab X 2.0.0 adds an Apple-inspired dashboard refresh with adaptive dark mode, open-tab badge counts, homepage grouping, expandable groups, and sync-ready saved/archive storage utilities."
+description: "Tab X 2.0.0 adds an Apple-inspired dashboard refresh with adaptive dark mode, open-tab badge counts, Chrome Web Store submission, homepage grouping, expandable groups, and synced saved/archive records."
 date: "2026-06-18"
 appSlug: "tab-x"
 published: true
 highlights:
   - "Adaptive dark mode and manual footer theme toggle"
   - "Open-tab count badge, homepage grouping, and expandable groups"
-  - "Sync-ready saved/archive storage utility"
+  - "Synced saved/archive records with legacy migration"
 ---
 
 Tab X 2.0.0 is a larger dashboard upgrade for tab-heavy Chrome sessions.
@@ -21,7 +21,9 @@ Tab X 2.0.0 is a larger dashboard upgrade for tab-heavy Chrome sessions.
 - Keeps localhost projects easier to distinguish by including port numbers in tab grouping
 - Expands large domain groups after the first 8 tabs with a `+N more` control
 - Refines Saved for later and Archived so adding, archiving, and deleting records feels smoother
-- Adds a strict `chrome.storage.sync` helper for saved/archive records, storing only `url`, `title`, and `timestamp`
+- Moves Saved for later and Archived records into `chrome.storage.sync`, storing only `url`, `title`, and `timestamp`
+- Migrates old local `deferred` records into sync storage once
+- Notes the Chrome Web Store submission: version 2.0.0, item ID `mdpnfjjeclibnejfdcfnbclhdhjannac`, currently pending review
 
 ## Install
 

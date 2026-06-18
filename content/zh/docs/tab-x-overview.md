@@ -16,6 +16,16 @@ Tab X 2.0.0 目前通过 GitHub 源码分发。
 | **源码 zip** | [tab-x main.zip](https://github.com/itouchgod/tab-x/archive/refs/heads/main.zip) |
 | **仓库** | [github.com/itouchgod/tab-x](https://github.com/itouchgod/tab-x) |
 
+## Chrome Web Store 状态
+
+- 当前提交版本：**2.0.0**
+- Chrome Web Store item ID：`mdpnfjjeclibnejfdcfnbclhdhjannac`
+- 提交日期：2026-06-18
+- 当前商店状态：**Pending review**
+- 发布方式：审核通过后自动发布
+
+在商店审核通过前，可使用 GitHub 源码 zip 和下面的手动加载步骤。
+
 ## 安装
 
 1. 下载并解压源码压缩包
@@ -36,12 +46,12 @@ Tab X 2.0.0 目前通过 GitHub 源码分发。
 - **常用站点** — 展示 Chrome Top sites、历史回退入口、手动快捷入口和拖拽保存入口
 - **稍后再看与归档** — 关闭标签前可保存到本地清单，完成后进入 Archived 手风琴面板
 - **自适应主题** — 跟随系统深色模式，并提供底部手动主题切换
-- **同步就绪工具** — 包含严格的 `chrome.storage.sync` 轻量保存/归档记录工具
-- **本地优先存储** — 当前仪表盘使用 Chrome 扩展 API 和 `chrome.storage.local`
+- **跨设备同步记录** — 稍后再看和 Archived 使用 `chrome.storage.sync`
+- **本地偏好存储** — 手动快捷入口、隐藏自动入口和排序偏好保存在 `chrome.storage.local`
 
 ## 数据与权限
 
-Tab X 不运行服务器，也不需要账号、Node.js、npm 或数据库。
+Tab X 不运行 Tab X 服务器，也不需要应用账号、Node.js、npm 或数据库。
 
 | 区域 | API / 存储 |
 |------|------------|
@@ -51,12 +61,14 @@ Tab X 不运行服务器，也不需要账号、Node.js、npm 或数据库。
 | 搜索框 | `chrome.search`，并带有 URL 回退 |
 | 常用站点快捷入口 | `chrome.topSites`，并带有 `chrome.history` 回退 |
 | 网站图标 | Chrome 扩展 `/_favicon/` API，并用首字母兜底 |
-| 稍后再看界面 | `chrome.storage.local` key `deferred` |
+| 新标签页 favicon | 内置 Chrome 风格 `icons/newtab-favicon.svg` 资源 |
+| 稍后再看 + Archived | `chrome.storage.sync` keys `savedForLater`, `archived`；写入前压缩为 `url`, `title`, `timestamp` |
+| 旧版稍后再看迁移 | 旧 `chrome.storage.local` key `deferred` 会在首次运行时合并迁移到同步存储 |
 | 手动快捷入口 | `chrome.storage.local` key `favoriteLinks` |
 | 隐藏自动快捷入口 | `chrome.storage.local` key `hiddenTopSiteUrls` |
 | 打开标签排序偏好 | `chrome.storage.local` key `openTabsSortMode` |
-| 可选同步存储工具 | `chrome.storage.sync` keys `savedForLater`, `archived`，写入前压缩为 `url`, `title`, `timestamp` |
-| 声音与关闭反馈 | Web Audio API 和 DOM/CSS animation |
+| 声音 | Web Audio API |
+| 礼花动画 | DOM/CSS animation |
 
 支持 Manifest V3 的 Google Chrome，且手动加载时需要开启开发者模式。
 
@@ -68,4 +80,5 @@ Tab X 不运行服务器，也不需要账号、Node.js、npm 或数据库。
 - localhost 分组会显示端口号，方便区分本地开发项目
 - 大分组支持展开更多标签
 - 优化稍后再看与 Archived 面板，使保存、归档、删除时更新更平滑
-- 新增同步就绪存储模块，写入 Chrome sync 前会去掉重字段，只保留轻量记录
+- 稍后再看和 Archived 记录改用 Chrome sync，并从旧版 local `deferred` key 一次性迁移
+- 同步前会去掉重字段，只保留 `url`、`title` 和 `timestamp`
